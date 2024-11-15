@@ -28,6 +28,7 @@ jobs:
 
       - name: Create env file
         run: |
+          cd {{ env.SERVER_PATH }}
           touch ./core/.env
           echo DATABASE_HOST=${{ secrets.DATABASE_HOST }} >> ./core/.env
           echo DATABASE_BASENAME=${{ secrets.DATABASE_BASENAME }} >> ./core/.env
