@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $title ?></title>
+    <title><?php echo (!empty($title)) ? $title : "Бригада"; ?></title>
     <link rel="icon" href="/assets/img/front/mini_logo.png" type="image/x-icon">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -43,7 +43,7 @@
     </div>
 </header>
 
-<?php echo $content ?>
+<?php include $content; ?>
 
 <footer class="bg-light text-center text-lg-start mt-4">
     <div class="container p-4">
