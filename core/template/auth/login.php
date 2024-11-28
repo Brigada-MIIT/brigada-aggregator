@@ -94,12 +94,12 @@
                         'aria-label': '2FA'
                     },
                     showCancelButton: true,
-                    confirmButtonColor: "#32aa2d",
+                    confirmButtonColor: "#3fae3a",
                     confirmButtonText: "Принять",
-                    cancelButtonColor: "#e31111",
+                    cancelButtonColor: "#da2121",
                     cancelButtonText: "Отмена"
                 })
-                if(!user_core) return;
+                if(!user_code) return;
                 await login(user_code);
             } else if (res.result == 101) {
                 Swal.fire({
