@@ -97,8 +97,9 @@
                     confirmButtonColor: "#32aa2d",
                     confirmButtonText: "Принять",
                     cancelButtonColor: "#e31111",
-                    cancelButtonText: "Отмена",
+                    cancelButtonText: "Отмена"
                 })
+                if(!user_core) return;
                 await login(user_code);
             } else if (res.result == 101) {
                 Swal.fire({
