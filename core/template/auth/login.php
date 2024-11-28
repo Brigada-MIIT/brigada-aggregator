@@ -42,7 +42,7 @@
         <button class="btn btn-primary w-100 py-2" type="submit" onclick="login()">Войти</button>
 
         <div class="text-center mt-3">
-            <span>У Вас нет учетной записи? <a href="/app/register">Зарегистрироваться</a></span>
+            <span>У Вас нет учётной записи? <a href="/app/register">Зарегистрироваться</a></span>
         </div>
 
         <div class="text-center mt-2">

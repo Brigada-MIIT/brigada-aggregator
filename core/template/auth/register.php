@@ -22,89 +22,43 @@
         </span>
     </div>
     <div class="vertical-line"></div>
-    <form class="flex-grow-1" id="registrationForm">
+    <div class="flex-grow-1" id="registrationForm">
         <h1 class="h3 mb-3 fw-normal text-center">Регистрация</h1>
 
         <div class="form-group">
-            <label for="floatingInput">Введите email</label>
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Введите Email..." required>
         </div>
         <div class="form-group">
-            <label for="floatingPassword">Введите пароль</label>
-            <input type="password" class="form-control" id="floatingPassword" placeholder="password" required>
+            <label for="password-field">Пароль:</label>
+            <input type="password" class="form-control" id="password-field" placeholder="Веедите пароль..." required>
         </div>
         <div class="form-group">
-            <label for="floatingConfirmPassword">Подтвердите пароль</label>
-            <input type="password" class="form-control" id="floatingConfirmPassword" placeholder="confirm password" required>
+            <label for="password-repeat-field">Подтвердите пароль</label>
+            <input type="password" class="form-control" id="password-repeat-field" placeholder="Подтвердите пароль..." required>
         </div>
         <div class="form-group">
-            <label for="floatingPhone">Введите номер телефона</label>
-            <input type="tel" class="form-control" id="floatingPhone" placeholder="+7 (123) 456-78-90" required>
+            <label for="surname">Фамилия:</label>
+            <input type="text" class="form-control" id="surname" placeholder="Введите фамилию..." required>
+        </div>
+        <div class="form-group">
+            <label for="lastname">Имя:</label>
+            <input type="text" class="form-control" id="lastname" placeholder="Введите имя..." required>
+        </div>
+        <div class="form-group">
+            <label for="patronymic">Отчество (необязательно):</label>
+            <input type="text" class="form-control" id="patronymic" placeholder="Введите отчество...">
         </div>
 
-        <button class="btn btn-primary w-100 py-2" type="submit">Зарегистрироваться</button>
+        <button class="btn btn-primary w-100 py-2" type="submit" onclick="register()">Зарегистрироваться</button>
 
         <div class="text-center mt-3">
-            <span>Уже есть учетная запись? <a href="Autorisation.html">Войти</a></span>
+            <span>Уже есть учётная запись? <a href="/app/auth">Войти</a></span>
         </div>
-    </form>
+    </div>
 </main>
 </body>
 </html>
-<script>
-    document.getElementById('registrationForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Предотвращаем отправку формы
-
-        // Получаем значения полей
-        const email = document.getElementById('floatingInput').value;
-        const password = document.getElementById('floatingPassword').value;
-        const confirmPassword = document.getElementById('floatingConfirmPassword').value;
-        const phone = document.getElementById('floatingPhone').value;
-
-        // Простая проверка на пустые поля
-        if (!email || !password || !confirmPassword || !phone) {
-            Swal.fire({
-                icon: "error",
-                title: "Упс...",
-                text: "Пожалуйста, заполните все поля!",
-                footer: '<a href="help.html">Возникли вопросы?</a>',
-                customClass: {
-                    confirmButton: 'swal-wide-button'
-                }
-            });
-            return;
-        }
-
-        // Проверка совпадения паролей
-        if (password !== confirmPassword) {
-            Swal.fire({
-                icon: "error",
-                title: "Пароли не совпадают",
-                text: "Проверьте коррректность введеных Вами данных",
-                footer: '<a href="Password.html">Забыли пароль?</a>',
-                customClass: {
-                    confirmButton: 'swal-wide-button'
-                }
-            });
-            return;
-        }
-
-        // Если данные верные, вызываем SweetAlert с сообщением об успешной регистрации
-        Swal.fire({
-            title: "Успешно!",
-            text: "Ваш аккаунт успешно создан.",
-            icon: "success",
-            customClass: {
-                confirmButton: 'swal-wide-button'
-            }
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Здесь можно добавить перенаправление на другую страницу или другие действия
-                window.location.href = "Autorisation.html"; // Пример перенаправления на страницу входа
-            }
-        });
-    });
-</script>
 <script>
     function register() {
         $.ajax({
@@ -200,6 +154,5 @@
         $('span#btn-pswd').toggleClass("fa-eye");
         $('span#btn-pswd').toggleClass("fa-eye-slash");
         show_pswd = !show_pswd
-
     });
 </script>
