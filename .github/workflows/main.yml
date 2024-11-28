@@ -24,6 +24,9 @@ jobs:
       - name: Adding Known Hosts
         run: ssh-keyscan -p ${{ env.SERVER_PORT }} -H ${{ env.SERVER_HOST }} >> ~/.ssh/known_hosts
 
+      - name: Deploy with rsync
+        run: rsync --archive --compress --progress --delete . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }} --filter=":- .gitignore"
+     
       - name: Update .env file
         uses: appleboy/ssh-action@master
         with:
@@ -39,7 +42,3 @@ jobs:
             echo DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }} >> ./core/.env
             echo DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }} >> ./core/.env
             cat ./core/.env
-
-      - name: Deploy with rsync
-        run: rsync --archive --compress --progress --delete . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }} --filter=":- .gitignore"
-        #run: rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }}" ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/students.asyncjs.today/dist/
