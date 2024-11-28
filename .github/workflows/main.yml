@@ -42,4 +42,4 @@ jobs:
             echo DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }} >> ./core/.env
             echo DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }} >> ./core/.env
             cat ./core/.env
-            chmod 777 ./core/env
+            chmod 777 ./core/.env
