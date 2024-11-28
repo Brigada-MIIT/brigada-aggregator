@@ -99,7 +99,7 @@
                     cancelButtonColor: "#da2121",
                     cancelButtonText: "Отмена"
                 })
-                if(!isNaN(user_code)) return;
+                if(user_code === null) return;
                 await login(user_code);
             } else if (res.result == 101) {
                 Swal.fire({
