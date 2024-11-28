@@ -23,15 +23,15 @@
     </div>
     <div class="vertical-line"></div>
     <div class="flex-grow-1">
-        <h1 class="h3 mb-3 fw-normal text-center">Вход</h1>
+        <h1 class="h3 mb-3 fw-normal text-center">Авторизация</h1>
 
         <div class="form-group">
-            <label for="floatingInput">Введите email</label>
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Введите Email...">
         </div>
         <div class="form-group">
-            <label for="floatingPassword">Введите пароль</label>
-            <input type="password" class="form-control" id="floatingPassword" placeholder="password">
+            <label for="password">Пароль:</label>
+            <input type="password" class="form-control" id="password" placeholder="Введите пароль...">
         </div>
 
         <div class="form-check mb-3 d-flex align-items-center">
@@ -39,7 +39,7 @@
             <label class="form-check-label" for="flexCheckDefault">Запомнить меня</label>
         </div>
 
-        <button class="btn btn-primary w-100 py-2" type="submit">Войти</button>
+        <button class="btn btn-primary w-100 py-2" type="submit" onclick="login()">Войти</button>
 
         <div class="text-center mt-3">
             <span>У Вас нет учетной записи? <a href="/app/register">Зарегистрироваться</a></span>
