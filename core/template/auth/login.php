@@ -6,10 +6,10 @@
     <title>Бригада | Авторизация</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/assets/js/sweetalert2.js"></script>
     <link href="/assets/css/front/auth.css" rel="stylesheet">
     <link rel="SHORTCUT ICON" href="/assets/img/logo_brigada.ico" type="image/x-icon">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
@@ -26,7 +26,7 @@
         <h1 class="h3 mb-3 fw-normal text-center">Авторизация</h1>
 
         <div class="form-group">
-            <label for="email">Email</label>
+            <label for="email">Email:</label>
             <input type="email" class="form-control" id="email" placeholder="Введите Email...">
         </div>
         <div class="form-group">
