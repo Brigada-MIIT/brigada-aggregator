@@ -1,39 +1,41 @@
 name: Deploy
-
 on:
-  workflow_dispatch
-
-env:
-  SERVER_HOST: ${{ vars.SERVER_HOST }}
-  SERVER_USER: ${{ vars.SERVER_USER }}
-  SERVER_PATH: ${{ vars.SERVER_PATH }}
-
+  push:
+    branches:
+      - main
+      - master
 jobs:
-
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
 
-      # Install ssh key
       - name: Install SSH Key
-        uses: shimataro/ssh-key-action@v2.3.1
+        uses: shimataro/ssh-key-action@v2
         with:
-          key: "${{ secrets.SSH_BRIGADA_GITHUB }}"
-          known_hosts: "just-a-placeholder-so-we-dont-get-errors"
-          
-      - name: Generate auth hosts
-        run: ssh-keyscan -H ${{ env.SERVER_HOST }} >> ~/.ssh/known_hosts
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: unnecessary
 
-      - name: Create env file
-        run: |
-          touch ./core/.env
-          echo DATABASE_HOST=${{ secrets.DATABASE_HOST }} >> ./core/.env
-          echo DATABASE_BASENAME=${{ secrets.DATABASE_BASENAME }} >> ./core/.env
-          echo DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }} >> ./core/.env
-          echo DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }} >> ./core/.env
-          cat ./core/.env
+      - name: Adding Known Hosts
+        run: ssh-keyscan -p -H ${{ env.SERVER_HOST }} >> ~/.ssh/known_hosts
 
-      # Deploy
-      - run: rsync --archive --compress --progress --delete . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }} --filter=":- .gitignore"
+      - name: Update .env file
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ env.SERVER_HOST }}
+          username: ${{ env.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ env.SERVER_PORT }}
+          script: |
+            cd ${{ env.SERVER_PATH }}
+            touch ./core/.env
+            echo DATABASE_HOST=${{ secrets.DATABASE_HOST }} >> ./core/.env
+            echo DATABASE_BASENAME=${{ secrets.DATABASE_BASENAME }} >> ./core/.env
+            echo DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }} >> ./core/.env
+            echo DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }} >> ./core/.env
+            cat ./core/.env
+
+      - name: Deploy with rsync
+        run: rsync --archive --compress --progress --delete . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }} --filter=":- .gitignore"
+        #run: rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }}" ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/students.asyncjs.today/dist/
