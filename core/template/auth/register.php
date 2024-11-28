@@ -76,6 +76,8 @@
                         title: 'Успешная регистрация',
                         text: 'На указанный Email-адрес было отправлено письмо с ссылкой для подтверждения вашего аккаунта. Если письмо не пришло, пожалуйста, проверьте папку «Спам»',
                         footer: '<a href="<?php echo $settings['link_to_admin']; ?>">Возникли вопросы?</a>'
+                    }).then((result) => {
+                        location.replace("/app/auth");
                     });
                 } else if (res.result == 2) {
                     Swal.fire({
