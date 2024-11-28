@@ -15,14 +15,14 @@
 </head>
 <body class="d-flex align-items-center justify-content-center" style="background-color: rgb(237, 243, 249); height: 100vh;">
 <main class="form-signin d-flex align-items-center">
-    <div class="color-strip"></div> <!-- Добавляем цветные отрезки сверху -->
+    <div class="color-strip"></div>
     <div class="logo-container">
-            <span class="logo">
-                <img src="images/logo_brigada.png" alt="Логотип">
-            </span>
+        <span class="logo">
+            <img src="images/logo_brigada.png" alt="Логотип">
+        </span>
     </div>
     <div class="vertical-line"></div>
-    <form class="flex-grow-1">
+    <div class="flex-grow-1">
         <h1 class="h3 mb-3 fw-normal text-center">Вход</h1>
 
         <div class="form-group">
@@ -36,21 +36,19 @@
 
         <div class="form-check mb-3 d-flex align-items-center">
             <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-                Запомнить меня
-            </label>
+            <label class="form-check-label" for="flexCheckDefault">Запомнить меня</label>
         </div>
 
         <button class="btn btn-primary w-100 py-2" type="submit">Войти</button>
 
         <div class="text-center mt-3">
-            <span>У Вас нет учетной записи? <a href="Registeration.html">Зарегистрироваться</a></span>
+            <span>У Вас нет учетной записи? <a href="/app/register">Зарегистрироваться</a></span>
         </div>
 
-        <div class="text-center mt-2"> <!-- Уменьшили отступ здесь -->
-            <a href="Password.html">Забыли пароль?</a>
+        <div class="text-center mt-2">
+            <a href="/password/recovery">Забыли пароль?</a>
         </div>
-    </form>
+    </div>
 </main>
 </body>
 </html>
