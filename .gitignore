@@ -1,3 +1,5 @@
 public_html/user-avatars/
 core/vendor/dkim_private.pem
 core/vendor/dkim_public.pem
+.idea
+.github
