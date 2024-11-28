@@ -18,7 +18,7 @@
     <div class="color-strip"></div>
     <div class="logo-container">
         <span class="logo">
-            <img src="images/logo_brigada.png" alt="Логотип">
+            <img src="/assets/img/front/logo_brigada.png" alt="Brigada">
         </span>
     </div>
     <div class="vertical-line"></div>
