@@ -1,28 +1,59 @@
-<div class="container" style="padding-top: 6%;">  
-    <!--<p class="page-title">Настройки</p>-->
-    <div class="form">
-        <div class="col-12">
-            <div class="in">
-                <div class="text-center">
-                    <h2 class="active">Вход</h2>
-                </div><br>
-            </div>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бригада | Авторизация</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="/assets/css/front/auth.css" rel="stylesheet">
+    <link rel="SHORTCUT ICON" href="/assets/img/logo_brigada.ico" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body class="d-flex align-items-center justify-content-center" style="background-color: rgb(237, 243, 249); height: 100vh;">
+<main class="form-signin d-flex align-items-center">
+    <div class="color-strip"></div>
+    <div class="logo-container">
+        <span class="logo">
+            <img src="/assets/img/front/logo_brigada.png" alt="Логотип">
+        </span>
+    </div>
+    <div class="vertical-line"></div>
+    <div class="flex-grow-1">
+        <h1 class="h3 mb-3 fw-normal text-center">Вход</h1>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Введите Email...">
         </div>
-        <div class="col-12">
-            <div class="in" style="margin: 0 auto; width: max-content;">
-                <label for="email">Email</label><br>
-                <input type="text" class="text" id="email" placeholder="Введите адрес..." style="width:350px; height:37px;"><br><br>
-                <label for="password">Пароль</label><br>
-                <input type="password" class="text" id="password" placeholder="Введите пароль..." style="width:350px; height:37px;"><br>
-            </div>
+        <div class="form-group">
+            <label for="password">Пароль:</label>
+            <input type="password" class="form-control" id="password" placeholder="Введите пароль...">
         </div>
-        <div class="col-12 text-center">
-            <div class="in">
-                <br><button type="submit" class="submit text-center" onclick="login();">Войти</button>
-            </div>
+
+        <div class="form-check mb-3 d-flex align-items-center">
+            <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                Запомнить меня
+            </label>
+        </div>
+
+        <button class="btn btn-primary w-100 py-2" type="submit" onclick="login()">Войти</button>
+
+        <div class="text-center mt-3">
+            <span>У Вас нет учетной записи? <a href="/app/register">Зарегистрироваться</a></span>
+        </div>
+
+        <div class="text-center mt-2">
+            <a href="/password/recovery">Забыли пароль?</a>
         </div>
     </div>
-</div>
+</main>
+</body>
+</html>
 <script>
     function login(code) {
         let a_code = ""
@@ -152,6 +183,5 @@
         $('span#btn-pswd').toggleClass("fa-eye");
         $('span#btn-pswd').toggleClass("fa-eye-slash");
         show_pswd = !show_pswd
-
     });
 </script>
