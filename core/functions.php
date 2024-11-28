@@ -146,10 +146,10 @@ class System {
 
         /* Генерация письма */
         $mail = new PHPMailer;
-        $mail->setFrom('noreply@brigada-miit.ru', 'Файлообменник «Бригада»');
+        $mail->setFrom('noreply@brigada-miit.ru', 'Агрегатор «Бригада»');
         $mail->addAddress($result['email'], '');
         $mail->CharSet = 'UTF-8';
-        $mail->Subject ='Файлообменник «Бригада». Подтверждение регистрации';
+        $mail->Subject ='Агрегатор «Бригада». Подтверждение регистрации';
         $mail->IsHTML(true);
         $mail->msgHTML('
             <!DOCTYPE html>
@@ -195,11 +195,11 @@ class System {
             <body>
                 <div class="container">
                     <div class="message">
-                        <p>Добро пожаловать, ' . $result["surname"] . '! Мы рады вас приветствовать на нашем файлообменнике!</p>
-                        <p>Прежде чем начать пользоваться файлообменником, пожалуйста, подтвердите аккаунт нажатием по кнопке:</p>
+                        <p>Добро пожаловать, ' . $result["surname"] . '! Мы рады вас приветствовать на нашем сайте!</p>
+                        <p>Прежде чем начать пользоваться агрегатором, пожалуйста, подтвердите аккаунт нажатием по кнопке:</p>
                         <p><a class="btn" href="https://brigada-miit.ru/email/verify/' . $result["email_token"] . '">Подтвердить аккаунт</a></p>
                         <p><b>ВНИМАНИЕ! Если вы не регистрировались на нашем сервисе, пожалуйста, проигнорируйте это письмо и НЕ ПЕРЕХОДИТЕ ПО ССЫЛКЕ ПОДТВЕРЖДЕНИЯ!</b></p>
-                        <p>С уважением, администрация файлообменника «Бригада» <a href="https://brigada-miit.ru">brigada-miit.ru</a></p>
+                        <p>С уважением, администрация агрегатора «Бригада» <a href="https://brigada-miit.ru">brigada-miit.ru</a></p>
                     </div>
                 </div>
             </body>

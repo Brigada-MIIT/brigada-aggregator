@@ -38,12 +38,12 @@
             <input type="password" class="form-control" id="password-repeat-field" placeholder="Подтвердите пароль..." required>
         </div>
         <div class="form-group">
-            <label for="surname">Фамилия:</label>
-            <input type="text" class="form-control" id="surname" placeholder="Введите фамилию..." required>
+            <label for="lastname">Фамилия:</label>
+            <input type="text" class="form-control" id="lastname" placeholder="Введите фамилию..." required>
         </div>
         <div class="form-group">
-            <label for="lastname">Имя:</label>
-            <input type="text" class="form-control" id="lastname" placeholder="Введите имя..." required>
+            <label for="surname">Имя:</label>
+            <input type="text" class="form-control" id="surname" placeholder="Введите имя..." required>
         </div>
         <!--<div class="form-group">
             <label for="patronymic">Отчество (необязательно):</label>

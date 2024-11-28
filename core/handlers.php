@@ -352,10 +352,10 @@ function api_password_change($args) {
 
     /* Генерация письма */
     $mail = new PHPMailer;
-    $mail->setFrom('noreply@brigada-miit.ru', 'Файлообменник «Бригада»');
+    $mail->setFrom('noreply@brigada-miit.ru', 'Агрегатор «Бригада»');
     $mail->addAddress($result['email'], '');
     $mail->CharSet = 'UTF-8';
-    $mail->Subject ='Файлообменник «Бригада». Ваш пароль был изменён';
+    $mail->Subject ='Агрегатор «Бригада». Ваш пароль был изменён';
     $mail->IsHTML(true);
     $mail->msgHTML('
         <!DOCTYPE html>
@@ -404,7 +404,7 @@ function api_password_change($args) {
                     <p>Здравствуйте, ' . $result["surname"] . '!</p>
                     <p>Вы недавно сменили пароль от вашего аккаунта. Если пароль был изменён не вами, пожалуйста, перейдите по ссылке для смены пароля. Ограничьте доступ к вашей электронной почте посторонним лицам.</p>
                     <p><a class="btn" href="https://brigada-miit.ru/password/recovery?email=' . $result["email"] . '">Сменить пароль</a></p>
-                    <p>С уважением, администрация файлообменника «Бригада» <a href="https://brigada-miit.ru">brigada-miit.ru</a></p>
+                    <p>С уважением, администрация агрегатора «Бригада» <a href="https://brigada-miit.ru">brigada-miit.ru</a></p>
                 </div>
             </div>
         </body>
