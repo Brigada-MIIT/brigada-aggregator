@@ -1,78 +1,95 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/assets/css/jquery.datetimepicker.css">
-    <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
-    <link rel="stylesheet" type="text/css" href="/assets/css/dashboard.css">
-    <link rel="SHORTCUT ICON" href="/assets/img/logo_brigada.ico" type="image/x-icon">
-    <title><?php echo (!empty($title)) ? $title : "Бригада"; ?></title>
-    <script src="/assets/js/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="/assets/js/sweetalert2.js"></script>
-  </head>
-  <body>
-    <div class="wrapper">
-        <header>
-            <nav class="navbar navbar-expand-md navbar-light bg-light">
-                <a class="navbar-brand" href="#">
-                    <img src="/assets/img/logo_brigada_min.png" width="32" height="32" alt="">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item<?php echo (empty($page)) ? " active" : "" ?>">
-                            <a class="nav-link" href="/">Главная</a>
-                        </li>
-                        <li class="nav-item<?php echo (!empty($page)) ? ($page == "instruction" ? " active" : "") : "" ?>">
-                            <a class="nav-link" href="/instruction">Инструкция</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav">
-                        <?php if(!$system->auth()) echo '
-                        <hr class="d-sm-none">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/app/auth">Войти</a>
-                        </li>
-                        <p class="d-none d-md-block" style="color: rgba(0, 0, 0, .5);">|</p>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/app/register">Регистрация</a>
-                        </li>';
-                        if($system->auth()) echo '
-                        <hr class="d-sm-none">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16" style="top: 0.13em;position: relative"><path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/><path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/></svg>
-                                '. $_user['surname'] .'
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="left: auto; right: 0">
-                                <a class="dropdown-item" href="/profile/'.$system_user_id.'">Профиль</a>
-                                <a class="dropdown-item" href="/profile/uploads">Мои загрузки</a>';
-                            if($system->haveUserPermission($system_user_id, "CREATE_UPLOADS") && $system->userinfo($system_user_id)['ban_upload'] == 0) echo '
-                                <a class="dropdown-item" href="/uploads/create">Создать загрузку</a>';
-                            if($system->haveUserPermission($system_user_id, "MANAGE_USERS") || $system->haveUserPermission($system_user_id, "MANAGE_SETTINGS")) echo '
-                                <hr style="margin-top: 5px;margin-bottom: 4px;">';
-                            if($system->haveUserPermission($system_user_id, "MANAGE_USERS")) echo '
-                                <a class="dropdown-item" href="/app/users">Пользователи</a>';
-                            if($system->haveUserPermission($system_user_id, "MANAGE_SETTINGS")) echo '
-                                <a class="dropdown-item" href="/app/settings">Настройки</a>';
-                            if($system->auth()) echo '
-                                <hr style="margin-top: 5px;margin-bottom: 4px;">
-                                <a class="dropdown-item" href="/logout">Выйти</a>
-                            </div>
-                        </li>'; ?>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <main>
-            <?php include $content;?>
-        </main>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $title ?></title>
+    <link rel="icon" href="/assets/img/front/mini_logo.png" type="image/x-icon">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/front/main.css">
+</head>
+<body>
+<header class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <div class="navbar-brand-container">
+            <a class="navbar-brand" href="#">
+                <img src="/assets/img/front/logo_brigada.png" alt="Бригада" width="30" height="30" class="d-inline-block align-top">
+                Brigada
+            </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav shifted-left"> <!-- Добавляем класс для сдвига -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="News.html">Новости</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="help.html">Помощь</a>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar-text-container">
+            <div class="navbar-text d-flex align-items-center">
+                <span class="mr-2">Время по МСК: <span id="moscow-time"></span></span>
+                <i class="fas fa-globe mr-3"></i>
+            </div>
+        </div>
     </div>
-  </body>
+</header>
+
+<?php echo $content ?>
+
+<footer class="bg-light text-center text-lg-start mt-4">
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Ссылки</h5>
+                <ul class="list-unstyled">
+                    <li><a href="Team.html" class="text-primary">Наша команда</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Социальные сети</h5>
+                <ul class="list-unstyled">
+                    <li><a href="https://web.telegram.org/k/#-4047480590" class="text-primary"><i class="fab fa-telegram"></i> Telegram</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2024 Copyright:
+        <a class="text-dark" href="#">Бригада</a>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function updateTime() {
+        const moscowTime = new Date().toLocaleString("ru-RU", { timeZone: "Europe/Moscow", hour: '2-digit', minute: '2-digit' });
+        document.getElementById("moscow-time").textContent = moscowTime;
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+
+    $(function () {
+        $('#productCategory').change(function() {
+            const selectedCategory = $(this).val();
+            if (selectedCategory === 'kitchen') {
+                window.location.href = 'kitchen_appliances.html';
+            }
+            if (selectedCategory === 'electronics') {
+                window.location.href = 'electronics.html';
+            }
+        });
+    });
+</script>
+</body>
 </html>

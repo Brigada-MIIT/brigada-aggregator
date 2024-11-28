@@ -15,7 +15,7 @@ function main() {
     $title = "Бригада | Главная";
     $settings = $system->db()->query("SELECT * FROM `settings` LIMIT 1")->fetch_assoc();
     $content = '../core/template/main.php';
-    include '../core/template/default.php';
+    include '../core/template/default_old.php';
 }
 
 function instruction() {
@@ -25,7 +25,7 @@ function instruction() {
     $title = "Бригада | Инструкция по использованию";
     $page = "instruction";
     $content = '../core/template/instruction.php';
-    include '../core/template/default.php';
+    include '../core/template/default_old.php';
 }
 
 function auth() {
@@ -35,7 +35,7 @@ function auth() {
     $title = "Бригада | Авторизация";
     $settings = $system->db()->query("SELECT * FROM `settings` LIMIT 1")->fetch_assoc();
     $content = '../core/template/auth/login.php';
-    include '../core/template/default.php';
+    include '../core/template/default_old.php';
 }
 
 function register() {
@@ -45,7 +45,7 @@ function register() {
     $title = "Бригада | Регистрация";
     $settings = $system->db()->query("SELECT * FROM `settings` LIMIT 1")->fetch_assoc();
     $content = '../core/template/auth/register.php';
-    include '../core/template/default.php';
+    include '../core/template/default_old.php';
 }
 
 function password_recovery() {
@@ -55,7 +55,7 @@ function password_recovery() {
     $title = "Бригада | Восстановление пароя";
     $settings = $system->db()->query("SELECT * FROM `settings` LIMIT 1")->fetch_assoc();
     $content = '../core/template/password/recovery.php';
-    include '../core/template/default.php';
+    include '../core/template/default_old.php';
 }
 
 function password_change($args) {
@@ -75,7 +75,7 @@ function password_change($args) {
     $title = "Бригада | Смена пароля";
     $settings = $system->db()->query("SELECT * FROM `settings` LIMIT 1")->fetch_assoc();
     $content = '../core/template/password/change.php';
-    include '../core/template/default.php';
+    include '../core/template/default_old.php';
 }
 
 function users() {
@@ -86,7 +86,7 @@ function users() {
         $system->printError(403);
     $title = "Бригада | Пользователи";
     $content = '../core/template/users/main.php';
-    include '../core/template/default.php';
+    include '../core/template/default_old.php';
 }
 
 function users_edit($args) {
@@ -103,7 +103,7 @@ function users_edit($args) {
     $title = "Бригада | Управление пользователем";
     $settings = $system->db()->query("SELECT * FROM `settings` LIMIT 1")->fetch_assoc();
     $content = '../core/template/users/edit.php';
-    include '../core/template/default.php';
+    include '../core/template/default_old.php';
 }
 
 function settings() {
@@ -115,7 +115,7 @@ function settings() {
     $title = "Бригада | Настройки";
     $settings = $system->db()->query("SELECT * FROM `settings` LIMIT 1")->fetch_assoc();
     $content = '../core/template/settings/settings.php';
-    include '../core/template/default.php';
+    include '../core/template/default_old.php';
 }
 
 function profile($args) {
@@ -130,7 +130,7 @@ function profile($args) {
         $system->printError(404);
     $title = "Бригада | Профиль";
     $content = '../core/template/profile/main.php';
-    include '../core/template/default.php';
+    include '../core/template/default_old.php';
 }
 
 function profile_edit() {
@@ -142,7 +142,7 @@ function profile_edit() {
     $title = "Бригада | Редактирование профиля";
     $settings = $system->db()->query("SELECT * FROM `settings` LIMIT 1")->fetch_assoc();
     $content = '../core/template/profile/edit.php';
-    include '../core/template/default.php';
+    include '../core/template/default_old.php';
 }
 
 function profile_uploads() {
@@ -154,7 +154,7 @@ function profile_uploads() {
     $title = "Бригада | Мои загрузки";
     $db = $system->db();
     $content = '../core/template/profile/uploads.php';
-    include '../core/template/default.php';
+    include '../core/template/default_old.php';
 }
 
 function profile_avatar() {
@@ -165,7 +165,7 @@ function profile_avatar() {
         $system->printError(100);
     $title = "Бригада | Редактирование профиля";
     $content = '../core/template/profile/avatar.php';
-    include '../core/template/default.php';
+    include '../core/template/default_old.php';
 }
 
 // ================ API ================ \\

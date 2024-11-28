@@ -1,33 +1,54 @@
-<link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.datatables.net/colreorder/1.5.6/js/dataTables.colReorder.min.js"></script>
-<style>
-    .row {
-        overflow-x: auto;
-    }
-</style>
-<div class="container mt-4">
-    <div class="col-12" style="display: flex;flex-direction: row;align-items: center;">
-        <p class="page-title">Последние загрузки</p>
-        <br class="d-sm-none">
-        <?php if($system->auth() && $_user['ban_upload'] == 0) echo '
-            <a href="/uploads/create"><button style="width: 170px;" class="submit">Создать загрузку</button></a>'; ?>
+<!--<link rel="stylesheet" href="/assets/css/fron/main.css">-->
+<main class="container mt-4">
+    <div class="search-bar-container">
+        <input type="text" class="form-control search-bar" placeholder="Поиск товаров...">
+        <button class="btn btn-primary search-button">Найти</button>
     </div>
-    <table id="fileTable" class="table table-striped table-bordered" style="background-color: #fff">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Имя загрузки</th>
-                <th scope="col">Дата загрузки</th>
-                <th scope="col">Имя пользователя</th>
-                <?php if($system->haveUserPermission($system_user_id, "VIEW_HIDDEN_UPLOADS")) echo "
-                <th scope='col'>Статус</th>" ?>
-            </tr>
-        </thead>
-        <tbody>
-            
-        </tbody>
-    </table>
-</div>
+
+    <h2 class="popular-products-title mt-5">Популярные товары</h2>
+    <div class="product-categories row">
+        <div class="col-md-3 mb-4">
+            <div class="product-card">
+                <img src="/assets/img/front/metal.png" alt="Рельсы" class="img-fluid">
+                <h2>Рельсы</h2>
+                <button class="btn btn-primary">Узнать цену</button>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="product-card">
+                <img src="/assets/img/front/stone.png" alt="Кирпич" class="img-fluid">
+                <h2>Кирпич</h2>
+                <button class="btn btn-primary">Узнать цену</button>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="product-card">
+                <img src="/assets/img/front/wood.png" alt="Дерево" class="img-fluid">
+                <h2>Дерево</h2>
+                <button class="btn btn-primary">Узнать цену</button>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="product-card">
+                <img src="/assets/img/front/other_services.jpg" alt="Прочие услуги" class="img-fluid">
+                <h2>Прочие услуги</h2>
+                <button class="btn btn-primary">Узнать цену</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-selection mt-4">
+        <h2>Категории товаров</h2>
+        <div class="form-group">
+            <select class="form-control" id="productCategory">
+                <option value="">Выберите категорию</option>
+                <option value="electronics">Электроника</option>
+                <option value="kitchen">Кухонные товары</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="pagination justify-content-center mt-4">
+
+    </div>
+</main>
