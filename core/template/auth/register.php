@@ -61,10 +61,13 @@
 </html>
 <script>
     function register() {
+        let patronymic = ""
+        if ($("#patronymic").val())
+            patronymic = $("#patronymic").val().trim()
         $.ajax({
             type: 'POST',
             url: '/api/register',
-            data: 'email='+$("#email").val().trim()+'&password='+$("#password-field").val()+'&password_repeat='+$("#password-repeat-field").val()+'&lastname='+$("#lastname").val().trim()+'&surname='+$("#surname").val().trim()+'&patronymic='+$("#patronymic").val().trim(),
+            data: 'email='+$("#email").val().trim()+'&password='+$("#password-field").val()+'&password_repeat='+$("#password-repeat-field").val()+'&lastname='+$("#lastname").val().trim()+'&surname='+$("#surname").val().trim()+'&patronymic='+patronymic,
             success: async function(data) {
                 var res = $.parseJSON(data);
                 if (res.result == 1) {
