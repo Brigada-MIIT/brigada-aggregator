@@ -6,12 +6,12 @@
     <title>Бригада | Авторизация</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
-    <script src="/assets/js/sweetalert2.js"></script>
     <link href="/assets/css/front/auth.css" rel="stylesheet">
     <link rel="SHORTCUT ICON" href="/assets/img/logo_brigada.ico" type="image/x-icon">
     <script src="/assets/js/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/assets/js/sweetalert2.js"></script>
 </head>
 <body class="d-flex align-items-center justify-content-center" style="background-color: rgb(237, 243, 249); height: 100vh;">
 <main class="form-signin d-flex align-items-center">
