@@ -21,11 +21,6 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/profile/edit', 'profile_edit');
     $r->addRoute('GET', '/profile/uploads', 'profile_uploads');
     $r->addRoute('GET', '/profile/edit/avatar', 'profile_avatar');
-    $r->addRoute(['GET', 'POST'], '/uploads/create', 'uploads_create');
-    $r->addRoute('GET', '/uploads/files/{id:\d+}', 'uploads_files');
-    $r->addRoute('GET', '/uploads/files/download/{id:\d+}', 'uploads_files_download');
-    $r->addRoute('GET', '/uploads/view/{id:\d+}', 'uploads_view');
-    $r->addRoute('GET', '/uploads/edit/{id:\d+}', 'uploads_edit');
     //*** API ***\\
     $r->addRoute('POST', '/api/main/get_uploads', 'api_main_get_uploads');
     $r->addRoute('POST', '/api/login', 'api_login');
@@ -42,17 +37,10 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('POST', '/api/users/permissions', 'api_users_permissions');
     $r->addRoute('POST', '/api/settings/update', 'api_settings_update');
     $r->addRoute('POST', '/api/profile/edit', 'api_profile_edit');
-    $r->addRoute('POST', '/api/profile/get_uploads/{id:\d+}', 'api_profile_get_uploads');
-    $r->addRoute('POST', '/api/profile/get_uploads/self', 'api_profile_get_uploads_self');
     $r->addRoute('POST', '/api/profile/avatar', 'api_profile_avatar');
     $r->addRoute('POST', '/api/profile/avatar/delete', 'api_profile_avatar_delete'); // для личного удаления
     $r->addRoute('POST', '/api/profile/avatar/delete/{id:\d+}', 'api_profile_avatar_delete'); // для удаления через админ-панель
     $r->addRoute('POST', '/api/profile/change_password', 'api_profile_change_password');
-    $r->addRoute('POST', '/api/uploads/create', 'api_uploads_create');
-    $r->addRoute('POST', '/api/uploads/edit/{id:\d+}', 'api_uploads_edit');
-    $r->addRoute('POST', '/api/uploads/delete/{id:\d+}', 'api_uploads_delete');
-    $r->addRoute('POST', '/api/files/upload', 'api_files_upload');
-    $r->addRoute('POST', '/api/files/upload/check', 'api_files_upload_check');
 });
 
 $httpMethod = $_SERVER['REQUEST_METHOD'];
