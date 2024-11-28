@@ -9,9 +9,9 @@
     <link href="/assets/css/front/auth.css" rel="stylesheet">
     <link rel="SHORTCUT ICON" href="/assets/img/logo_brigada.ico" type="image/x-icon">
     <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/sweetalert2.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="/assets/js/sweetalert2.js"></script>
 </head>
 <body class="d-flex align-items-center justify-content-center" style="background-color: rgb(237, 243, 249); height: 100vh;">
 <main class="form-signin d-flex align-items-center">
@@ -112,7 +112,7 @@
                 Swal.fire({
                     icon: 'error',
                     title: 'Не подтверждён Email-адрес',
-                    text: 'Если вы не получили письмо, нажмите снизу "Переотправить письмо"',
+                    text: 'Если вы не получили письмо, нажмите снизу «Переотправить письмо»',
                     footer: '<a onclick="resendEmail(\'' + res.text + '\');" href="#">Переотправить письмо</a>&nbsp;|&nbsp;<a href="<?php echo $settings['link_to_admin']; ?>">Возникли вопросы?</a>'
                 });
             } else {
