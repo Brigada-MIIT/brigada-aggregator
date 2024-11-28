@@ -35,8 +35,8 @@
         </div>
 
         <div class="form-check mb-3 d-flex align-items-center">
-            <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">Запомнить меня</label>
+            <!--<input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">Запомнить меня</label>-->
         </div>
 
         <button class="btn btn-primary w-100 py-2" type="submit" onclick="login()">Войти</button>
