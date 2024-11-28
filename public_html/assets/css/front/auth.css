@@ -1,0 +1,85 @@
+body {
+    background-color: rgb(237, 243, 249); /* Новый цвет фона */
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 800px; /* Увеличили ширину формы */
+    padding: 15px;
+    margin: auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    position: fixed; /* Добавляем фиксированное позиционирование */
+    top: 50%; /* Центрируем форму по вертикали */
+    left: 50%; /* Центрируем форму по горизонтали */
+    transform: translate(-50%, -50%); /* Сдвигаем форму на половину её высоты и ширины */
+    z-index: 1000; /* Убедимся, что форма находится на переднем плане */
+}
+
+.color-strip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, #00CED1, #FFD700, #FF4500, #FF6347); /* Бирюзовый, желтый, красный, оранжевый */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.logo-container {
+    width: 300px; /* Увеличили ширину контейнера для логотипа */
+    text-align: center;
+    margin-right: 20px;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+.vertical-line {
+    width: 2px;
+    height: 80%; /* Высота линии */
+    background-color: #ababab; /* Цвет линии */
+    margin-right: 20px;
+    position: absolute; /* Добавляем абсолютное позиционирование */
+    left: 320px; /* Сдвигаем линию вправо */
+    top: 10%; /* Отступ сверху */
+    bottom: 10%; /* Отступ снизу */
+    z-index: 1; /* Убедимся, что линия находится на переднем плане */
+}
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin .form-control {
+    border-radius: 5px; /* Закруглили края окон */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Синий цвет для кнопок */
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Темнее синий для кнопок при наведении */
+    border-color: #0056b3;
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+}
+
+.form-check-input {
+    margin-right: 10px;
+}
+
+.swal-wide-button {
+    width: 100px; /* Установите желаемую ширину */
+}
