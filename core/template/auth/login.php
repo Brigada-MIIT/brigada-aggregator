@@ -91,9 +91,13 @@
                     title: 'Двухфакторная аутентификация',
                     inputPlaceholder: 'Укажите 2FA код для авторизации...',
                     inputAttributes: {
-                        'aria-label': 'Type your message here'
+                        'aria-label': '2FA'
                     },
-                    showCancelButton: true
+                    showCancelButton: true,
+                    confirmButtonColor: "#32aa2d",
+                    confirmButtonText: "Принять",
+                    cancelButtonColor: "#e31111",
+                    cancelButtonText: "Отмена",
                 })
                 await login(user_code);
             } else if (res.result == 101) {
