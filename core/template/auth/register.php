@@ -45,10 +45,10 @@
             <label for="lastname">Имя:</label>
             <input type="text" class="form-control" id="lastname" placeholder="Введите имя..." required>
         </div>
-        <div class="form-group">
+        <!--<div class="form-group">
             <label for="patronymic">Отчество (необязательно):</label>
             <input type="text" class="form-control" id="patronymic" placeholder="Введите отчество...">
-        </div>
+        </div>-->
 
         <button class="btn btn-primary w-100 py-2" type="submit" onclick="register()">Зарегистрироваться</button>
 
