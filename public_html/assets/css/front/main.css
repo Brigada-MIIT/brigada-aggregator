@@ -36,7 +36,6 @@ body {
 
 .navbar-brand-container {
   margin-right: 0px; /* Убираем отступ справа */
-  margin-left: -350px; /* Сдвигаем лого и надпись еще левее */
 }
 
 .navbar-nav {
@@ -48,16 +47,11 @@ body {
   transition: margin-left 0.3s ease; /* Плавный переход для margin-left */
 }
 
-/* Пример сдвига вправо */
-.navbar-nav.shifted-left {
-  margin-left: 645px; /* Сдвигаем вправо на 20px */
-}
-
 .navbar-text-container {
   display: flex;
   align-items: center;
   margin-left: auto; /* Сдвигаем время и личный кабинет правее */
-  margin-right: -370px; /* Сдвигаем еще правее */
+  margin-right: auto; /* Сдвигаем еще правее */
 }
 
 .navbar-text .fa-globe {
