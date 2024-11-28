@@ -36,6 +36,7 @@ jobs:
           port: ${{ env.SERVER_PORT }}
           script: |
             cd ${{ env.SERVER_PATH }}
+            cat /dev/null > ./core/.env
             touch ./core/.env
             echo DATABASE_HOST=${{ secrets.DATABASE_HOST }} >> ./core/.env
             echo DATABASE_BASENAME=${{ secrets.DATABASE_BASENAME }} >> ./core/.env
