@@ -1,0 +1,146 @@
+body {
+  background-color: rgb(237, 243, 249); /* Новый цвет фона */
+  font-family: 'Arial', sans-serif; /* Вернем прежний шрифт */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Устанавливаем минимальную высоту страницы */
+}
+
+.navbar {
+  background-color: #ffffff; /* Белый цвет для навигационной панели */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding: 0.5rem 1rem; /* Уменьшаем отступы, чтобы не менять размер хедера */
+}
+
+.navbar-nav .nav-item {
+  margin-right: 20px; /* Увеличиваем расстояние между элементами */
+}
+
+.navbar-nav .nav-item:last-child {
+  margin-right: 0; /* Убираем отступ справа у последнего элемента */
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, #00CED1, #FFD700, #FF4500, #FF6347); /* Бирюзовый, желтый, красный, оранжевый */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.navbar-brand-container {
+  margin-right: 0px; /* Убираем отступ справа */
+  margin-left: -350px; /* Сдвигаем лого и надпись еще левее */
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: flex-start; /* Выравнивание по левому краю */
+  align-items: center; /* Центрирование по вертикали */
+  width: 100%; /* Устанавливаем ширину для центрирования */
+  margin: 0 auto; /* Центрируем надписи */
+  transition: margin-left 0.3s ease; /* Плавный переход для margin-left */
+}
+
+/* Пример сдвига вправо */
+.navbar-nav.shifted-left {
+  margin-left: 645px; /* Сдвигаем вправо на 20px */
+}
+
+.navbar-text-container {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Сдвигаем время и личный кабинет правее */
+  margin-right: -370px; /* Сдвигаем еще правее */
+}
+
+.navbar-text .fa-globe {
+  color: #000; /* Черный цвет для иконки глобуса */
+}
+
+.nav-link {
+  font-weight: normal; /* Вернем прежний шрифт */
+}
+
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+}
+
+.search-button {
+  background-color: #007bff; /* Синий цвет для кнопок */
+  border-color: #007bff;
+  border-radius: 5px; /* Закруглили края окон */
+}
+
+.search-button:hover {
+  background-color: #0056b3; /* Темнее синий для кнопок при наведении */
+  border-color: #0056b3;
+}
+
+.banner {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.product-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.product-card img {
+  border-radius: 10px;
+}
+
+.product-selection {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.pagination .page-link {
+  color: #007bff; /* Синий цвет для ссылок пагинации */
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #007bff; /* Синий цвет для активной ссылки пагинации */
+  border-color: #007bff;
+}
+
+footer {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: auto; /* Футер всегда будет внизу */
+}
+
+.fab {
+    margin-right: 5px;
+}
