@@ -13,7 +13,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-<header class="navbar navbar-expand-lg navbar-light">
+<header>
     <nav class="navbar navbar-expand-md navbar-light bg-light">
         <a class="navbar-brand" href="#">
             <img src="/assets/img/logo_brigada_min.png" width="32" height="32" alt="">
