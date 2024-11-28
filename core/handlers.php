@@ -34,8 +34,7 @@ function auth() {
         Location("/");
     $title = "Бригада | Авторизация";
     $settings = $system->db()->query("SELECT * FROM `settings` LIMIT 1")->fetch_assoc();
-    $content = '../core/template/auth/login.php';
-    include '../core/template/default.php';
+    include '../core/template/auth/login.php';
 }
 
 function register() {
@@ -44,8 +43,7 @@ function register() {
         Location("/");
     $title = "Бригада | Регистрация";
     $settings = $system->db()->query("SELECT * FROM `settings` LIMIT 1")->fetch_assoc();
-    $content = '../core/template/auth/register.php';
-    include '../core/template/default.php';
+    include '../core/template/auth/login.php';
 }
 
 function password_recovery() {
