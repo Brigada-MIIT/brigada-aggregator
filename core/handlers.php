@@ -98,7 +98,7 @@ function users_edit($args) {
         Location("/app/users");
     if ($user['user_type'] >= $system->userinfo()['user_type'])
         Location("/app/users");
-    $title = "Бригада | Управление пользователем";
+    $title = "Бригада | Управление пользователем (". $user_id .")";
     $settings = $system->db()->query("SELECT * FROM `settings` LIMIT 1")->fetch_assoc();
     $content = '../core/template/users/edit.php';
     include '../core/template/default.php';
@@ -110,7 +110,7 @@ function settings() {
         Location("/app/auth", "/app/settings");
     if(!$system->haveUserPermission($system_user_id, "MANAGE_SETTINGS"))
         $system->printError(403);
-    $title = "Бригада | Настройки";
+    $title = "Бригада | Настройки сайта";
     $settings = $system->db()->query("SELECT * FROM `settings` LIMIT 1")->fetch_assoc();
     $content = '../core/template/settings/settings.php';
     include '../core/template/default.php';
