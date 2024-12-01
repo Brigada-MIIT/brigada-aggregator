@@ -143,6 +143,7 @@
             var res = $.parseJSON(data);
             if (res.result == 0) {
                 Swal.fire({
+                    heightAuto: false,
                     icon: 'error',
                     title: 'Ошибка',
                     text: 'При отправке письма произошла неизвестная ошибка. Обратитесь к администратору.',
@@ -150,6 +151,7 @@
                 });
             } else if (res.result == 1) {
                 Swal.fire({
+                    heightAuto: false,
                     icon: 'success',
                     title: 'Письмо успешно оптравлено',
                     text: 'На указанный Email-адрес было отправлено письмо с ссылкой для подтверждения вашего аккаунта',
@@ -157,6 +159,7 @@
                 });
             } else if (res.result == 2) {
                 Swal.fire({
+                    heightAuto: false,
                     icon: 'warning',
                     title: 'Письмо не было отправлено',
                     text: 'Переотправка письма возможна 1 раз в 5 минут. Попробуйте переотправить письмо чуть позже снова.',
@@ -164,6 +167,7 @@
                 });
             } else {
                 Swal.fire({
+                    heightAuto: false,
                     icon: 'error',
                     title: 'Произошла неизвестная ошибка!',
                     text: 'Обратитесь к администратору.',
