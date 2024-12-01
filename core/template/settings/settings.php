@@ -1,5 +1,5 @@
 <div class="container">
-    <p class="page-title">Настройки</p>
+    <p class="page-title">Настройки сайта</p>
     <div class="form">
         <div class="col-12">
             <div class="in">
