@@ -71,8 +71,6 @@
         </div>
     </nav>
 </header>
-
-<?php include $content; ?>
-
+<main><?php include $content; ?></main>
 </body>
 </html>

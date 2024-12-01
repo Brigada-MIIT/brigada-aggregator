@@ -1,5 +1,5 @@
 <!--<link rel="stylesheet" href="/assets/css/fron/main.css">-->
-<main class="container mt-4">
+<div class="container mt-4">
     <div class="search-bar-container">
         <input type="text" class="form-control search-bar" placeholder="Поиск товаров...">
         <button class="btn btn-primary search-button">Найти</button>
@@ -51,7 +51,7 @@
     <div class="pagination justify-content-center mt-4">
 
     </div>
-</main>
+</div>
 
 <footer class="bg-light text-center text-lg-start mt-4">
     <div class="container p-4">

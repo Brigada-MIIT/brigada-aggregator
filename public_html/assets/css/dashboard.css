@@ -25,7 +25,7 @@ footer{width:100%;margin:15px 0;}
 
 footer p{font-size:14px;line-height:18px;color:#455A64;}*/
 
-main{width:100%;min-height:calc(100vh - 98px);/*padding-bottom:15px;padding-top:50px;*/box-sizing: border-box;}
+main{width:100%;min-height:calc(100vh - 98px);padding-bottom:15px;padding-top:50px;box-sizing: border-box;}
 
 main .page-title{width:100%;font-size:24px;font-weight:600;margin: 30px 0 30px 0;color:#263238;text-shadow:0px 2px 6px rgba(0,0,0,.2);}
 
