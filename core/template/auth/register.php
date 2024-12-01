@@ -72,6 +72,7 @@
                 var res = $.parseJSON(data);
                 if (res.result == 1) {
                     Swal.fire({
+                        heightAuto: false,
                         icon: 'success',
                         title: 'Успешная регистрация',
                         text: 'На указанный Email-адрес было отправлено письмо с ссылкой для подтверждения вашего аккаунта. Если письмо не пришло, пожалуйста, проверьте папку «Спам»',
@@ -81,6 +82,7 @@
                     });
                 } else if (res.result == 2) {
                     Swal.fire({
+                        heightAuto: false,
                         icon: 'error',
                         title: 'Указан неверный Email-адрес',
                         text: 'Укажите, пожалуйста, правильный Email-адрес',
@@ -88,6 +90,7 @@
                     });
                 } else if (res.result == 3) {
                     Swal.fire({
+                        heightAuto: false,
                         icon: 'error',
                         title: 'Пароли не совпадают',
                         text: 'Перепроверьте, пожалуйста, совпадение паролей в полях',
@@ -95,6 +98,7 @@
                     });
                 } else if (res.result == 4) {
                     Swal.fire({
+                        heightAuto: false,
                         icon: 'error',
                         title: 'Пароль меньше 6-ти символов',
                         text: 'Укажите, пожалуйста, пароль не менее 6-ти символов',
@@ -102,6 +106,7 @@
                     });
                 } else if (res.result == 5) {
                     Swal.fire({
+                        heightAuto: false,
                         icon: 'error',
                         title: 'Не заполнены поля фамилия/имя',
                         text: 'Пожалуйста, заполните следующие поля: фамилия, имя, отчество',
@@ -109,6 +114,7 @@
                     });
                 } else if (res.result == 6) {
                     Swal.fire({
+                        heightAuto: false,
                         icon: 'error',
                         title: 'Пользователь уже существует',
                         text: 'Пользователь с указанным Email-адресом уже существует',
@@ -116,6 +122,7 @@
                     });
                 } else if (res.result == 7) {
                     Swal.fire({
+                        heightAuto: false,
                         icon: 'error',
                         title: 'Ошибка в заполнении полей',
                         text: 'В полях ФИО слишком много символов',
@@ -123,6 +130,7 @@
                     });
                 } else if (res.result == 8) {
                     Swal.fire({
+                        heightAuto: false,
                         icon: 'error',
                         title: 'Ошибка в заполнении полей',
                         text: 'В полях ФИО слишком много пробелов',
@@ -130,6 +138,7 @@
                     });
                 } else {
                     Swal.fire({
+                        heightAuto: false,
                         icon: 'error',
                         title: 'Произошла неизвестная ошибка!',
                         footer: '<a href="<?php echo $settings['link_to_admin']; ?>">Возникли вопросы?</a>'

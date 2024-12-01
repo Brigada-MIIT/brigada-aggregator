@@ -67,6 +67,7 @@
             var res = $.parseJSON(data);
             if (res.result == 0) {
                 Swal.fire({
+                    heightAuto: false,
                     icon: 'error',
                     title: 'Неверный пароль!',
                     text: 'Проверьте правильность введённых данных.',
@@ -79,6 +80,7 @@
                     location.replace(res.text);
             } else if (res.result == 4) {
                 Swal.fire({
+                    heightAuto: false,
                     icon: 'error',
                     title: 'Ваш аккаунт заблокирован!',
                     text: 'Обратитесь к администратору.',
@@ -86,6 +88,7 @@
                 });
             } else if (res.result == 100) {
                 const { value: user_code } = await Swal.fire({
+                    heightAuto: false,
                     icon: 'warning',
                     input: 'text',
                     title: 'Двухфакторная аутентификация',
@@ -103,6 +106,7 @@
                 await login(user_code);
             } else if (res.result == 101) {
                 Swal.fire({
+                    heightAuto: false,
                     icon: 'error',
                     title: 'Неверный код 2FA!',
                     text: 'Попробуйте снова или обратитесь к администратору.',
@@ -110,6 +114,7 @@
                 });
             } else if (res.result == 102) {
                 Swal.fire({
+                    heightAuto: false,
                     icon: 'error',
                     title: 'Не подтверждён Email-адрес',
                     text: 'Если вы не получили письмо, нажмите снизу «Переотправить письмо»',
@@ -117,6 +122,7 @@
                 });
             } else {
                 Swal.fire({
+                    heightAuto: false,
                     icon: 'error',
                     title: 'Произошла неизвестная ошибка!',
                     text: 'Обратитесь к администратору.',
