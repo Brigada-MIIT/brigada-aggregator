@@ -56,7 +56,7 @@
   });
 </script>
 <div class="container mt-4">
-    <div class="col-12" style="display: flex;flex-direction: row;align-items: center;">
+    <div class="col-12">
         <p class="page-title">Управление пользователями</p>
     </div>
     <table id="fileTable" class="table table-striped table-bordered" style="background-color: #fff">
