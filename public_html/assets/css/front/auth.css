@@ -1,22 +1,23 @@
 body {
     background-color: rgb(237, 243, 249); /* Новый цвет фона */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
 }
 
 .form-signin {
-    width: 100%;
+    width: 90%;
     max-width: 800px; /* Увеличили ширину формы */
     padding: 15px;
-    margin: auto;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-    position: fixed; /* Добавляем фиксированное позиционирование */
-    top: 50%; /* Центрируем форму по вертикали */
-    left: 50%; /* Центрируем форму по горизонтали */
-    transform: translate(-50%, -50%); /* Сдвигаем форму на половину её высоты и ширины */
-    z-index: 1000; /* Убедимся, что форма находится на переднем плане */
+    position: relative; /* Убираем фиксированное позиционирование */
+    margin: auto; /* Центрируем форму */
 }
 
 .color-strip {
@@ -31,7 +32,7 @@ body {
 }
 
 .logo-container {
-    width: 300px; /* Увеличили ширину контейнера для логотипа */
+    width: 30%; /* Используем проценты для ширины */
     text-align: center;
     margin-right: 20px;
 }
@@ -47,7 +48,7 @@ body {
     background-color: #ababab; /* Цвет линии */
     margin-right: 20px;
     position: absolute; /* Добавляем абсолютное позиционирование */
-    left: 320px; /* Сдвигаем линию вправо */
+    left: 30%; /* Сдвигаем линию вправо */
     top: 10%; /* Отступ сверху */
     bottom: 10%; /* Отступ снизу */
     z-index: 1; /* Убедимся, что линия находится на переднем плане */

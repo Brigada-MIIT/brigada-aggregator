@@ -34,7 +34,7 @@
             <input type="password" class="form-control" id="password-field" placeholder="Веедите пароль..." required>
         </div>
         <div class="form-group">
-            <label for="password-repeat-field">Подтвердите пароль</label>
+            <label for="password-repeat-field">Подтвердите пароль:</label>
             <input type="password" class="form-control" id="password-repeat-field" placeholder="Подтвердите пароль..." required>
         </div>
         <div class="form-group">
