@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(237, 243, 249); /* Новый цвет фона */
+    background-color: rgb(237, 243, 249);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,15 +9,15 @@ body {
 
 .form-signin {
     width: 90%;
-    max-width: 800px; /* Увеличили ширину формы */
+    max-width: 800px;
     padding: 15px;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-    position: relative; /* Убираем фиксированное позиционирование */
-    margin: auto; /* Центрируем форму */
+    position: relative;
+    margin: auto;
 }
 
 .color-strip {
@@ -26,17 +26,17 @@ body {
     left: 0;
     width: 100%;
     height: 5px;
-    background: linear-gradient(to right, #00CED1, #FFD700, #FF4500, #FF6347); /* Бирюзовый, желтый, красный, оранжевый */
+    background: linear-gradient(to right, #00CED1, #FFD700, #FF4500, #FF6347);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
 .logo-container {
-    display: none; /* Скрываем логотип по умолчанию */
+    display: none;
 }
 
 .vertical-line {
-    display: none; /* Скрываем вертикальную линию по умолчанию */
+    display: none;
 }
 
 .form-signin .form-floating:focus-within {
@@ -44,16 +44,16 @@ body {
 }
 
 .form-signin .form-control {
-    border-radius: 5px; /* Закруглили края окон */
+    border-radius: 5px;
 }
 
 .btn-primary {
-    background-color: #007bff; /* Синий цвет для кнопок */
+    background-color: #007bff;
     border-color: #007bff;
 }
 
 .btn-primary:hover {
-    background-color: #0056b3; /* Темнее синий для кнопок при наведении */
+    background-color: #0056b3;
     border-color: #0056b3;
 }
 
@@ -67,14 +67,13 @@ body {
 }
 
 .swal-wide-button {
-    width: 100px; /* Установите желаемую ширину */
+    width: 100px;
 }
 
-/* Медиа-запрос для ширины экрана > 600px */
-@media (min-width: 600px) {
+@media (min-width: 900px) {
     .logo-container {
-        display: block; /* Показываем логотип */
-        width: 30%; /* Используем проценты для ширины */
+        display: block;
+        width: 30%;
         text-align: center;
         margin-right: 20px;
     }
@@ -85,15 +84,15 @@ body {
     }
 
     .vertical-line {
-        display: block; /* Показываем вертикальную линию */
+        display: block;
         width: 2px;
-        height: 80%; /* Высота линии */
-        background-color: #ababab; /* Цвет линии */
+        height: 80%;
+        background-color: #ababab;
         margin-right: 20px;
-        position: absolute; /* Добавляем абсолютное позиционирование */
-        left: 31%; /* Сдвигаем линию вправо */
-        top: 10%; /* Отступ сверху */
-        bottom: 10%; /* Отступ снизу */
-        z-index: 1; /* Убедимся, что линия находится на переднем плане */
+        position: absolute;
+        left: 31%;
+        top: 10%;
+        bottom: 10%;
+        z-index: 1;
     }
 }
