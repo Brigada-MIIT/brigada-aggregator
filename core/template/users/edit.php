@@ -1,7 +1,7 @@
 <style>
-    .container {
+    /*.container {
         padding: 20px;
-    }
+    }*/
     .form {
         display: flex;
         justify-content: space-between;
