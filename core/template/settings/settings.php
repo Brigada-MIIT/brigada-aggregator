@@ -13,6 +13,11 @@
                 <input id="link_to_admin" type="text" value="<?php echo $settings['link_to_admin']?>"><br>
             </div>
         </div>
+        <div class="col-12">
+            <div class="in">
+                <br><button id="submit" type="submit" class="submit" onclick="save();">Сохранить</button>
+            </div>
+        </div>
     </div>
 </div>
 <script>
