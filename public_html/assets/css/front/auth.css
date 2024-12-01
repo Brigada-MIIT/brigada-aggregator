@@ -32,26 +32,11 @@ body {
 }
 
 .logo-container {
-    width: 30%; /* Используем проценты для ширины */
-    text-align: center;
-    margin-right: 20px;
-}
-
-.logo img {
-    max-width: 100%;
-    height: auto;
+    display: none; /* Скрываем логотип по умолчанию */
 }
 
 .vertical-line {
-    width: 2px;
-    height: 80%; /* Высота линии */
-    background-color: #ababab; /* Цвет линии */
-    margin-right: 20px;
-    position: absolute; /* Добавляем абсолютное позиционирование */
-    left: 30%; /* Сдвигаем линию вправо */
-    top: 10%; /* Отступ сверху */
-    bottom: 10%; /* Отступ снизу */
-    z-index: 1; /* Убедимся, что линия находится на переднем плане */
+    display: none; /* Скрываем вертикальную линию по умолчанию */
 }
 
 .form-signin .form-floating:focus-within {
@@ -83,4 +68,32 @@ body {
 
 .swal-wide-button {
     width: 100px; /* Установите желаемую ширину */
+}
+
+/* Медиа-запрос для ширины экрана > 600px */
+@media (min-width: 600px) {
+    .logo-container {
+        display: block; /* Показываем логотип */
+        width: 30%; /* Используем проценты для ширины */
+        text-align: center;
+        margin-right: 20px;
+    }
+
+    .logo img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .vertical-line {
+        display: block; /* Показываем вертикальную линию */
+        width: 2px;
+        height: 80%; /* Высота линии */
+        background-color: #ababab; /* Цвет линии */
+        margin-right: 20px;
+        position: absolute; /* Добавляем абсолютное позиционирование */
+        left: 30%; /* Сдвигаем линию вправо */
+        top: 10%; /* Отступ сверху */
+        bottom: 10%; /* Отступ снизу */
+        z-index: 1; /* Убедимся, что линия находится на переднем плане */
+    }
 }
