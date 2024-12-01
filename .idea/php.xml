@@ -10,6 +10,20 @@
     <option name="highlightLevel" value="WARNING" />
     <option name="transferred" value="true" />
   </component>
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/core/vendor/composer" />
+      <path value="$PROJECT_DIR$/core/vendor/nikic/fast-route" />
+      <path value="$PROJECT_DIR$/core/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/core/vendor/phpmailer/phpmailer" />
+      <path value="$PROJECT_DIR$/core/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/core/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/core/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/core/vendor/sonata-project/google-authenticator" />
+      <path value="$PROJECT_DIR$/core/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/core/vendor/graham-campbell/result-type" />
+    </include_path>
+  </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />
   <component name="PhpStanOptionsConfiguration">
     <option name="transferred" value="true" />
