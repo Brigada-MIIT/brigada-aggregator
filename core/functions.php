@@ -237,10 +237,10 @@ class System {
 
         /* Генерация письма */
         $mail = new PHPMailer;
-        $mail->setFrom('noreply@brigada-miit.ru', 'Файлообменник «Бригада»');
+        $mail->setFrom('noreply@brigada-miit.ru', 'Агрегатор «Бригада»');
         $mail->addAddress($_user['email'], '');
         $mail->CharSet = 'UTF-8';
-        $mail->Subject ='Файлообменник «Бригада». Смена пароля';
+        $mail->Subject ='Агрегатор «Бригада». Смена пароля';
         $mail->IsHTML(true);
         $mail->msgHTML('
             <!DOCTYPE html>
@@ -290,7 +290,7 @@ class System {
                         <p>Время действия ссылки смены пароля составляет <strong>1 СУТКИ</strong>. Чтобы изменить пароль, пожалуйста, нажмите на кнопку ниже:</p>
                         <p><a class="btn" href="https://brigada-miit.ru/password/change/' . $password_token . '">Изменить пароль</a></p>
                         <p><b>ВНИМАНИЕ! Если вы не запрашивали смену пароля на нашем сервисе, пожалуйста, проигнорируйте это письмо и НЕ ПЕРЕХОДИТЕ ПО ССЫЛКЕ ИЗМЕНЕНИЯ ПАРОЛЯ!</b></p>
-                        <p>С уважением, администрация файлообменника «Бригада» <a href="https://brigada-miit.ru">brigada-miit.ru</a></p>
+                        <p>С уважением, администрация агрегатора «Бригада» <a href="https://brigada-miit.ru">brigada-miit.ru</a></p>
                     </div>
                 </div>
             </body>
