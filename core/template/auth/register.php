@@ -6,7 +6,7 @@
     <title><?php echo (!empty($title)) ? $title : "Бригада | Регистрация"; ?></title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
-    <link href="/assets/css/front/register.css" rel="stylesheet">
+    <link href="/assets/css/front/auth.css" rel="stylesheet">
     <link rel="SHORTCUT ICON" href="/assets/img/logo_brigada.ico" type="image/x-icon">
     <script src="/assets/js/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
