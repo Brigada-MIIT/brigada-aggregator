@@ -722,10 +722,7 @@ function api_settings_update() {
         res(0, "Ошибка доступа");
     $max_size_avatar = intval($_POST['max_size_avatar']) > 0 ? intval($_POST['max_size_avatar']) : res(0, 'Укажите целое положительное число (max_size_avatar)');
     $link_to_admin = empty($_POST['link_to_admin']) ? res(0, "Укажите ссылку на администратора") : $_POST['link_to_admin'];
-    $max_size_file = intval($_POST['max_size_file']) > 0 ? intval($_POST['max_size_file']) : res(0, 'Укажите целое положительное число (max_size_file)');
-    $count_char_uploads_name = intval($_POST['count_char_uploads_name']) > 0 ? intval($_POST['count_char_uploads_name']) : res(0, 'Укажите целое положительное число (count_char_uploads_name)');
-    $count_char_uploads_description = intval($_POST['count_char_uploads_description']) > 0 ? intval($_POST['count_char_uploads_description']) : res(0, 'Укажите целое положительное число (count_char_uploads_description)');
-    $system->db()->query("UPDATE `settings` SET `max_size_avatar` = '$max_size_avatar', `link_to_admin` = '$link_to_admin', `max_size_file` = '$max_size_file', `count_char_uploads_name` = '$count_char_uploads_name', `count_char_uploads_description` = '$count_char_uploads_description' WHERE 1");
+    $system->db()->query("UPDATE `settings` SET `max_size_avatar` = '$max_size_avatar', `link_to_admin` = '$link_to_admin' WHERE 1");
     res(1, "Настройки успешно обновлены");
 }
 
