@@ -44,6 +44,10 @@
   flex-grow: 1;
 }
 
+a .no-hover {
+  text-decoration:none;
+}
+
 /* Стили для модальных окон */
 .modal-body ul {
   padding-left: 0;

@@ -21,11 +21,11 @@
                 echo "
                     <div class='col-md-12 mb-4'>
                         <div class='product-card horizontal-card'>
-                            <a href='/category/${id}'><img src='${picture_url}' alt='${name}' class='img-fluid'></a>
+                            <a class='no-hover' href='/category/${id}'><img src='${picture_url}' alt='${name}' class='img-fluid'></a>
                             <div class='card-body'>
-                                <a href='/category/${id}'><h2>${name}</h2></a>
+                                <a class='no-hover' href='/category/${id}'><h2>${name}</h2></a>
                                 <p style='margin-bottom: 1rem;'>${description}</p>
-                                <a href='/category/${id}'><button class='btn btn-success' onclick=''>Перейти к категории</button></a>
+                                <a class='no-hover' href='/category/${id}'><button class='btn btn-success' onclick=''>Перейти к категории</button></a>
                             </div>
                         </div>
                     </div>
