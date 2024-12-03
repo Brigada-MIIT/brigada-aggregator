@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="/assets/css/front/categories.css">
 <div class="container mt-4">
     <div class="search-bar-container">
         <input type="text" class="form-control search-bar" placeholder="Поиск товаров...">
@@ -50,7 +49,7 @@
     </div>
 </div>
 
-<footer class="bg-light text-center text-lg-start mt-4 fixed-bottom">
+<!--<footer class="bg-light text-center text-lg-start mt-4 fixed-bottom">
     <div class="container p-4">
         <div class="row">
             <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
@@ -71,4 +70,4 @@
         © 2024 Copyright:
         <a class="text-dark" href="#">Бригада</a>
     </div>
-</footer>
+</footer>-->
