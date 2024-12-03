@@ -21,7 +21,7 @@
                 echo "
                     <div class='col-md-12 mb-4'>
                         <div class='product-card horizontal-card'>
-                            <a class='no-hover' href='/category/${id}'><img src='${picture_url}' alt='${name}' class='img-fluid'></a>
+                            <img src='${picture_url}' alt='${name}' class='img-fluid'>
                             <div class='card-body'>
                                 <a class='no-hover' href='/category/${id}'><h2>${name}</h2></a>
                                 <p style='margin-bottom: 1rem;'>${description}</p>
