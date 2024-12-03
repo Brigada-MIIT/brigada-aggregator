@@ -9,7 +9,7 @@
     <div class="product-categories row">
         <div class="col-md-12 mb-4">
             <div class="product-card horizontal-card">
-                <img src="images/phone.jpg" alt="Телефоны" class="img-fluid">
+                <img src="/assets/img/front/phone.jpg" alt="Телефоны" class="img-fluid">
                 <div class="card-body">
                     <h2>Телефоны</h2>
                     <p>Современные смартфоны с мощными процессорами, высококачественными камерами и длительным временем работы от батареи. Выберите свой идеальный смартфон для работы и развлечений.</p>
@@ -27,7 +27,7 @@
         </div>
         <div class="col-md-12 mb-4">
             <div class="product-card horizontal-card">
-                <img src="images/gpu.png" alt="Видеокарты и процессоры" class="img-fluid">
+                <img src="/assets/img/front/gpu.png" alt="Видеокарты и процессоры" class="img-fluid">
                 <div class="card-body">
                     <h2>Видеокарты и процессоры</h2>
                     <p>Мощные видеокарты и процессоры для геймеров и профессионалов. Гарантия высокой производительности и стабильной работы в сложных задачах.</p>
