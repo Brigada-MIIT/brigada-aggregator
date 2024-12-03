@@ -9,7 +9,7 @@
     <?php
         $db = $system->db();
         $query = $db->query("SELECT * FROM `categories`");
-        for($i = 0; $i < count($query->num_rows); $i++) {
+        for($i = 0; $i < $query->num_rows; $i++) {
             $result = $query->fetch_assoc();
             print_r($result);
         }
