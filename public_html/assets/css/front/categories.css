@@ -38,6 +38,8 @@
   width: 20%;
   height: auto;
   margin-right: 1rem;
+  aspect-ratio: 1 / 1; /* Фиксированное соотношение сторон 1:1 */
+  object-fit: cover; /* Масштабируем изображение, чтобы оно заполнило контейнер */
 }
 
 .horizontal-card .card-body {
