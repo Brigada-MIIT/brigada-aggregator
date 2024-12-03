@@ -1,7 +1,7 @@
 .product-card {
   background-color: #ffffff;
   border-radius: 10px;
-  padding: 20px;
+  padding: 1rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease;
@@ -18,12 +18,12 @@
 }
 
 .product-card h2 {
-  margin-top: 15px;
+  margin-top: 1rem;
   font-size: 1.5rem;
 }
 
 .product-card p {
-  margin-top: 10px;
+  margin-top: 0.5rem;
   font-size: 1rem;
   color: #6c757d;
 }
@@ -35,9 +35,9 @@
 }
 
 .horizontal-card img {
-  width: 200px;
+  width: 20%;
   height: auto;
-  margin-right: 20px;
+  margin-right: 1rem;
 }
 
 .horizontal-card .card-body {
@@ -50,7 +50,7 @@
 }
 
 .modal-body ul li {
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 .modal-body ul li a {
@@ -61,5 +61,5 @@
 }
 
 .modal-body ul li a img {
-  margin-right: 10px;
+  margin-right: 1rem;
 }
