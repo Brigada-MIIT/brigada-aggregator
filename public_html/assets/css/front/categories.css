@@ -44,7 +44,7 @@
   flex-grow: 1;
 }
 
-a .no-hover {
+.no-hover a {
   text-decoration:none;
 }
 
