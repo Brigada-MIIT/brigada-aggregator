@@ -5,7 +5,15 @@
         <button class="btn btn-primary search-button">Найти</button>
     </div>
 
-    <h2 class="popular-products-title mt-5">Электроника</h2>
+    <h2 class="popular-products-title mt-5">Категории товаров</h2>
+    <?php
+        $db = $system->db();
+        $query = $db->query("SELECT * FROM `categories`");
+        $result = $query->fetch_assoc();
+        foreach ($result as $category) {
+            print($category);
+        }
+    ?>
     <div class="product-categories row">
         <div class="col-md-12 mb-4">
             <div class="product-card horizontal-card">
