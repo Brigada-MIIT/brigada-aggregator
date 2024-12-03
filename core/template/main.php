@@ -6,51 +6,38 @@
     </div>
 
     <h2 class="popular-products-title mt-5">Категории товаров</h2>
-    <?php
-        $db = $system->db();
-        $query = $db->query("SELECT * FROM `categories`");
-        for($i = 0; $i < $query->num_rows; $i++) {
-            $result = $query->fetch_assoc();
-            print_r($result);
-        }
-    ?>
     <div class="product-categories row">
-        <div class="col-md-12 mb-4">
-            <div class="product-card horizontal-card">
-                <img src="/assets/img/front/phone.jpg" alt="Телефоны" class="img-fluid">
-                <div class="card-body">
-                    <h2>Телефоны</h2>
-                    <p>Современные смартфоны с мощными процессорами, высококачественными камерами и длительным временем работы от батареи. Выберите свой идеальный смартфон для работы и развлечений.</p>
-                    <div id="priceRange1" class="mt-3" style="display: none;">
-                        <div class="alert alert-info">
-                            <strong>Минимальная цена:</strong> <span id="minPrice1">10000 руб.</span><br>
-                            <strong>Максимальная цена:</strong> <span id="maxPrice1">100000 руб.</span>
+        <?php
+            $db = $system->db();
+            $query = $db->query("SELECT * FROM `categories`");
+            for($i = 0; $i < $query->num_rows; $i++) {
+                $result = $query->fetch_assoc();
+                $name = $result["name"];
+                $description = $result["description"];
+                $picture_url = $result["picture_url"];
+                if($picture_url == null)
+                    $picture_url = "/assets/img/image_not_found.png";
+            }
+            echo
+            `<div class="col-md-12 mb-4">
+                <div class="product-card horizontal-card">
+                    <img src="${picture_url}" alt="${name}" class="img-fluid">
+                    <div class="card-body">
+                        <h2>${name}</h2>
+                        <p>${description}</p>
+                        <div id="priceRange1" class="mt-3" style="display: none;">
+                            <div class="alert alert-info">
+                                <strong>Минимальная цена:</strong> <span id="minPrice1">10000 руб.</span><br>
+                                <strong>Максимальная цена:</strong> <span id="maxPrice1">100000 руб.</span>
+                            </div>
                         </div>
+                        <button class="btn btn-primary" onclick="togglePrice(1)">Узнать цену</button>
+                        <button class="btn btn-success" onclick="window.location.href='Phones.html'">Товары</button>
+                        <button class="btn btn-info" data-toggle="modal" data-target="#storesModal1">Магазины</button>
                     </div>
-                    <button class="btn btn-primary" onclick="togglePrice(1)">Узнать цену</button>
-                    <button class="btn btn-success" onclick="window.location.href='Phones.html'">Товары</button>
-                    <button class="btn btn-info" data-toggle="modal" data-target="#storesModal1">Магазины</button>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-12 mb-4">
-            <div class="product-card horizontal-card">
-                <img src="/assets/img/front/gpu.png" alt="Видеокарты и процессоры" class="img-fluid">
-                <div class="card-body">
-                    <h2>Видеокарты и процессоры</h2>
-                    <p>Мощные видеокарты и процессоры для геймеров и профессионалов. Гарантия высокой производительности и стабильной работы в сложных задачах.</p>
-                    <div id="priceRange2" class="mt-3" style="display: none;">
-                        <div class="alert alert-info">
-                            <strong>Минимальная цена:</strong> <span id="minPrice2">15000 руб.</span><br>
-                            <strong>Максимальная цена:</strong> <span id="maxPrice2">80000 руб.</span>
-                        </div>
-                    </div>
-                    <button class="btn btn-primary" onclick="togglePrice(2)">Узнать цену</button>
-                    <button class="btn btn-success" onclick="window.location.href='Video.html'">Товары</button>
-                    <button class="btn btn-info" data-toggle="modal" data-target="#storesModal2">Магазины</button>
-                </div>
-            </div>
-        </div>
+            </div>`;
+        ?>
     </div>
 
     <div class="pagination justify-content-center mt-4">
