@@ -1,0 +1,171 @@
+body {
+  background-color: rgb(237, 243, 249); /* Новый цвет фона */
+  font-family: 'Arial', sans-serif; /* Вернем прежний шрифт */
+}
+
+.navbar {
+  background-color: #ffffff; /* Белый цвет для навигационной панели */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding: 0.5rem 1rem; /* Уменьшаем отступы, чтобы не менять размер хедера */
+}
+
+.navbar-nav .nav-item {
+  margin-right: 20px; /* Увеличиваем расстояние между элементами */
+}
+
+.navbar-nav .nav-item:last-child {
+  margin-right: 0; /* Убираем отступ справа у последнего элемента */
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, #00CED1, #FFD700, #FF4500, #FF6347); /* Бирюзовый, желтый, красный, оранжевый */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.navbar-brand-container {
+  margin-right: 0px; /* Убираем отступ справа */
+  margin-left: -350px; /* Сдвигаем лого и надпись еще левее */
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: flex-end; /* Выравнивание по правому краю */
+  align-items: center; /* Центрирование по вертикали */
+  width: 100%; /* Устанавливаем ширину для центрирования */
+  margin: 0 auto; /* Центрируем надписи */
+  transition: margin-left 0.3s ease; /* Плавный переход для margin-left */
+}
+
+/* Пример сдвига вправо */
+.navbar-nav.shifted-right {
+  margin-right: 590px; /* Сдвигаем вправо на 20px */
+}
+
+.navbar-text-container {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Сдвигаем время и личный кабинет правее */
+  margin-right: -370px; /* Сдвигаем еще правее */
+}
+
+.navbar-text .fa-globe {
+  color: #000; /* Черный цвет для иконки глобуса */
+}
+
+.nav-link {
+  font-weight: normal; /* Вернем прежний шрифт */
+}
+
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Устанавливаем ширину, равную ширине поисковой строки */
+}
+
+.search-bar {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+}
+
+.search-button {
+  background-color: #007bff; /* Синий цвет для кнопок */
+  border-color: #007bff;
+  border-radius: 5px; /* Закруглили края окон */
+}
+
+.search-button:hover {
+  background-color: #0056b3; /* Темнее синий для кнопок при наведении */
+  border-color: #0056b3;
+}
+
+.product-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-card img {
+  border-radius: 10px;
+  max-width: 100%;
+  height: auto;
+}
+
+.product-card h2 {
+  margin-top: 15px;
+  font-size: 1.5rem;
+}
+
+.product-card p {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.horizontal-card {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.horizontal-card img {
+  width: 200px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.horizontal-card .card-body {
+  flex-grow: 1;
+}
+
+footer {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.fab {
+  margin-right: 5px;
+}
+
+/* Стили для модальных окон */
+.modal-body ul {
+  padding-left: 0;
+}
+
+.modal-body ul li {
+  margin-bottom: 10px;
+}
+
+.modal-body ul li a {
+  display: flex;
+  align-items: center;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.modal-body ul li a img {
+  margin-right: 10px;
+}
