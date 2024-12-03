@@ -5,7 +5,7 @@
         <button class="btn btn-primary search-button">Найти</button>
     </div>
 
-    <h2 class="popular-products-title mt-5">Категории товаров</h2>
+    <h2 class="popular-products-title mt-5" style="margin-bottom: 1rem;">Категории товаров</h2>
     <div class="product-categories row">
         <?php
             $db = $system->db();
@@ -24,7 +24,7 @@
                             <img src='${picture_url}' alt='${name}' class='img-fluid'>
                             <div class='card-body'>
                                 <h2>${name}</h2>
-                                <p class='card-body-description'>${description}</p>
+                                <p style='margin-bottom: 1rem;'>${description}</p>
                                 <a href='/category/${id}'><button class='btn btn-success' onclick=''>Перейти к категории</button></a>
                             </div>
                         </div>

@@ -44,14 +44,6 @@
   flex-grow: 1;
 }
 
-.popular-products-title {
-  margin-bottom: 1rem;
-}
-
-p .card-body-description {
-  margin-bottom: 1rem;
-}
-
 /* Стили для модальных окон */
 .modal-body ul {
   padding-left: 0;
