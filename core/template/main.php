@@ -9,9 +9,9 @@
     <?php
         $db = $system->db();
         $query = $db->query("SELECT * FROM `categories`");
-        $result = $query->fetch_assoc();
-        foreach ($result as $category) {
-            print($category);
+        for($i = 0; $i < count($query->num_rows); $i++) {
+            $result = $query->fetch_assoc();
+            print($result);
         }
     ?>
     <div class="product-categories row">
