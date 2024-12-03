@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/assets/css/front/categories.css">
 <div class="container mt-4">
     <div class="search-bar-container">
         <input type="text" class="form-control search-bar" placeholder="Поиск товаров...">

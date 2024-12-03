@@ -1,0 +1,65 @@
+.product-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-card img {
+  border-radius: 10px;
+  max-width: 100%;
+  height: auto;
+}
+
+.product-card h2 {
+  margin-top: 15px;
+  font-size: 1.5rem;
+}
+
+.product-card p {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.horizontal-card {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.horizontal-card img {
+  width: 200px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.horizontal-card .card-body {
+  flex-grow: 1;
+}
+
+/* Стили для модальных окон */
+.modal-body ul {
+  padding-left: 0;
+}
+
+.modal-body ul li {
+  margin-bottom: 10px;
+}
+
+.modal-body ul li a {
+  display: flex;
+  align-items: center;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.modal-body ul li a img {
+  margin-right: 10px;
+}
