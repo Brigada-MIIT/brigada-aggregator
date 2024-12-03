@@ -11,7 +11,7 @@
         $query = $db->query("SELECT * FROM `categories`");
         for($i = 0; $i < count($query->num_rows); $i++) {
             $result = $query->fetch_assoc();
-            print($result);
+            print_r($result);
         }
     ?>
     <div class="product-categories row">
