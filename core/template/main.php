@@ -23,7 +23,7 @@
                         <div class='product-card horizontal-card'>
                             <img src='${picture_url}' alt='${name}' class='img-fluid'>
                             <div class='card-body'>
-                                <h2>${name}</h2>
+                                <a href='/category/${id}'><h2>${name}</h2></a>
                                 <p style='margin-bottom: 1rem;'>${description}</p>
                                 <a href='/category/${id}'><button class='btn btn-success' onclick=''>Перейти к категории</button></a>
                             </div>
