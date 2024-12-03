@@ -17,26 +17,26 @@
                 $picture_url = $result["picture_url"];
                 if($picture_url == null)
                     $picture_url = "/assets/img/image_not_found.png";
-                echo `
-                    <div class="col-md-12 mb-4">
-                        <div class="product-card horizontal-card">
-                            <img src="${picture_url}" alt="${name}" class="img-fluid">
-                            <div class="card-body">
+                echo "
+                    <div class='col-md-12 mb-4'>
+                        <div class='product-card horizontal-card'>
+                            <img src='${picture_url}' alt='${name}' class='img-fluid'>
+                            <div class='card-body'>
                                 <h2>${name}</h2>
                                 <p>${description}</p>
-                                <div id="priceRange1" class="mt-3" style="display: none;">
-                                    <div class="alert alert-info">
-                                        <strong>Минимальная цена:</strong> <span id="minPrice1">10000 руб.</span><br>
-                                        <strong>Максимальная цена:</strong> <span id="maxPrice1">100000 руб.</span>
+                                <div id='priceRange1' class='mt-3' style='display: none;'>
+                                    <div class='alert alert-info'>
+                                        <strong>Минимальная цена:</strong> <span id='minPrice1'>10000 руб.</span><br>
+                                        <strong>Максимальная цена:</strong> <span id='maxPrice1''>100000 руб.</span>
                                     </div>
                                 </div>
-                                <button class="btn btn-primary" onclick="togglePrice(1)">Узнать цену</button>
-                                <button class="btn btn-success" onclick="window.location.href='Phones.html'">Товары</button>
-                                <button class="btn btn-info" data-toggle="modal" data-target="#storesModal1">Магазины</button>
+                                <button class='btn btn-primary' onclick='togglePrice(1)'>Узнать цену</button>
+                                <button class='btn btn-success' onclick=''>Товары</button>
+                                <button class='btn btn-info' data-toggle='modal' data-target='#storesModal1'>Магазины</button>
                             </div>
                         </div>
                     </div>
-                `;
+                ";
             }
         ?>
     </div>
