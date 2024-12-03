@@ -45,7 +45,8 @@
 }
 
 .no-hover a {
-  text-decoration:none;
+  text-decoration: none;
+  width: min-content;
 }
 
 /* Стили для модальных окон */
