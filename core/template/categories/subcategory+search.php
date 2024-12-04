@@ -6,7 +6,7 @@
     </div>
 
     <?php
-        $main_title = "Товары подкатегории «".$name_category."»"
+        $main_title = "Товары подкатегории «".$name_category."»";
         if($mode == "search")
             $main_title = "Результат поиска товаров по запросу ".$name_category."»...";
     ?>
