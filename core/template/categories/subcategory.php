@@ -21,6 +21,7 @@
                 if ($cost == -1 || $cost > $relationships[$j][1]) {
                     $cost = $relationships[$j][1];
                     $product_url = $relationships[$j][0];
+                    print($product_url);
                 }
             }
             if($picture_url == null)
