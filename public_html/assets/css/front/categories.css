@@ -44,7 +44,7 @@
   flex-grow: 1;
 }
 
-.price p {
+.price .card_body {
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 1rem;
