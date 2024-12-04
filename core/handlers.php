@@ -33,6 +33,21 @@ function category($args) {
     include '../core/template/default.php';
 }
 
+function subcategory($args) {
+    global $system, $system_user_id, $_user;
+    if($system->auth() && $_user['ban'] != 0)
+        $system->printError(100);
+    $id = $args['id'];
+    $db = $system->db();
+    $query = $db->query("SELECT * FROM `products` WHERE `subcategory_id` = ${id}");
+    if(!$query->num_rows)
+        $system->printError(404);
+    $name_category = $db->query("SELECT * FROM `subcategories` WHERE `id` = ${id}")->fetch_assoc()["name"];
+    $title = "Бригада | Товары подкатегории «${name_category}»";
+    $content = '../core/template/categories/category.php';
+    include '../core/template/default.php';
+}
+
 function instruction() {
     global $system, $system_user_id, $_user;
     if($system->auth() && $_user['ban'] != 0)

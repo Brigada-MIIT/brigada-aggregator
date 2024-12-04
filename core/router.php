@@ -10,6 +10,7 @@ $system_user_id = $system->userinfo()['id'];
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/', 'main');
     $r->addRoute('GET', '/category/{id:\d+}', 'category');
+    $r->addRoute('GET', '/subcategory/{id:\d+}', 'subcategory');
     $r->addRoute('GET', '/instruction', 'instruction');
     $r->addRoute('GET', '/app/auth', 'auth');
     $r->addRoute('GET', '/app/register', 'register');
