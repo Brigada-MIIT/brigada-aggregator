@@ -40,7 +40,7 @@
                         </div>
                     </div>
                 ";
-            $modal += "
+            $modal .= "
                 <div class='modal fade' id='modal".($i+1)."' tabindex='-1' aria-labelledby='comparisonModalLabel".($i+1)."' style='display: none;' aria-hidden='true'>
                     <div class='modal-dialog modal-dialog-centered' role='document'>
                       <div class='modal-content'>
