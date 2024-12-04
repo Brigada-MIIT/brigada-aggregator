@@ -15,9 +15,13 @@
             $description = $result["description"];
             $picture_url = $result["picture_url"];
             $relationships = json_decode($result["relationships"]);
-            $cost = 0;
-            for($i = 0; $i < count($relationships); $i++) {
-                print($relationships[$i][1]);
+            $cost = -1;
+            for($j = 0; $j < count($relationships); $j++) {
+                if ($cost == -1)
+                    $cost = $relationships[$j][2];
+                else
+                    if ($cost > $relationships[$j][2])
+                        $cost = $relationships[$j][2];
             }
             if($picture_url == null)
                 $picture_url = "/assets/img/image_not_found.png";
