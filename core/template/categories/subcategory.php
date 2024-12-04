@@ -14,7 +14,11 @@
             $name = $result["name"];
             $description = $result["description"];
             $picture_url = $result["picture_url"];
+            $relationships = json_decode($result["relationships"]);
             $cost = 0;
+            for($i = 0; $i < count($relationships); $i++) {
+                print($relationships[$i][1]);
+            }
             if($picture_url == null)
                 $picture_url = "/assets/img/image_not_found.png";
             echo "
@@ -24,7 +28,7 @@
                             <div class='card-body'>
                                 <a style='color: unset; width: min-content;' href='/product/${id}'><h2>${name}</h2></a>
                                 <p style='margin-bottom: 1rem;'>${description}</p>
-                                <p class='price'>Минимальная стоимость: ${cost} ₽</p>
+                                <p style='font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem; color: #f13f36;'>Минимальная стоимость: ${cost} ₽</p>
                                 <a style='color: unset; width: min-content;' href='/product/${id}'><button class='btn btn-success' onclick=''>Перейти к товару</button></a>
                             </div>
                         </div>
