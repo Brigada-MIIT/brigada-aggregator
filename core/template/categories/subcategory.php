@@ -54,7 +54,7 @@
                         </div>
                         <div class='modal-body'>
                           <ul class='list-unstyled'>
-                            ${$list_websites}
+                            ". $list_websites ."
                           </ul>
                           <hr class='divider'>
                           <div class='text-center'>
