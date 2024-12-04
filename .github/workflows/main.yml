@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+      - main
 
 env:
   SERVER_HOST: ${{ vars.SERVER_HOST }}
