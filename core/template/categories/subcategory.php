@@ -24,7 +24,7 @@
                     $cost = $relationships[$j][1];
                     $product_url = $relationships[$j][0];
                 }
-                $list_websites .= "<li><a href='${$relationships[$j][0]}'><img src='${$relationships[$j][3]}' alt='${$relationships[$j][2]}' width='20' height='20'> ${$relationships[$j][2]} - ${$relationships[$j][1]} ₽</a></li>";
+                $list_websites .= "<li><a href='".$relationships[$j][0]."'><img src='".$relationships[$j][3]."' alt='".$relationships[$j][2]."' width='20' height='20'> ".$relationships[$j][2]." - ".$relationships[$j][1]." ₽</a></li>";
             }
             if($picture_url == null)
                 $picture_url = "/assets/img/image_not_found.png";
@@ -58,7 +58,7 @@
                           </ul>
                           <hr class='divider'>
                           <div class='text-center'>
-                            <span class='text-muted'>Минимальная цена:</span> <strong>${cost}</strong>
+                            <span class='text-muted'>Минимальная цена:</span> <strong>${cost} ₽</strong>
                           </div>
                         </div>
                       </div>
