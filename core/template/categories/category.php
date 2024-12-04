@@ -1,5 +1,5 @@
 <?php
-    $name_category = $db->query("SELECT * FROM `category` WHERE `id` = ${id}")->fetch_assoc()["name"];
+    $name_category = $db->query("SELECT * FROM `categories` WHERE `id` = ${id}")->fetch_assoc()["name"];
     $title = "Бригада | Категория «${name_category}»";
 ?>
 <link rel="stylesheet" href="/assets/css/front/categories.css">
