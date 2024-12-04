@@ -18,10 +18,10 @@
             $cost = -1;
             for($j = 0; $j < count($relationships); $j++) {
                 if ($cost == -1)
-                    $cost = $relationships[$j][2];
+                    $cost = $relationships[$j][1];
                 else
-                    if ($cost > $relationships[$j][2])
-                        $cost = $relationships[$j][2];
+                    if ($cost > $relationships[$j][1])
+                        $cost = $relationships[$j][1];
             }
             if($picture_url == null)
                 $picture_url = "/assets/img/image_not_found.png";
