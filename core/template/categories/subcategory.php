@@ -37,7 +37,7 @@
                                 <p style='margin-bottom: 1rem;'>${description}</p>
                                 <p style='font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem; color: #f13f36;'>Минимальная стоимость: ${cost} ₽</p>
                                 <a style='color: unset; width: min-content;' href='$product_url' target='_blank'><button class='btn btn-success'>Перейти к товару</button></a>
-                                <a style='color: unset; width: min-content;' href='#' data-toggle='modal' data-target='#modal1'><button class='btn btn-primary'>Сравнение цен</button></a>
+                                <a style='color: unset; width: min-content;' href='#' data-toggle='modal' data-target='#modal".($i+1)."'><button class='btn btn-primary'>Сравнение цен</button></a>
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                         </div>
                         <div class='modal-body'>
                           <ul class='list-unstyled'>
-                            ". $list_websites ."
+                            ".$list_websites."
                           </ul>
                           <hr class='divider'>
                           <div class='text-center'>
