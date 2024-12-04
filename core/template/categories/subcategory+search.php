@@ -3,6 +3,9 @@
     <div class="search-bar-container mt-5">
         <input type="text" class="form-control search-bar" placeholder="Поиск товаров...">
         <button class="btn btn-primary search-button">Найти</button>
+        <div class="search-results mt-2">
+            <span class="result-count">0</span> вариантов найдено
+        </div>
     </div>
 
     <?php

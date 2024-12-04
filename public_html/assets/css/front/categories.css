@@ -44,6 +44,16 @@
   flex-grow: 1;
 }
 
+.search-results {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.result-count {
+  font-weight: bold;
+  color: #28a745; /* Зеленый цвет, как у кнопки "Перейти к товару" */
+}
+
 /* Стили для модальных окон */
 .modal-body ul {
   padding-left: 0;

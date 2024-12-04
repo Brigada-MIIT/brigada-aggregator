@@ -6,7 +6,9 @@ use PHPMailer\PHPMailer\Exception;
 
 function main() {
     global $system, $system_user_id, $_user;
-    if($system->auth() && $_user['ban'] != 0)
+    if(!$system->auth())
+        Location("/app/auth", "/");
+    if($_user['ban'] != 0)
         $system->printError(100);
     if(!empty($_COOKIE['last'])) {
         $location = trim($_COOKIE['last']);
@@ -20,9 +22,13 @@ function main() {
 
 function category($args) {
     global $system, $system_user_id, $_user;
-    if($system->auth() && $_user['ban'] != 0)
-        $system->printError(100);
     $id = $args['id'];
+    if(!$id)
+        Location("/");
+    if(!$system->auth())
+        Location("/app/auth", "/category/".$id);
+    if($_user['ban'] != 0)
+        $system->printError(100);
     $db = $system->db();
     $query = $db->query("SELECT * FROM `subcategories` WHERE `category_id` = ${id}");
     if(!$query->num_rows)
@@ -35,9 +41,13 @@ function category($args) {
 
 function subcategory($args) {
     global $system, $system_user_id, $_user;
-    if($system->auth() && $_user['ban'] != 0)
-        $system->printError(100);
     $id = $args['id'];
+    if(!$id)
+        Location("/");
+    if(!$system->auth())
+        Location("/app/auth", "/subcategory/".$id);
+    if($_user['ban'] != 0)
+        $system->printError(100);
     $db = $system->db();
     $query = $db->query("SELECT * FROM `products` WHERE `subcategory_id` = ${id}");
     if(!$query->num_rows)
@@ -51,9 +61,13 @@ function subcategory($args) {
 
 function search($args) {
     global $system, $system_user_id, $_user;
-    if($system->auth() && $_user['ban'] != 0)
-        $system->printError(100);
     $search = $args['search'];
+    if(!$search)
+        Location("/");
+    if(!$system->auth())
+        Location("/app/auth", "/search/".$search);
+    if($_user['ban'] != 0)
+        $system->printError(100);
     $db = $system->db();
     $query = $db->query("SELECT * FROM `products` WHERE `name` LIKE '%${search}%'");
     if(!$query->num_rows)
@@ -66,7 +80,9 @@ function search($args) {
 
 function instruction() {
     global $system, $system_user_id, $_user;
-    if($system->auth() && $_user['ban'] != 0)
+    if(!$system->auth())
+        Location("/app/auth", "/instruction");
+    if($_user['ban'] != 0)
         $system->printError(100);
     $title = "Бригада | Инструкция по использованию";
     $page = "instruction";
@@ -214,6 +230,17 @@ function profile_avatar() {
 
 // ================ API ================ \\
 
+function api_search() {
+    global $system, $system_user_id, $_user;
+    if(!$system->auth())
+        res(0);
+    $s = $_REQUEST['s'];
+    if(!$s)
+        res(0);
+    $db = $system->db();
+    $num_rows = $db->query("SELECT * FROM `products` WHERE `name` LIKE '%${s}%'")->num_rows;
+    res($num_rows);
+}
 function api_login() {
     global $system, $system_user_id, $_user;
     if ($system->auth())
