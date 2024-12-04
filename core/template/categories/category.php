@@ -23,7 +23,7 @@
                             <div class='card-body'>
                                 <a style='color: unset; width: min-content;' href='/subcategory/${id}'><h2>${name}</h2></a>
                                 <p style='margin-bottom: 1rem;'>${description}</p>
-                                <a style='color: unset; width: min-content;' href='/subcategory/${id}'><button class='btn btn-success' onclick=''>Перейти к категории</button></a>
+                                <a style='color: unset; width: min-content;' href='/subcategory/${id}'><button class='btn btn-success' onclick=''>Перейти к подкатегории</button></a>
                             </div>
                         </div>
                     </div>
