@@ -70,6 +70,10 @@
         ?>
     </div>
 
+    <?php
+        echo $modal;
+    ?>
+
     <div class="pagination justify-content-center mt-4">
 
     </div>
