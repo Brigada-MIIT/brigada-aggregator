@@ -4,7 +4,6 @@
         <input type="text" class="form-control search-bar" placeholder="Поиск товаров...">
         <button class="btn btn-primary search-button">Найти</button>
     </div>
-
     <h2 class="popular-products-title mt-5" style="margin-bottom: 1rem;">Товары подкатегории «<?php echo $name_category; ?>»</h2>
     <div class="product-categories row">
         <?php
