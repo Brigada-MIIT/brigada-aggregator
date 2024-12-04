@@ -6,7 +6,7 @@
         <button class="btn btn-primary search-button">Найти</button>
     </div>
     <div class="search-results mt-2">
-        Найдено вариантов (кол-во): <span class="result-count">0</span>
+        Найдено количество вариантов: <span class="result-count">0</span>
     </div>
 
     <?php
