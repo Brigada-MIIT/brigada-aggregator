@@ -1,7 +1,3 @@
-<?php
-    $name_category = $db->query("SELECT * FROM `categories` WHERE `id` = ${id}")->fetch_assoc()["name"];
-    $title = "Бригада | Категория «${name_category}»";
-?>
 <link rel="stylesheet" href="/assets/css/front/categories.css">
 <div class="container mt-4">
     <div class="search-bar-container mt-5">
