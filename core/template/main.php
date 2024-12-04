@@ -23,9 +23,9 @@
                         <div class='product-card horizontal-card'>
                             <img src='${picture_url}' alt='${name}' class='img-fluid'>
                             <div class='card-body'>
-                                <a style='text-decoration: none; width: min-content;' href='/category/${id}'><h2>${name}</h2></a>
+                                <a style='color: unset; width: min-content;' href='/category/${id}'><h2>${name}</h2></a>
                                 <p style='margin-bottom: 1rem;'>${description}</p>
-                                <a style='text-decoration: none; width: min-content;' href='/category/${id}'><button class='btn btn-success' onclick=''>Перейти к категории</button></a>
+                                <a style='color: unset; width: min-content;' href='/category/${id}'><button class='btn btn-success' onclick=''>Перейти к категории</button></a>
                             </div>
                         </div>
                     </div>
