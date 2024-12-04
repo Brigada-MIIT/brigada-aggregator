@@ -18,11 +18,13 @@
             $relationships = json_decode($result["relationships"]);
             $cost = -1;
             $product_url = "";
+            $list_websites = "";
             for($j = 0; $j < count($relationships); $j++) {
                 if ($cost == -1 || $cost > $relationships[$j][1]) {
                     $cost = $relationships[$j][1];
                     $product_url = $relationships[$j][0];
                 }
+                $list_websites .= "<li><a href='${$relationships[$j][0]}'><img src='${$relationships[$j][3]}' alt='${$relationships[$j][2]}' width='20' height='20'> ${$relationships[$j][2]} - ${$relationships[$j][1]} ₽</a></li>";
             }
             if($picture_url == null)
                 $picture_url = "/assets/img/image_not_found.png";
@@ -45,21 +47,18 @@
                     <div class='modal-dialog modal-dialog-centered' role='document'>
                       <div class='modal-content'>
                         <div class='modal-header'>
-                          <h5 class='modal-title' id='comparisonModalLabel".($i+1)."'>Сравнение цен для Iphone 15 Pro 128 ГБ</h5>
+                          <h5 class='modal-title' id='comparisonModalLabel".($i+1)."'>Сравнение цен для ${name}</h5>
                           <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
                             <span aria-hidden='true'>×</span>
                           </button>
                         </div>
                         <div class='modal-body'>
                           <ul class='list-unstyled'>
-                            <li><a href='#'><img src='images/store_logo.png' alt='Лого' width='20' height='20'> Порядок - 1500 руб.</a></li>
-                            <li><a href='#'><img src='images/store_logo.png'' alt='Лого' width='20' height='20'> Доммаркет - 1450 руб.</a></li>
-                            <li><a href='#'><img src='images/store_logo.png' alt='Лого' width='20' height='20'> Wildberries - 1550 руб.</a></li>
-                            <li><a href='#'><img src='images/store_logo.png' alt='Лого' width='20' height='20'> Домовой - 1600 руб.</a></li>
+                            ${$list_websites}
                           </ul>
                           <hr class='divider'>
                           <div class='text-center'>
-                            <span class='text-muted'>Минимальная цена:</span> <strong>1450 руб.</strong>
+                            <span class='text-muted'>Минимальная цена:</span> <strong>${cost}</strong>
                           </div>
                         </div>
                       </div>
