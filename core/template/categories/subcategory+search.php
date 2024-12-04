@@ -5,7 +5,12 @@
         <button class="btn btn-primary search-button">Найти</button>
     </div>
 
-    <h2 class="popular-products-title mt-5" style="margin-bottom: 1rem;">Товары подкатегории «<?php echo $name_category; ?>»</h2>
+    <?php
+        $main_title = "Товары подкатегории «".$name_category."»"
+        if($mode == "search")
+            $main_title = "Результат поиска товаров по запросу ".$name_category."»...";
+    ?>
+    <h2 class="popular-products-title mt-5" style="margin-bottom: 1rem;"><?php echo $main_title; ?></h2>
     <div class="product-categories row">
         <?php
         $modal = "";
