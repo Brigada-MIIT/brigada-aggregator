@@ -18,6 +18,19 @@ function main() {
     include '../core/template/default.php';
 }
 
+function category($args) {
+    global $system, $system_user_id, $_user;
+    if($system->auth() && $_user['ban'] != 0)
+        $system->printError(100);
+    $id = $args['id'];
+    $db = $system->db();
+    $query = $db->query("SELECT * FROM `subcategories` WHERE `category_id` = ${id}");
+    if($query->num_rows != 1)
+        $system->printError(404);
+    $content = '../core/template/categories/category.php';
+    include '../core/template/default.php';
+}
+
 function instruction() {
     global $system, $system_user_id, $_user;
     if($system->auth() && $_user['ban'] != 0)
