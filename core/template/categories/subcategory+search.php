@@ -3,9 +3,9 @@
     <div class="search-bar-container mt-5">
         <input type="text" class="form-control search-bar" placeholder="Поиск товаров...">
         <button class="btn btn-primary search-button">Найти</button>
-        <div class="search-results mt-2">
-            <span class="result-count">0</span> вариантов найдено
-        </div>
+    </div>
+    <div class="search-results mt-2">
+        <span class="result-count">0</span> вариантов найдено
     </div>
 
     <?php
@@ -89,6 +89,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         const searchBar = document.querySelector('.search-bar');
         const searchButton = document.querySelector('.search-button');
+        const searchResults = document.querySelector('.search-results');
         const resultCount = document.querySelector('.result-count');
 
         function updateResultCount(query) {
@@ -98,9 +99,10 @@
                 .then(response => response.json())
                 .then(data => {
                     resultCount.textContent = data.result;
+                    searchResults.style.display = 'block';
                 })
                 .catch(error => {
-                    console.error('Ошибка при запросе к API: ', error);
+                    console.error('Ошибка при запросе к API:', error);
                 });
         }
 
@@ -109,7 +111,7 @@
             if (query.length > 0) {
                 updateResultCount(query);
             } else {
-                resultCount.textContent = '0';
+                searchResults.style.display = 'none';
             }
         });
 

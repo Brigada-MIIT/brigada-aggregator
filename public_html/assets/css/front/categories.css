@@ -47,13 +47,13 @@
 .search-results {
   font-size: 1rem;
   color: #6c757d;
+  display: none;
 }
 
 .result-count {
   font-weight: bold;
-  color: #28a745; /* Зеленый цвет, как у кнопки "Перейти к товару" */
+  /*color: #28a745;*/
 }
-
 /* Стили для модальных окон */
 .modal-body ul {
   padding-left: 0;
