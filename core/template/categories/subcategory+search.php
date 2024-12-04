@@ -50,25 +50,25 @@
                 $modal .= "
                     <div class='modal fade' id='modal".($i+1)."' tabindex='-1' aria-labelledby='comparisonModalLabel".($i+1)."' style='display: none;' aria-hidden='true'>
                         <div class='modal-dialog modal-dialog-centered' role='document'>
-                          <div class='modal-content'>
-                            <div class='modal-header'>
-                              <h5 class='modal-title' id='comparisonModalLabel".($i+1)."'>Сравнение цен для ${name}</h5>
-                              <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                                <span aria-hidden='true'>×</span>
-                              </button>
+                            <div class='modal-content'>
+                                <div class='modal-header'>
+                                    <h5 class='modal-title' id='comparisonModalLabel".($i+1)."'>Сравнение цен для ${name}</h5>
+                                    <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                        <span aria-hidden='true'>×</span>
+                                    </button>
+                                </div>
+                                <div class='modal-body'>
+                                    <ul class='list-unstyled'>
+                                        ".$list_websites."
+                                    </ul>
+                                    <hr class='divider'>
+                                    <div class='text-center'>
+                                        <span class='text-muted'>Минимальная цена:</span> <strong>${cost} ₽</strong>
+                                    </div>
+                                </div>
                             </div>
-                            <div class='modal-body'>
-                              <ul class='list-unstyled'>
-                                ".$list_websites."
-                              </ul>
-                              <hr class='divider'>
-                              <div class='text-center'>
-                                <span class='text-muted'>Минимальная цена:</span> <strong>${cost} ₽</strong>
-                              </div>
-                            </div>
-                          </div>
                         </div>
-                      </div>
+                    </div>
                 ";
             }
         ?>
