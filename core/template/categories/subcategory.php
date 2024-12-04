@@ -16,7 +16,7 @@
             $picture_url = $result["picture_url"];
             $relationships = json_decode($result["relationships"]);
             $cost = -1;
-            $product_url = 0;
+            $product_url = "";
             for($j = 0; $j < count($relationships); $j++) {
                 if ($cost == -1 || $cost > $relationships[$j][1]) {
                     $cost = $relationships[$j][1];
@@ -33,7 +33,7 @@
                                 <a style='color: unset; width: min-content;' href='${$product_url}'><h2>${name}</h2></a>
                                 <p style='margin-bottom: 1rem;'>${description}</p>
                                 <p style='font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem; color: #f13f36;'>Минимальная стоимость: ${cost} ₽</p>
-                                <a style='color: unset; width: min-content;' href='/product/${id}'><button class='btn btn-success' onclick=''>Перейти к товару</button></a>
+                                <a style='color: unset; width: min-content;' href='${$product_url}'><button class='btn btn-success' onclick=''>Перейти к товару</button></a>
                             </div>
                         </div>
                     </div>
