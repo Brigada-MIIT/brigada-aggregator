@@ -44,6 +44,7 @@ function subcategory($args) {
         $system->printError(404);
     $name_category = $db->query("SELECT * FROM `subcategories` WHERE `id` = ${id}")->fetch_assoc()["name"];
     $title = "Бригада | Товары подкатегории «${name_category}»";
+    $mode = "subcategory";
     $content = '../core/template/categories/subcategory+search.php';
     include '../core/template/default.php';
 }

@@ -16,11 +16,11 @@
         $modal = "";
         for($i = 0; $i < $query->num_rows; $i++) {
             $result = $query->fetch_assoc();
-            $id = $result["id"];
-            $name = $result["name"];
-            $description = $result["description"];
-            $picture_url = $result["picture_url"];
-            $relationships = json_decode($result["relationships"]);
+            $id = $result['id'];
+            $name = $result['name'];
+            $description = $result['description'];
+            $picture_url = $result['picture_url'];
+            $relationships = json_decode($result['relationships']);
             $cost = -1;
             $product_url = "";
             $list_websites = "";
