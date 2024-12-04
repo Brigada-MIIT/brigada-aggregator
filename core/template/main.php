@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="/assets/css/front/categories.css">
 <div class="container mt-4">
-    <div class="search-bar-container">
+    <div class="search-bar-container mt-5">
         <input type="text" class="form-control search-bar" placeholder="Поиск товаров...">
         <button class="btn btn-primary search-button">Найти</button>
     </div>
