@@ -1,8 +1,12 @@
 <link rel="stylesheet" href="/assets/css/front/categories.css">
+<script src="/assets/js/front/search.js"></script>
 <div class="container mt-4">
     <div class="search-bar-container mt-5">
         <input type="text" class="form-control search-bar" placeholder="Поиск товаров...">
         <button class="btn btn-primary search-button">Найти</button>
+    </div>
+    <div class="search-results mt-2">
+        Найдено вариантов (кол-во): <span class="result-count">0</span>
     </div>
 
     <h2 class="popular-products-title mt-5" style="margin-bottom: 1rem;">Категории товаров</h2>
