@@ -44,6 +44,13 @@
   flex-grow: 1;
 }
 
+.price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #f13f36;
+}
+
 /* Стили для модальных окон */
 .modal-body ul {
   padding-left: 0;

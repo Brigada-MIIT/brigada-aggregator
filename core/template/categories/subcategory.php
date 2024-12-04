@@ -14,6 +14,7 @@
             $name = $result["name"];
             $description = $result["description"];
             $picture_url = $result["picture_url"];
+            $cost = 0;
             if($picture_url == null)
                 $picture_url = "/assets/img/image_not_found.png";
             echo "
@@ -23,6 +24,7 @@
                             <div class='card-body'>
                                 <a style='color: unset; width: min-content;' href='/product/${id}'><h2>${name}</h2></a>
                                 <p style='margin-bottom: 1rem;'>${description}</p>
+                                <p class='price'>Минимальная стоимость: ${cost} ₽</p>
                                 <a style='color: unset; width: min-content;' href='/product/${id}'><button class='btn btn-success' onclick=''>Перейти к товару</button></a>
                             </div>
                         </div>
