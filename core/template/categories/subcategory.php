@@ -33,7 +33,7 @@
                                 <a style='color: unset; width: min-content;' href='$product_url'><h2>${name}</h2></a>
                                 <p style='margin-bottom: 1rem;'>${description}</p>
                                 <p style='font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem; color: #f13f36;'>Минимальная стоимость: ${cost} ₽</p>
-                                <a style='color: unset; width: min-content;' href='$product_url'><button class='btn btn-success' onclick=''>Перейти к товару</button></a>
+                                <a style='color: unset; width: min-content;' href='$product_url' target='_blank'><button class='btn btn-success' onclick=''>Перейти к товару</button></a>
                             </div>
                         </div>
                     </div>
