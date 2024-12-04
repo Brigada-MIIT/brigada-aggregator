@@ -49,6 +49,21 @@ function subcategory($args) {
     include '../core/template/default.php';
 }
 
+function search($args) {
+    global $system, $system_user_id, $_user;
+    if($system->auth() && $_user['ban'] != 0)
+        $system->printError(100);
+    $search = $args['search'];
+    $db = $system->db();
+    $query = $db->query("SELECT * FROM `products` WHERE `name` LIKE '%${search}%'");
+    if(!$query->num_rows)
+        $system->printError(404);
+    $title = "Бригада | Поиск товара «${search}»";
+    $mode = "search";
+    $content = '../core/template/categories/subcategory+search.php';
+    include '../core/template/default.php';
+}
+
 function instruction() {
     global $system, $system_user_id, $_user;
     if($system->auth() && $_user['ban'] != 0)

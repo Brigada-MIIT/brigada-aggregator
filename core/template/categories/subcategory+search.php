@@ -8,7 +8,7 @@
     <?php
         $main_title = "Товары подкатегории «".$name_category."»";
         if($mode == "search")
-            $main_title = "Результат поиска товаров по запросу ".$name_category."»...";
+            $main_title = "Результат поиска товаров по запросу ".$search."»...";
     ?>
     <h2 class="popular-products-title mt-5" style="margin-bottom: 1rem;"><?php echo $main_title; ?></h2>
     <div class="product-categories row">
