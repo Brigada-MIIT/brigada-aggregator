@@ -25,7 +25,7 @@ function category($args) {
     $id = $args['id'];
     $db = $system->db();
     $query = $db->query("SELECT * FROM `subcategories` WHERE `category_id` = ${id}");
-    if($query->num_rows != 1)
+    if(!$query->num_rows)
         $system->printError(404);
     $name_category = $db->query("SELECT * FROM `categories` WHERE `id` = ${id}")->fetch_assoc()["name"];
     $title = "Бригада | Категория «${name_category}»";
