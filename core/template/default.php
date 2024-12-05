@@ -53,7 +53,7 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="left: auto; right: 0">
                                     <a class="dropdown-item" href="/profile/'.$system_user_id.'">Профиль</a>
                                     <a class="dropdown-item" href="/profile/uploads">Мои загрузки</a>';
-                    if($system->haveUserPermission($system_user_id, "CREATE_UPLOADS") && $system->userinfo($system_user_id)['ban_upload'] == 0) echo '
+                    if($system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES") && $system->userinfo($system_user_id)['ban_upload'] == 0) echo '
                                     <a class="dropdown-item" href="/uploads/create">Создать загрузку</a>';
                     if($system->haveUserPermission($system_user_id, "MANAGE_USERS") || $system->haveUserPermission($system_user_id, "MANAGE_SETTINGS")) echo '
                                     <hr style="margin-top: 5px;margin-bottom: 4px;">';

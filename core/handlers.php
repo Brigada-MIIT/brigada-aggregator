@@ -331,7 +331,7 @@ function api_register() {
     if ($query->num_rows !== 1)
         res(7);
     $id = $query->fetch_assoc()['id'];
-    $query = $db->query("INSERT INTO `permissions` (`id`, `userid`, `ACCESS`, `MANAGE_USERS`, `MANAGE_SETTINGS`, `VIEW_UPLOADS`, `VIEW_HIDDEN_UPLOADS`, `CREATE_UPLOADS`, `EDIT_UPLOADS`, `EDIT_ALL_UPLOADS`, `DELETE_UPLOADS`, `DELETE_ALL_UPLOADS`, `MANAGE_CATEGORIES`) VALUES (NULL, '$id', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0')");
+    $query = $db->query("INSERT INTO `permissions` (`id`, `userid`, `ACCESS`, `MANAGE_USERS`, `MANAGE_SETTINGS`, `MANAGE_CATEGORIES`, `MANAGE_PRODUCTS`) VALUES (NULL, '$id', '0', '0', '0', '0', '0')");
     $system->send_email_verification($emailSendHash);
     res(1);
 }
@@ -818,7 +818,7 @@ function api_user_changepassword() {
     res(1, "Пароль успешно изменен! Переавторизируйтесь на сайте, текущая сессия закрыта.");
 }
 
-function download_moderation_tool() {
+/*function download_moderation_tool() {
     global $system, $system_user_id, $_user;
     if (!$system->haveUserPermission($system_user_id, "DOWNLOAD_MODERTOOL"))
         Location("/");
@@ -834,4 +834,4 @@ function download_moderation_tool() {
         readfile($file);
         exit;
     }
-}
+}*/
