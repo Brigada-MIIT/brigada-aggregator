@@ -203,18 +203,6 @@ function profile_edit() {
     include '../core/template/default.php';
 }
 
-function profile_uploads() {
-    global $system, $system_user_id, $_user;
-    if (!$system->auth())
-        Location("/app/auth", "/profile/uploads");
-    if ($_user['ban'] != 0)
-        $system->printError(100);
-    $title = "Бригада | Мои загрузки";
-    $db = $system->db();
-    $content = '../core/template/profile/uploads.php';
-    include '../core/template/default.php';
-}
-
 function profile_avatar() {
     global $system, $system_user_id, $_user;
     if (!$system->auth())
@@ -234,6 +222,41 @@ function admin_categories() {
     $content = '../core/template/admin/categories/main.php';
     include '../core/template/default.php';
 }
+
+function admin_categories_edit($args) {
+    global $system, $system_user_id, $_user;
+    if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
+        Location("/app/auth", "/app/categories");
+    $id = $args['id'];
+    $db = $system->db();
+    $query = $db->query("SELECT * FROM `categories` WHERE id = '$id' LIMIT 1");
+    if(!$query->num_rows)
+        $system->printError(404);
+    $result = $query->fetch_assoc();
+    $name_category = $result['name'];
+    $settings = $system->db()->query("SELECT * FROM `settings` LIMIT 1")->fetch_assoc();
+    $title = "Бригада | Управление категорией «${name_category}»";
+    $content = '../core/template/admin/categories/category.php';
+    include '../core/template/default.php';
+}
+
+function admin_subcategories_edit($args) {
+    global $system, $system_user_id, $_user;
+    if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
+        Location("/app/auth", "/app/categories");
+    $id = $args['id'];
+    $db = $system->db();
+    $query = $db->query("SELECT * FROM `subcategories` WHERE id = '$id' LIMIT 1");
+    if(!$query->num_rows)
+        $system->printError(404);
+    $result = $query->fetch_assoc();
+    $name_category = $result['name'];
+    $settings = $system->db()->query("SELECT * FROM `settings` LIMIT 1")->fetch_assoc();
+    $title = "Бригада | Управление категорией «${name_category}»";
+    $content = '../core/template/admin/categories/subcategory.php';
+    include '../core/template/default.php';
+}
+
 // ================ API ================ \\
 
 function api_search() {

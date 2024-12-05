@@ -24,6 +24,8 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/profile/edit', 'profile_edit');
     $r->addRoute('GET', '/profile/edit/avatar', 'profile_avatar');
     $r->addRoute('GET', '/app/categories', 'admin_categories');
+    $r->addRoute('GET', '/app/categories/{id:\d+}/edit', 'admin_categories_edit');
+    $r->addRoute('GET', '/app/subcategories/{id:\d+}/edit', 'admin_subcategories_edit');
     //*** API ***\\
     $r->addRoute(['GET', 'POST'], '/api/search', 'api_search');
     $r->addRoute('POST', '/api/login', 'api_login');
