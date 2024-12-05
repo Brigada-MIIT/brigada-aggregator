@@ -13,7 +13,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="/assets/js/sweetalert2.js"></script>
 </head>
-<body class="d-flex align-items-center justify-content-center" style="background-color: rgb(237, 243, 249); height: 100vh;">
+<body class="d-flex align-items-center justify-content-center">
 <main class="form-signin d-flex align-items-center">
     <div class="color-strip"></div>
     <div class="logo-container">
