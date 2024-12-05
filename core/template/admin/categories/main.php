@@ -43,7 +43,7 @@
             },
             "columns": [
                 { "data": 'id' },
-                { "data": 'category_name' }
+                { "data": 'name' }
             ],
             "paging": true,
             "lengthMenu": [ 10, 25, 50 ],
