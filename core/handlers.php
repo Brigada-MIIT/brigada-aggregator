@@ -926,11 +926,12 @@ function api_categories_edit() {
     $id = $_REQUEST['id'];
     $name = $_REQUEST['name'];
     $description = $_REQUEST['description'];
-    if(!$id || !$name || !$description)
+    $picture_url = $_REQUEST['picture_url'];
+    if(!$id || !$name || !$description || $picture_url)
         res(0);
     $db = $system->db();
     try {
-        $db->query("UPDATE `categories` SET `name` = '$name', `description` = '$description' WHERE `id` = '$id'");
+        $db->query("UPDATE `categories` SET `name` = '$name', `description` = '$description', `picture_url` = '$picture_url' WHERE `id` = '$id'");
     }
     catch(Error $e) {
         res(0);
