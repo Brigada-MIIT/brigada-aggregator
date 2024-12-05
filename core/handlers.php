@@ -226,6 +226,14 @@ function profile_avatar() {
     include '../core/template/default.php';
 }
 
+function admin_categories() {
+    global $system, $system_user_id, $_user;
+    if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
+        Location("/app/auth", "/app/categories");
+    $title = "Бригада | Управление категориями";
+    $content = '../core/template/admin/categories/main.php';
+    include '../core/template/default.php';
+}
 // ================ API ================ \\
 
 function api_search() {
@@ -812,6 +820,77 @@ function api_user_changepassword() {
     setcookie("id", $id, time()-1, "/");
     setcookie("usid", $solt, time()-1, "/");
     res(1, "Пароль успешно изменен! Переавторизируйтесь на сайте, текущая сессия закрыта.");
+}
+
+function api_categories_get() {
+    global $system, $system_user_id, $_user;
+    if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
+        res(0);
+
+    $s = $_REQUEST['s'];
+    if(is_null($s))
+        $s = 0;
+
+    header('Content-Type: text/html; charset=utf-8');
+    setlocale(LC_ALL, "ru_RU");
+
+    $db = $system->db();
+    $limit = isset($_REQUEST['limit']) ? $_REQUEST['limit'] : 10; // Количество записей на странице
+    if($limit > 100) die("limit should be < 100");
+    $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : 1; // Номер страницы
+    $offset = ($page - 1) * $limit; // Смещение
+    $searchTerm = isset($_REQUEST['search']) ? $_REQUEST['search'] : ''; // Термин поиска
+    $orderBy = isset($_REQUEST['order']) ? intval($_REQUEST['order']) : 0; // Поле для сортировки
+    $orderDir = isset($_REQUEST['dir']) ? $_REQUEST['dir'] : 'DESC'; // Направление сортировки
+
+    switch($orderBy) {
+        case 0:
+            $order = "id";
+            break;
+        case 1:
+            $order = "name";
+            break;
+        default:
+            $order = "id";
+            break;
+    }
+
+    $query = 0;
+
+    if($s == 0)
+        $query = $db->query("SELECT COUNT(*) as count FROM `categories`");
+    else
+        $query = $db->query("SELECT COUNT(*) as count FROM `subcategories` WHERE `category_id` = '$s'");
+    if(!$query) die("MySQL error count query");
+    $count = $query->fetch_assoc()['count'];
+
+    if($s == 0)
+        $query = $db->query("SELECT `id`, `name` FROM `categories`
+        WHERE (`name` LIKE '%$searchTerm%' OR `id` LIKE '%$searchTerm%')
+        ORDER BY `$order` $orderDir 
+        LIMIT $limit OFFSET $offset");
+    else
+        $query = $db->query("SELECT `id`, `name` FROM `subcategories`
+        WHERE (`name` LIKE '%$searchTerm%' OR `id` LIKE '%$searchTerm%') AND `category_id` = '$s'
+        ORDER BY `$order` $orderDir 
+        LIMIT $limit OFFSET $offset");
+    if(!$query) die("MySQL error query");
+    $data = array();
+    if ($query->num_rows > 0) {
+        while($row = $query->fetch_assoc()) {
+            $row['name'] = "<a style='color: inherit' href='/app/categories/".$row['id']."/edit'>".$row['name']."</a>";
+            $row['id'] = "<a target='_blank' href='/app/categories/".$row['id']."/edit'>".$row['id']."</a>";
+            $data[] = $row;
+        }
+    }
+
+    $response = array(
+        "count" => intval($count),
+        "filtred_count" => ($searchTerm == '') ? intval($count) : $query->num_rows,
+        "data" => $data
+    );
+
+    echo json_encode($response);
 }
 
 /*function download_moderation_tool() {

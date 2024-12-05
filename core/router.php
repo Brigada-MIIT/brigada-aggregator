@@ -23,6 +23,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/profile/{id:\d+}', 'profile');
     $r->addRoute('GET', '/profile/edit', 'profile_edit');
     $r->addRoute('GET', '/profile/edit/avatar', 'profile_avatar');
+    $r->addRoute('GET', '/app/categories', 'admin_categories');
     //*** API ***\\
     $r->addRoute(['GET', 'POST'], '/api/search', 'api_search');
     $r->addRoute('POST', '/api/login', 'api_login');
@@ -43,6 +44,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('POST', '/api/profile/avatar/delete', 'api_profile_avatar_delete'); // для личного удаления
     $r->addRoute('POST', '/api/profile/avatar/delete/{id:\d+}', 'api_profile_avatar_delete'); // для удаления через админ-панель
     $r->addRoute('POST', '/api/profile/change_password', 'api_profile_change_password');
+    $r->addRoute('POST', '/api/categories/get_categories', 'api_categories_get');
 });
 
 $httpMethod = $_SERVER['REQUEST_METHOD'];
