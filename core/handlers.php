@@ -878,8 +878,11 @@ function api_categories_get() {
     $data = array();
     if ($query->num_rows > 0) {
         while($row = $query->fetch_assoc()) {
-            $row['name'] = "<a style='color: inherit' href='/app/categories/".$row['id']."/edit'>".$row['name']."</a>";
-            $row['id'] = "<a target='_blank' href='/app/categories/".$row['id']."/edit'>".$row['id']."</a>";
+            $r = "categories";
+            if($s != 0)
+                $r = "subcategories";
+            $row['name'] = "<a style='color: inherit' href='/app/".$r."/".$row['id']."/edit'>".$row['name']."</a>";
+            $row['id'] = "<a target='_blank' href='/app/".$r."/".$row['id']."/edit'>".$row['id']."</a>";
             $data[] = $row;
         }
     }
