@@ -52,7 +52,7 @@
         });
 
         // Обработчик события изменения значения в селекте
-        $('#selectValue').on('change', function() {
+        $('#categories').on('change', function() {
             table.ajax.reload(); // Перезагрузка таблицы при изменении значения
         });
     });
