@@ -79,15 +79,17 @@
             </select>
         </div>
     </div>
-    <table id="fileTable" class="table table-striped table-bordered" style="background-color: #fff">
-        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col" id="name">Название категории</th>
-        </tr>
-        </thead>
-        <tbody>
+    <div class="col-12 mt-5">
+        <table id="fileTable" class="table table-striped table-bordered" style="background-color: #fff">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col" id="name">Название категории</th>
+            </tr>
+            </thead>
+            <tbody>
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 </div>
