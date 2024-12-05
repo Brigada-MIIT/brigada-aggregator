@@ -54,6 +54,10 @@
         // Обработчик события изменения значения в селекте
         $('#categories').on('change', function() {
             table.ajax.reload(); // Перезагрузка таблицы при изменении значения
+            if($('#categories').val() == '0')
+                $('#name').text("Название категории");
+            else
+                $('#name').text("Название подкатегории");
         });
     });
 </script>
@@ -79,7 +83,7 @@
         <thead>
         <tr>
             <th scope="col">ID</th>
-            <th scope="col">Название категории</th>
+            <th scope="col" id="name">Название категории</th>
         </tr>
         </thead>
         <tbody>
