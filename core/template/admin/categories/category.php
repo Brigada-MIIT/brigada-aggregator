@@ -4,7 +4,7 @@
         <div class="col-12">
             <div class="in">
                 <label for="name">Название:</label><br>
-                <input id="name" type="text" disabled placeholder="Название категории..." value="<?php echo $result['name'] ?>">
+                <input id="name" type="text" placeholder="Название категории..." value="<?php echo $result['name'] ?>">
             </div>
         </div>
         <div class="col-12">
