@@ -47,6 +47,10 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('POST', '/api/profile/avatar/delete/{id:\d+}', 'api_profile_avatar_delete'); // для удаления через админ-панель
     $r->addRoute('POST', '/api/profile/change_password', 'api_profile_change_password');
     $r->addRoute('POST', '/api/categories/get_categories', 'api_categories_get');
+    $r->addRoute('POST', '/api/categories/edit', 'api_categories_edit');
+    $r->addRoute('POST', '/api/categories/delete', 'api_categories_delete');
+    $r->addRoute('POST', '/api/subcategories/edit', 'api_categories_edit');
+    $r->addRoute('POST', '/api/subcategories/delete', 'api_categories_delete');
 });
 
 $httpMethod = $_SERVER['REQUEST_METHOD'];

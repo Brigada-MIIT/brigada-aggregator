@@ -919,6 +919,43 @@ function api_categories_get() {
     echo json_encode($response);
 }
 
+function api_categories_edit() {
+    global $system, $system_user_id, $_user;
+    if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
+        res(0);
+    $id = $_REQUEST['id'];
+    $name = $_REQUEST['name'];
+    $description = $_REQUEST['description'];
+    if(!$id || !$name || !$description)
+        res(0);
+    $db = $system->db();
+    try {
+        $db->query("UPDATE `categories` SET `name` = '$name', `description` = '$description' WHERE `id` = '$id'");
+    }
+    catch(Error $e) {
+        res(0);
+    };
+    res(1);
+}
+
+function api_categories_delete() {
+    global $system, $system_user_id, $_user;
+    if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
+        res(0);
+}
+
+function api_subcategories_edit() {
+    global $system, $system_user_id, $_user;
+    if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
+        res(0);
+}
+
+function api_subcategories_delete() {
+    global $system, $system_user_id, $_user;
+    if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
+        res(0);
+}
+
 /*function download_moderation_tool() {
     global $system, $system_user_id, $_user;
     if (!$system->haveUserPermission($system_user_id, "DOWNLOAD_MODERTOOL"))

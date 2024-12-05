@@ -41,7 +41,7 @@
                 if (data.result == 1) {
                     Swal.fire({
                         title: "Успешно!",
-                        text: "Ваш профиль был изменён",
+                        text: "Категория была отредактирована",
                         icon: "success"
                     }).then((result) => {
                         if (result.isConfirmed) {
