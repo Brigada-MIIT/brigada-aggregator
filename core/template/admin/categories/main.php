@@ -67,9 +67,10 @@
                 <?php
                     $db = $system->db();
                     $query = $db->query("SELECT * FROM `categories`");
-                    $result = $query->fetch_assoc();
-                    for($i = 0; $i < $query->num_rows; $i++)
-                        echo '<option value="'.$result['id'].'">'.$result['name'].'</option>';
+                    for($i = 0; $i < $query->num_rows; $i++) {
+                        $result = $query->fetch_assoc();
+                        echo '<option value="' . $result['id'] . '">' . $result['name'] . '</option>';
+                    }
                 ?>
             </select>
         </div>
