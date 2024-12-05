@@ -73,7 +73,11 @@
                     $query = $db->query("SELECT * FROM `categories`");
                     for($i = 0; $i < $query->num_rows; $i++) {
                         $result = $query->fetch_assoc();
-                        echo '<option value="' . $result['id'] . '">' . $result['name'] . '</option>';
+                        $r = "";
+                        if($_REQUEST['s'])
+                            if($_REQUEST['s'] == $result['id'])
+                                $r = "selected";
+                        echo '<option '.$r.' value="' . $result['id'] . '">' . $result['name'] . '</option>';
                     }
                 ?>
             </select>
