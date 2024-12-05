@@ -927,9 +927,8 @@ function api_categories_edit() {
     $name = $_REQUEST['name'];
     $description = $_REQUEST['description'];
     $picture_url = $_REQUEST['picture_url'];
-    print_r($id . $name . $description . $picture_url);
     if(!$id || !$name || !$description || $picture_url)
-        res(0, "Where is args?");
+        res(0, "Where is args?" . $id . $name . $description . $picture_url);
     $db = $system->db();
     try {
         $db->query("UPDATE `categories` SET `name` = '$name', `description` = '$description', `picture_url` = '$picture_url' WHERE `id` = '$id'");
