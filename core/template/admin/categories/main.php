@@ -10,6 +10,11 @@
 </style>
 <script>
     $(document).ready(function() {
+        if($('#categories').val() == '0')
+            $('#name').text("Название категории");
+        else
+            $('#name').text("Название подкатегории");
+
         var table = $('#fileTable').DataTable({
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Russian.json"
