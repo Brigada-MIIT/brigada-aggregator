@@ -6,9 +6,7 @@ use PHPMailer\PHPMailer\Exception;
 
 function main() {
     global $system, $system_user_id, $_user;
-    if(!$system->auth())
-        Location("/app/auth", "/");
-    if($_user['ban'] != 0)
+    if($system->auth() && $_user['ban'] != 0)
         $system->printError(100);
     if(!empty($_COOKIE['last'])) {
         $location = trim($_COOKIE['last']);
@@ -232,8 +230,6 @@ function profile_avatar() {
 
 function api_search() {
     global $system, $system_user_id, $_user;
-    if(!$system->auth())
-        res(0);
     $s = $_REQUEST['s'];
     if(!$s)
         res(0);
