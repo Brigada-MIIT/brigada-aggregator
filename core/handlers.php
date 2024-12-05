@@ -143,7 +143,7 @@ function users() {
     if(!$system->haveUserPermission($system_user_id, "MANAGE_USERS"))
         $system->printError(403);
     $title = "Бригада | Пользователи";
-    $content = '../core/template/users/main.php';
+    $content = '../core/template/admin/users/main.php';
     include '../core/template/default.php';
 }
 
@@ -160,7 +160,7 @@ function users_edit($args) {
         Location("/app/users");
     $title = "Бригада | Управление пользователем (". $user_id .")";
     $settings = $system->db()->query("SELECT * FROM `settings` LIMIT 1")->fetch_assoc();
-    $content = '../core/template/users/edit.php';
+    $content = '../core/template/admin/users/edit.php';
     include '../core/template/default.php';
 }
 
@@ -172,7 +172,7 @@ function settings() {
         $system->printError(403);
     $title = "Бригада | Настройки сайта";
     $settings = $system->db()->query("SELECT * FROM `settings` LIMIT 1")->fetch_assoc();
-    $content = '../core/template/settings/settings.php';
+    $content = '../core/template/admin/settings/settings.php';
     include '../core/template/default.php';
 }
 

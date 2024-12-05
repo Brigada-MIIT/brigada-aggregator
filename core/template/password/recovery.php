@@ -1,12 +1,12 @@
 <div class="container">  
     <p class="page-title">Восстановление пароля</p>
     <h4>Вы на странице восстановления пароля. Пожалуйста, введите ваш Email-адрес.
-        <br>В  случае, если аккаунт существует, на указанный адрес будет выслана инструкция по смене пароля.
+        <br>В случае, если аккаунт существует, на указанный адрес будет выслана инструкция по смене пароля.
     </h4>
     <div class="form">
         <div class="col-12">
             <div class="in">
-                <label for="email">Email-адрес</label><br>
+                <label for="email">Email-адрес:</label><br>
                 <input type="text" class="text" id="email" <?php if(!empty($_REQUEST['email'])) echo "value='".$_REQUEST['email']."'" ?> placeholder="Введите адрес...">
             </div>
         </div>
