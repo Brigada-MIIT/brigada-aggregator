@@ -927,6 +927,7 @@ function api_categories_edit() {
     $name = $_REQUEST['name'];
     $description = $_REQUEST['description'];
     $picture_url = $_REQUEST['picture_url'];
+    print_r($id . $name . $description . $picture_url);
     if(!$id || !$name || !$description || $picture_url)
         res(0, "Where is args?");
     $db = $system->db();
