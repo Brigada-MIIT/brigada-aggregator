@@ -63,7 +63,7 @@
         <div class="form-group">
             <label for="categories">Выберите категорию для просмотра подкатегорий:</label>
             <select id="categories" class="form-control">
-                <option value="0">--Основной режим--</option>
+                <option value="0">--Режим просмотра категорий--</option>
                 <?php
                     $db = $system->db();
                     $query = $db->query("SELECT * FROM `categories`");
