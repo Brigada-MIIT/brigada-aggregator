@@ -841,7 +841,7 @@ function api_categories_get() {
     $offset = ($page - 1) * $limit; // Смещение
     $searchTerm = isset($_REQUEST['search']) ? $_REQUEST['search'] : ''; // Термин поиска
     $orderBy = isset($_REQUEST['order']) ? intval($_REQUEST['order']) : 0; // Поле для сортировки
-    $orderDir = isset($_REQUEST['dir']) ? $_REQUEST['dir'] : 'ASC'; // Направление сортировки
+    $orderDir = isset($_REQUEST['dir']) ? $_REQUEST['dir'] : 'DESC'; // Направление сортировки
 
     switch($orderBy) {
         case 0:
