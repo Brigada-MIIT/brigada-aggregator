@@ -961,7 +961,7 @@ function api_categories_edit() {
     if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
         res(0);
     $id = !empty(intval($_REQUEST['id'])) ? intval($_REQUEST['id']) : res(0, "id error");
-    $name = !empty($_REQUEST['name']) ? $_REQUEST['name'] : res(0, "Введите имя категории");
+    $name = !empty($_REQUEST['name']) ? $_REQUEST['name'] : res(0, "Введите название категории");
     $description = !empty($_REQUEST['description']) ? "'".$_REQUEST['description']."'" : "NULL";
     $picture_url = !empty($_REQUEST['picture_url']) ? "'".$_REQUEST['picture_url']."'" : "NULL";
     $db = $system->db();
@@ -994,7 +994,7 @@ function api_subcategories_edit() {
     if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
         res(0);
     $id = !empty(intval($_REQUEST['id'])) ? intval($_REQUEST['id']) : res(0, "id error");
-    $name = !empty($_REQUEST['name']) ? $_REQUEST['name'] : res(0, "Введите имя подкатегории");
+    $name = !empty($_REQUEST['name']) ? $_REQUEST['name'] : res(0, "Введите название подкатегории");
     $category_id = !empty(intval($_REQUEST['category_id'])) ? intval($_REQUEST['category_id']) : res(0, "Выберите категорию");
     $description = !empty($_REQUEST['description']) ? "'".$_REQUEST['description']."'" : "NULL";
     $picture_url = !empty($_REQUEST['picture_url']) ? "'".$_REQUEST['picture_url']."'" : "NULL";
