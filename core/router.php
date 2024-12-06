@@ -24,6 +24,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/profile/edit', 'profile_edit');
     $r->addRoute('GET', '/profile/edit/avatar', 'profile_avatar');
     $r->addRoute('GET', '/app/categories', 'admin_categories');
+    $r->addRoute('GET', '/app/categories/create', 'admin_categories_create');
     $r->addRoute('GET', '/app/categories/{id:\d+}/edit', 'admin_categories_edit');
     $r->addRoute('GET', '/app/subcategories/{id:\d+}/edit', 'admin_subcategories_edit');
     //*** API ***\\
@@ -47,6 +48,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('POST', '/api/profile/avatar/delete/{id:\d+}', 'api_profile_avatar_delete'); // для удаления через админ-панель
     $r->addRoute('POST', '/api/profile/change_password', 'api_profile_change_password');
     $r->addRoute('POST', '/api/categories/get_categories', 'api_categories_get');
+    $r->addRoute('POST', '/api/categories/create', 'api_categories_create');
     $r->addRoute('POST', '/api/categories/edit', 'api_categories_edit');
     $r->addRoute('POST', '/api/categories/delete', 'api_categories_delete');
     $r->addRoute('POST', '/api/subcategories/edit', 'api_subcategories_edit');

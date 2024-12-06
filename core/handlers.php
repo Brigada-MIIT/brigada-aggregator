@@ -223,6 +223,15 @@ function admin_categories() {
     include '../core/template/default.php';
 }
 
+function admin_categories_create() {
+    global $system, $system_user_id, $_user;
+    if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
+        Location("/app/auth", "/app/categories");
+    $title = "Бригада | Создание категории";
+    $content = '../core/template/admin/categories/create.php';
+    include '../core/template/default.php';
+}
+
 function admin_categories_edit($args) {
     global $system, $system_user_id, $_user;
     if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
@@ -919,6 +928,12 @@ function api_categories_get() {
     echo json_encode($response);
 }
 
+function api_categories_create() {
+    global $system, $system_user_id, $_user;
+    if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
+        res(0);
+}
+
 function api_categories_edit() {
     global $system, $system_user_id, $_user;
     if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
@@ -941,6 +956,15 @@ function api_categories_delete() {
     global $system, $system_user_id, $_user;
     if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
         res(0);
+    $id = $_REQUEST['id'];
+    if(is_null($id))
+        res(0, "Where is id?");
+    $db = $system->db();
+    $query = $db->query("SELECT * FROM `subcategories` WHERE `category_id` = '$id'`");
+    if($query->num_rows)
+        res(2);
+    $query = $db->query("DELETE FROM `categories` WHERE `id` = '$id'");
+    res(1);
 }
 
 function api_subcategories_edit() {
@@ -969,6 +993,15 @@ function api_subcategories_delete() {
     global $system, $system_user_id, $_user;
     if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
         res(0);
+    $id = $_REQUEST['id'];
+    if(is_null($id))
+        res(0, "Where is id?");
+    $db = $system->db();
+    $query = $db->query("SELECT * FROM `products` WHERE `subcategory_id` = '$id'`");
+    if($query->num_rows)
+        res(2);
+    $query = $db->query("DELETE FROM `subcategories` WHERE `id` = '$id'");
+    res(1);
 }
 
 /*function download_moderation_tool() {
