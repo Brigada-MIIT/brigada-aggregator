@@ -98,7 +98,7 @@
         <div class="col-12" style="margin-top: 5%;">
             <div class="in">
                 <div class="d-flex flex-wrap">
-                    <button id="submit" type="submit" class="btn btn-primary mr-4 mb-2" onclick="create();">Создать</button>
+                    <button id="submit" type="submit" class="btn btn-primary mr-4 mb-2" onclick="save();">Сохранить</button>
                     <button id="submit" type="submit" class="btn btn-danger mr-4 mb-2" onclick="submit_delete();">Удалить товар</button>
                 </div>
             </div>
@@ -182,7 +182,7 @@
         return shopsData;
     }
 
-    function create() {
+    function save() {
         const shopsData = validateShops();
         console.log(shopsData)
         if (!shopsData || !shopsData.length) {
@@ -205,6 +205,7 @@
         }
 
         const productData = {
+            id: "<?php echo $id ?>",
             subcategory_id: $("#category_id").val().trim(),
             name: $("#name").val().trim(),
             description: $("#description").val().trim(),
@@ -216,7 +217,7 @@
 
         $.ajax({
             type: 'post',
-            url: "/api/products/create",
+            url: "/api/products/edit",
             data: productData,
             dataType: 'json',
             success: function(data){
