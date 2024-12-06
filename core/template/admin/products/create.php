@@ -61,7 +61,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="shops"></div>
+                <div id="shops" style="padding-bottom: 10px"></div>
                 <button type="button" class="btn btn-info mt-2" id="add-shop">Добавить магазин</button>
             </div>
         </div>
