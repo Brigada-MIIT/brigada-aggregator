@@ -154,7 +154,7 @@
     function create() {
         const shopsData = validateShops();
         console.log(shopsData)
-        if (!shopsData || shopsData == []) {
+        if (!shopsData || !shopsData.length]) {
             Swal.fire({
                 icon: 'error',
                 title: 'Не заполнен раздел магазинов',
