@@ -1,10 +1,10 @@
 <div class="container">
-    <p class="page-title">Редактирование категории «<?php echo $name_category; ?>»</p>
+    <p class="page-title">Редактирование подкатегории «<?php echo $name_category; ?>»</p>
     <div class="form">
         <div class="col-12">
             <div class="in">
                 <label for="name">Название:</label><br>
-                <input id="name" type="text" placeholder="Название категории..." value="<?php echo $result['name'] ?>">
+                <input id="name" type="text" placeholder="Название подкатегории..." value="<?php echo $result['name'] ?>">
             </div>
         </div>
         <div class="col-12">
@@ -16,8 +16,11 @@
                         $db = $system->db();
                         $query = $db->query("SELECT * FROM `categories`");
                         for($i = 0; $i < $query->num_rows; $i++) {
-                            $result = $query->fetch_assoc();
-                            echo '<option '.$r.' value="' . $result['id'] . '">' . $result['name'] . '</option>';
+                            $res = $query->fetch_assoc();
+                            $r = "";
+                            if($res['id'] == $id)
+                                $r = "selected";
+                            echo '<option '.$r.' value="' . $res['id'] . '">' . $res['name'] . '</option>';
                         }
                     ?>
                 </select>
@@ -26,7 +29,7 @@
         <div class="col-12">
             <div class="in">
                 <label for="description">Описание:</label><br>
-                <textarea id="description" type="text" placeholder="Описание категории..." style="width: 75%; display: block;"><?php echo $result['description'] ?></textarea>
+                <textarea id="description" type="text" placeholder="Описание подкатегории..." style="width: 75%; display: block;"><?php echo $result['description'] ?></textarea>
             </div>
         </div>
         <div class="col-12">
@@ -66,6 +69,7 @@
                     });
 
                     document.getElementById('submit').onclick = "";
+                    document.getElementById('category_id').disabled = true;
                     document.getElementById('name').disabled = true;
                     document.getElementById('description').disabled = true;
                     document.getElementById('picture_url').disabled = true;
