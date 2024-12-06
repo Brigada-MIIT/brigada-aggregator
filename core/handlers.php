@@ -285,6 +285,17 @@ function admin_products() {
     include '../core/template/default.php';
 }
 
+function admin_products_create() {
+    global $system, $system_user_id, $_user;
+    if(!$system->auth())
+        Location("/app/auth", "/app/products");
+    if(!$system->haveUserPermission($system_user_id, "MANAGE_PRODUCTS"))
+        $system->printError(403);
+    $title = "Бригада | Создание товара";
+    $content = '../core/template/admin/products/create.php';
+    include '../core/template/default.php';
+}
+
 function admin_products_edit($args) {
     global $system, $system_user_id, $_user;
     if(!$system->auth())
