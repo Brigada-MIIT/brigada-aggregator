@@ -100,12 +100,12 @@
                     <input id="email_verifed" type="checkbox"<?php if($user['email_verifed'] != 0) echo ' checked disabled'; ?>>
                 </div>
             </div>
-            <div class="col-12">
+            <!--<div class="col-12">
                 <div class="in">
                     <label for="ban_upload">Блокировка на загрузку файлов</label><br>
-                    <input id="ban_upload" type="checkbox"<?php if($user['ban_upload'] != 0) echo ' checked'; ?>>
+                    <input id="ban_upload" type="checkbox"<?php //if($user['ban_upload'] != 0) echo ' checked'; ?>>
                 </div>
-            </div>
+            </div>-->
             <div class="col-12">
                 <div class="in">
                     <label for="ban">Ограничение доступа к сайту</label><br>
