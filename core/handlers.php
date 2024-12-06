@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 function main() {
-    Location("/a/index.html");
+    //Location("/a/index.html");
     global $system, $system_user_id, $_user;
     if($system->auth() && $_user['ban'] != 0)
         $system->printError(100);
