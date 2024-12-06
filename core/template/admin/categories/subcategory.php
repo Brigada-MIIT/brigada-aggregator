@@ -129,7 +129,9 @@
                         title: "Успешно!",
                         text: "Подкатегория «<?php echo $name_category; ?>» была удалена",
                         icon: "success"
-                    })
+                    }).then((result) => {
+                        location.replace("/app/categories");
+                    });
                 }
                 else if (res.result == 2) {
                     Swal.fire({
