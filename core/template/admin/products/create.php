@@ -149,6 +149,7 @@
 
     function create() {
         const shopsData = validateShops();
+        console.log(shopsData)
         if (!shopsData) return;
 
         const productData = {
