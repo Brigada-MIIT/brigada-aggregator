@@ -119,7 +119,7 @@
             const logo = shop.querySelector('.shop-logo').value.trim();
 
 
-            if (isNaN(price) || (price < 0 || price > 10000000000) || !name || !logo || !url) {
+            if (!isNaN(price) || (price < 0 || price > 10000000000) || !name || !logo || !url) {
                 count_null++;
                 return false;
             }
