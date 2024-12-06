@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div id="shops"></div>
-                <button type="button" class="btn btn-success mt-2" id="add-shop">Добавить магазин</button>
+                <button type="button" class="btn btn-info mt-2" id="add-shop">Добавить магазин</button>
             </div>
         </div>
         <div class="col-12" style="margin-top: 5%;">
