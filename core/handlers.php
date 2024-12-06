@@ -1096,7 +1096,7 @@ function api_products_get() {
         ORDER BY `$order` $orderDir 
         LIMIT $limit OFFSET $offset");
     else
-        $query = $db->query("SELECT `id`, `name`, `subcategory_id` FROM `subcategories`
+        $query = $db->query("SELECT `id`, `name`, `subcategory_id` FROM `products`
         WHERE (`name` LIKE '%$searchTerm%' OR `id` LIKE '%$searchTerm%') AND `subcategory_id` = '$s'
         ORDER BY `$order` $orderDir 
         LIMIT $limit OFFSET $offset");
