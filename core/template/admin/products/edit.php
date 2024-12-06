@@ -66,7 +66,7 @@
                 </div>
                 <div id="shops" style="padding-bottom: 10px">
                     <?php
-                        $relationships = $result['relationships'];
+                        $relationships = json_decode($result['relationships']);
                         print_r($relationships);
                     ?>
                 </div>
