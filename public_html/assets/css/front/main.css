@@ -144,3 +144,7 @@ footer {
 .result-count {
   font-weight: bold;
 }
+
+.btn {
+  border-radius: 9px;
+}
