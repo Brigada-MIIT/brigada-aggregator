@@ -103,6 +103,7 @@
     let count_null = 0
 
     function validateShops() {
+        count_null = 0;
         const shops = document.querySelectorAll('.shop-form');
         const shopsData = [];
         let isFirst = true;
@@ -119,7 +120,27 @@
             const logo = shop.querySelector('.shop-logo').value.trim();
 
 
-            if (!isNaN(price) || (price < 0 || price > 10000000000) || !name || !logo || !url) {
+            if (!url) {
+                count_null++;
+                return false;
+            }
+
+            if (isNaN(price)) {
+                count_null++;
+                return false;
+            }
+
+            if (price < 0 || price > 10000000000) {
+                count_null++;
+                return false;
+            }
+
+            if (!name) {
+                count_null++;
+                return false;
+            }
+
+            if (!logo) {
                 count_null++;
                 return false;
             }
