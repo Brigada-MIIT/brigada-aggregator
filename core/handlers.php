@@ -216,8 +216,10 @@ function profile_avatar() {
 
 function admin_categories() {
     global $system, $system_user_id, $_user;
-    if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
+    if(!$system->auth())
         Location("/app/auth", "/app/categories");
+    if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
+        $system->printError(403);
     $title = "Бригада | Управление категориями";
     $content = '../core/template/admin/categories/main.php';
     include '../core/template/default.php';
@@ -225,8 +227,10 @@ function admin_categories() {
 
 function admin_categories_create() {
     global $system, $system_user_id, $_user;
-    if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
+    if(!$system->auth())
         Location("/app/auth", "/app/categories");
+    if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
+        $system->printError(403);
     $title = "Бригада | Создание категории";
     $content = '../core/template/admin/categories/create.php';
     include '../core/template/default.php';
@@ -234,8 +238,10 @@ function admin_categories_create() {
 
 function admin_categories_edit($args) {
     global $system, $system_user_id, $_user;
-    if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
+    if(!$system->auth())
         Location("/app/auth", "/app/categories");
+    if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
+        $system->printError(403);
     $id = $args['id'];
     $db = $system->db();
     $query = $db->query("SELECT * FROM `categories` WHERE id = '$id' LIMIT 1");
@@ -251,8 +257,10 @@ function admin_categories_edit($args) {
 
 function admin_subcategories_edit($args) {
     global $system, $system_user_id, $_user;
-    if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
+    if(!$system->auth())
         Location("/app/auth", "/app/categories");
+    if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
+        $system->printError(403);
     $id = $args['id'];
     $db = $system->db();
     $query = $db->query("SELECT * FROM `subcategories` WHERE id = '$id' LIMIT 1");
