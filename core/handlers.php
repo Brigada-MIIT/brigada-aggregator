@@ -1170,7 +1170,7 @@ function api_products_create() {
     $query = $db->query("SELECT * FROM `subcategories` WHERE `id` = '$subcategory_id'");
     if(!$query->num_rows)
         res(0, "Subcategory not found");
-    $query = $db->query("INSERT INTO `products` (`id`, `subcategory_id`, `name`, `description`, `picture_url`, `relationships`) VALUES (NULL, '$subcategory_id', '$name', $description, $picture_url, '$relationships')");
+    $query = $db->query("INSERT INTO `products` (`id`, `subcategory_id`, `name`, `description`, `picture_url`, `relationships`) VALUES (NULL, '$subcategory_id', '$name', $description, $picture_url, '".json_encode($relationships)."')");
     if(!$query)
         res(0, "MySQL Error INSERT " . $db->error);
     res(1);
