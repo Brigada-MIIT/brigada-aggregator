@@ -1148,6 +1148,7 @@ function api_products_create() {
     $relationships = !empty($_REQUEST['relationships']) ? $_REQUEST['relationships'] : res(0, "Добавьте хотя бы один магазин для товара");
     $relationships = json_decode($relationships);
     if (json_last_error() === JSON_ERROR_NONE)
+        res(0, $_REQUEST['relationships'] . " : " . json_last_error() . " : \n" . $relationships);
         res(0, "JSON ERROR");
     if(!count($relationships))
         res(0, "JSON Format Error 1");
@@ -1179,8 +1180,7 @@ function api_products_edit() {
     $relationships = !empty($_REQUEST['relationships']) ? $_REQUEST['relationships'] : res(0, "Добавьте хотя бы один магазин для товара");
     $relationships = json_decode($relationships);
     if (json_last_error() === JSON_ERROR_NONE)
-        res(0, $_REQUEST['relationships'] . " : " . json_last_error() . " : \n" . $relationships);
-        res(0, "JSON ERROR\n".$_REQUEST['relationships']);
+        res(0, "JSON ERROR");
     if(!count($relationships))
         res(0, "JSON Format Error 1\n".$relationships);
     for($i = 0; $i < count($relationships); $i++) {
