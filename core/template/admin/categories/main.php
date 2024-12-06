@@ -66,7 +66,7 @@
         });
     });
 </script>
-<div class="container mt-4">
+<div class="container mt-3">
     <div class="row align-items-center">
         <div class="col-6">
             <p class="page-title">Управление категориями</p>
