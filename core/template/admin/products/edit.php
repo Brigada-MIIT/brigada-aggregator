@@ -22,7 +22,7 @@
                             $category_name1 = $query1->fetch_assoc()['name'];
                             $category_name = isset($category_name1) ? $category_name1 : "null";
                             $s = "";
-                            if($res['id'] == $result['category_id'])
+                            if($res['id'] == $result['subcategory_id'])
                                 $s = "selected";
                             echo '<option '.$s.' value="' . $res['id'] . '">' . $res['name'] . ' [' . $category_name . ']</option>';
                         }
