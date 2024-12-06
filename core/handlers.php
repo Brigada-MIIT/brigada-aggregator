@@ -274,6 +274,25 @@ function admin_subcategories_edit($args) {
     include '../core/template/default.php';
 }
 
+function admin_products() {
+    global $system, $system_user_id, $_user;
+    if(!$system->auth())
+        Location("/app/auth", "/app/products");
+    if(!$system->haveUserPermission($system_user_id, "MANAGE_PRODUCTS"))
+        $system->printError(403);
+    $title = "Бригада | Управление товарами";
+    $content = '../core/template/admin/products/main.php';
+    include '../core/template/default.php';
+}
+
+function admin_products_edit($args) {
+    global $system, $system_user_id, $_user;
+    if(!$system->auth())
+        Location("/app/auth", "/app/products");
+    if(!$system->haveUserPermission($system_user_id, "MANAGE_PRODUCTS"))
+        $system->printError(403);
+}
+
 // ================ API ================ \\
 
 function api_search() {
@@ -940,7 +959,7 @@ function api_categories_create() {
     global $system, $system_user_id, $_user;
     if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
         res(0);
-    $name = !empty($_REQUEST['name']) ? $_REQUEST['name'] : res(0, "Введите имя категории");
+    $name = !empty($_REQUEST['name']) ? $_REQUEST['name'] : res(0, "Введите название категории");
     $category_id = !empty($_REQUEST['category_id']) ? intval($_REQUEST['category_id']) : 0;
     $description = !empty($_REQUEST['description']) ? "'".$_REQUEST['description']."'" : "NULL";
     $picture_url = !empty($_REQUEST['picture_url']) ? "'".$_REQUEST['picture_url']."'" : "NULL";
@@ -1024,6 +1043,96 @@ function api_subcategories_delete() {
         res(2);
     $query = $db->query("DELETE FROM `subcategories` WHERE `id` = '$id'");
     res(1);
+}
+
+function api_products_get() {
+    global $system, $system_user_id, $_user;
+    if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
+        res(0);
+
+    $s = $_REQUEST['s'];
+    if(is_null($s))
+        $s = 0;
+
+    header('Content-Type: text/html; charset=utf-8');
+    setlocale(LC_ALL, "ru_RU");
+
+    $db = $system->db();
+    $limit = isset($_REQUEST['limit']) ? $_REQUEST['limit'] : 10; // Количество записей на странице
+    if($limit > 100) die("limit should be < 100");
+    $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : 1; // Номер страницы
+    $offset = ($page - 1) * $limit; // Смещение
+    $searchTerm = isset($_REQUEST['search']) ? $_REQUEST['search'] : ''; // Термин поиска
+    $orderBy = isset($_REQUEST['order']) ? intval($_REQUEST['order']) : 0; // Поле для сортировки
+    $orderDir = isset($_REQUEST['dir']) ? $_REQUEST['dir'] : 'DESC'; // Направление сортировки
+
+    switch($orderBy) {
+        case 0:
+            $order = "id";
+            break;
+        case 1:
+            $order = "name";
+            break;
+        case 2:
+            $order = "subcategory_id";
+            break;
+        default:
+            $order = "id";
+            break;
+    }
+
+    $query = 0;
+
+    if($s == 0)
+        $query = $db->query("SELECT COUNT(*) as count FROM `products`");
+    else
+        $query = $db->query("SELECT COUNT(*) as count FROM `products` WHERE `subcategory_id` = '$s'");
+    if(!$query) die("MySQL error count query");
+    $count = $query->fetch_assoc()['count'];
+
+    if($s == 0)
+        $query = $db->query("SELECT `id`, `name`, `subcategory_id` FROM `products`
+        WHERE (`name` LIKE '%$searchTerm%' OR `id` LIKE '%$searchTerm%')
+        ORDER BY `$order` $orderDir 
+        LIMIT $limit OFFSET $offset");
+    else
+        $query = $db->query("SELECT `id`, `name`, `subcategory_id` FROM `subcategories`
+        WHERE (`name` LIKE '%$searchTerm%' OR `id` LIKE '%$searchTerm%') AND `subcategory_id` = '$s'
+        ORDER BY `$order` $orderDir 
+        LIMIT $limit OFFSET $offset");
+    if(!$query) die("MySQL error query");
+    $data = array();
+    if ($query->num_rows > 0) {
+        while($row = $query->fetch_assoc()) {
+            $row['name'] = "<a style='color: inherit' href='/app/products/".$row['id']."/edit'>".$row['name']."</a>";
+            $row['id'] = "<a target='_blank' href='/app/products/".$row['id']."/edit'>".$row['id']."</a>";
+            $subcategory_id = $row['subcategory_id'];
+            $query1 = $db->query("SELECT `name` FROM `subcategories` WHERE `id` = '$subcategory_id'");
+            $subcategory_name = $query1->fetch_assoc()['name'];
+            $row['subcategory_id'] = "<a target='_blank' href='/app/subcategories/".$subcategory_id."'>".$subcategory_name."</a>";
+            $data[] = $row;
+        }
+    }
+
+    $response = array(
+        "count" => intval($count),
+        "filtred_count" => ($searchTerm == '') ? intval($count) : $query->num_rows,
+        "data" => $data
+    );
+
+    echo json_encode($response);
+}
+
+function api_products_create() {
+
+}
+
+function api_products_edit() {
+
+}
+
+function api_products_delete() {
+
 }
 
 /*function download_moderation_tool() {

@@ -27,6 +27,9 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/app/categories/create', 'admin_categories_create');
     $r->addRoute('GET', '/app/categories/{id:\d+}/edit', 'admin_categories_edit');
     $r->addRoute('GET', '/app/subcategories/{id:\d+}/edit', 'admin_subcategories_edit');
+    $r->addRoute('GET', '/app/products', 'admin_products');
+    $r->addRoute('GET', '/app/products/create', 'admin_products_create');
+    $r->addRoute('GET', '/app/products/{id:\d+}/edit', 'admin_products_edit');
     //*** API ***\\
     $r->addRoute(['GET', 'POST'], '/api/search', 'api_search');
     $r->addRoute('POST', '/api/login', 'api_login');
@@ -53,6 +56,10 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('POST', '/api/categories/delete', 'api_categories_delete');
     $r->addRoute('POST', '/api/subcategories/edit', 'api_subcategories_edit');
     $r->addRoute('POST', '/api/subcategories/delete', 'api_subcategories_delete');
+    $r->addRoute('POST', '/api/products/get_products', 'api_products_get');
+    $r->addRoute('POST', '/api/products/create', 'api_products_create');
+    $r->addRoute('POST', '/api/products/edit', 'api_products_edit');
+    $r->addRoute('POST', '/api/products/delete', 'api_products_delete');
 });
 
 $httpMethod = $_SERVER['REQUEST_METHOD'];
