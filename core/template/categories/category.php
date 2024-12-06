@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="/assets/css/front/categories.css">
+<script src="/assets/js/front/search.js"></script>
 <div class="container mt-4">
     <div class="search-bar-container mt-5">
         <input type="text" class="form-control search-bar" placeholder="Поиск товаров...">
