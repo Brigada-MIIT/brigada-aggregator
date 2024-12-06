@@ -42,7 +42,7 @@
         <div class="col-12 mt-4" id="shops-container">
             <div class="in">
                 <label>Магазины:</label><br>
-                <div class="shop-form-template" id="shop-template" style="display: none; padding-bottom: 10px">
+                <div class="shop-form" id="shop-template" style="display: none; padding-bottom: 10px">
                     <div class="row">
                         <div class="col-3">
                             <input type="text" class="shop-url form-control" placeholder="Ссылка на товар...">
@@ -103,11 +103,14 @@
     function validateShops() {
         const shops = document.querySelectorAll('.shop-form');
         const shopsData = [];
-
+        let isFirst = true;
         console.log(shops)
 
         shops.forEach(shop => {
-            console.log(shop)
+            if(isFirst) {
+                isFirst = false;
+                return;
+            }
             const url = shop.querySelector('.shop-url').value.trim();
             const price = parseFloat(shop.querySelector('.shop-price').value.trim());
             const name = shop.querySelector('.shop-name').value.trim();
