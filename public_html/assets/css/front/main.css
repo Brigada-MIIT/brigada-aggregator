@@ -146,5 +146,6 @@ footer {
 }
 
 .btn {
-  border-radius: 9px;
+  border-radius: 10px;
+  padding: .375rem 20px;
 }
