@@ -107,7 +107,7 @@
                 if (res.result == 1) {
                     Swal.fire({
                         title: "Успешно!",
-                        text: "Категория <?php echo $result['name'] ?> была удалена",
+                        text: "Категория «<?php echo $name_category; ?>» была удалена",
                         icon: "success"
                     })
                 }
