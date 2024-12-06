@@ -35,6 +35,9 @@
     .info p:last-child {
         padding-bottom: 5px;
     }
+    .btn {
+        padding: .375rem .75rem;
+    }
     /*@media screen and (max-width: 729px) {
         .table-box {
             overflow-x: scroll;
