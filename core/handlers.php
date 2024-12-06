@@ -961,7 +961,7 @@ function api_categories_delete() {
         res(0, "Where is id?");
     $db = $system->db();
     $query = $db->query("SELECT * FROM `subcategories` WHERE `category_id` = '$id'`");
-    if($query->num_rows)
+    if($query->num_rows > 0)
         res(2);
     $query = $db->query("DELETE FROM `categories` WHERE `id` = '$id'");
     res(1);
@@ -998,7 +998,7 @@ function api_subcategories_delete() {
         res(0, "Where is id?");
     $db = $system->db();
     $query = $db->query("SELECT * FROM `products` WHERE `subcategory_id` = '$id'`");
-    if($query->num_rows)
+    if($query->num_rows > 0)
         res(2);
     $query = $db->query("DELETE FROM `subcategories` WHERE `id` = '$id'");
     res(1);
