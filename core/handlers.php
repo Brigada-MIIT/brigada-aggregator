@@ -5,10 +5,10 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 function main() {
-    //Location("/a/index.html");
     global $system, $system_user_id, $_user;
     if($system->auth() && $_user['ban'] != 0)
-        $system->printError(100);
+        //$system->printError(100);
+        Location("/a/index.html");
     if(!empty($_COOKIE['last'])) {
         $location = trim($_COOKIE['last']);
         setcookie("last", $location, time()-1, "/");
