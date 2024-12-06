@@ -42,7 +42,7 @@
         <div class="col-12 mt-4" id="shops-container">
             <div class="in">
                 <label>Магазины:</label><br>
-                <div class="shop-form" id="shop-template" style="display: none; padding-bottom: 10px">
+                <div class="shop-form-template" id="shop-template" style="display: none; padding-bottom: 10px">
                     <div class="row">
                         <div class="col-3">
                             <input type="text" class="shop-url form-control" placeholder="Ссылка на товар...">
