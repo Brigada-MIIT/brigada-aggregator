@@ -1146,10 +1146,18 @@ function api_products_create() {
     $description = !empty($_REQUEST['description']) ? "'".$_REQUEST['description']."'" : "NULL";
     $picture_url = !empty($_REQUEST['picture_url']) ? "'".$_REQUEST['picture_url']."'" : "NULL";
     $relationships = !empty($_REQUEST['relationships']) ? $_REQUEST['relationships'] : res(0, "Добавьте хотя бы один магазин для товара");
-    $relationships = json_decode(strval($relationships));
+    /*$relationships = json_decode(strval($relationships));
     if (json_last_error() === JSON_ERROR_NONE)
         res(0, $_REQUEST['relationships'] . " : " . json_last_error() . " : \n" . $relationships);
-        res(0, "JSON ERROR");
+        res(0, "JSON ERROR");*/
+    if (is_string($relationships)) {
+        $relationships = json_decode($relationships, true);
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            res(0, "JSON Error: " . json_last_error_msg());
+        }
+    } else {
+        $relationships = $relationships;
+    }
     if(!count($relationships))
         res(0, "JSON Format Error 1");
     for($i = 0; $i < count($relationships); $i++) {
