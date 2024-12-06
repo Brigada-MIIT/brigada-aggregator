@@ -1157,10 +1157,6 @@ function api_products_create() {
     $description = !empty($_REQUEST['description']) ? "'".$_REQUEST['description']."'" : "NULL";
     $picture_url = !empty($_REQUEST['picture_url']) ? "'".$_REQUEST['picture_url']."'" : "NULL";
     $relationships = !empty($_REQUEST['relationships']) ? $_REQUEST['relationships'] : res(0, "Добавьте хотя бы один магазин для товара");
-    /*$relationships = json_decode(strval($relationships));
-    if (json_last_error() === JSON_ERROR_NONE)
-        res(0, $_REQUEST['relationships'] . " : " . json_last_error() . " : \n" . $relationships);
-        res(0, "JSON ERROR");*/
     if (is_string($relationships)) {
         $relationships = json_decode($relationships, true);
         if (json_last_error() !== JSON_ERROR_NONE) {
@@ -1198,21 +1194,27 @@ function api_products_edit() {
     $picture_url = !empty($_REQUEST['picture_url']) ? "'".$_REQUEST['picture_url']."'" : "NULL";
     $relationships = !empty($_REQUEST['relationships']) ? $_REQUEST['relationships'] : res(0, "Добавьте хотя бы один магазин для товара");
     $relationships = json_decode($relationships);
-    if (json_last_error() === JSON_ERROR_NONE)
-        res(0, "JSON ERROR");
+    if (is_string($relationships)) {
+        $relationships = json_decode($relationships, true);
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            res(0, "JSON Error: " . json_last_error_msg());
+        }
+    } else {
+        $relationships = $relationships;
+    }
     if(!count($relationships))
-        res(0, "JSON Format Error 1\n".$relationships);
+        res(0, "JSON Format Error 1");
     for($i = 0; $i < count($relationships); $i++) {
         if(count($relationships[$i]) != 4)
-            res(0, "JSON Format Error 2\n".$relationships);
+            res(0, "JSON Format Error 2");
         if(!is_integer($relationships[$i][1]))
-            res(0, "JSON Format Error 3\n".$relationships);
+            res(0, "JSON Format Error 3");
     }
     $db = $system->db();
     $query = $db->query("SELECT * FROM `subcategories` WHERE `id` = '$subcategory_id'");
     if(!$query->num_rows)
         res(0, "Subcategory not found");
-    $query = $db->query("UPDATE `products` SET `name` = '$name', `description` = $description, `picture_url` = $picture_url, `relationships` = '$relationships' WHERE `id` = $id");
+    $query = $db->query("UPDATE `products` SET `name` = '$name', `description` = $description, `picture_url` = $picture_url, `relationships` = '".json_encode($relationships)."' WHERE `id` = $id");
     if(!$query)
         res(0, "MySQL Error UPDATE");
     res(1);
