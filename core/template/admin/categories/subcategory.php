@@ -130,7 +130,7 @@
                         text: "Подкатегория «<?php echo $name_category; ?>» была удалена",
                         icon: "success"
                     }).then((result) => {
-                        location.replace("/app/categories?s=<?php $result['category_id'] ?>");
+                        location.replace("/app/categories?s=<?php echo $result['category_id'] ?>");
                     });
                 }
                 else if (res.result == 2) {
