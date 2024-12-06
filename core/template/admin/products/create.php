@@ -150,7 +150,7 @@
     function create() {
         const shopsData = validateShops();
         console.log(shopsData)
-        if (!shopsData) return;
+        if (!shopsData || shopsData === []) return;
 
         const productData = {
             subcategory_id: $("#category_id").val().trim(),
