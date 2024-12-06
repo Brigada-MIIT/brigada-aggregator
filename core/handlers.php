@@ -1179,6 +1179,7 @@ function api_products_edit() {
     $relationships = !empty($_REQUEST['relationships']) ? $_REQUEST['relationships'] : res(0, "Добавьте хотя бы один магазин для товара");
     $relationships = json_decode($relationships);
     if (json_last_error() === JSON_ERROR_NONE)
+        print_r($_REQUEST['relationships']);
         res(0, "JSON ERROR\n".$_REQUEST['relationships']);
     if(!count($relationships))
         res(0, "JSON Format Error 1\n".$relationships);
