@@ -10,7 +10,7 @@
         <div class="col-12">
             <div class="in">
                 <label for="name">Зависимость от подкатегории:</label><br>
-                <select id="category_id" class="form-control">
+                <select id="category_id">
                     <option value="0">--Выберите подкатегорию--</option>
                     <?php
                         $db = $system->db();
@@ -45,16 +45,16 @@
                 <div class="shop-form" id="shop-template" style="display: none; padding-bottom: 10px">
                     <div class="row">
                         <div class="col-3">
-                            <input type="text" class="shop-url form-control" placeholder="Ссылка на товар...">
+                            <input type="text" class="shop-url" placeholder="Ссылка на товар...">
                         </div>
                         <div class="col-2">
-                            <input type="number" class="shop-price form-control" placeholder="Цена товара..." min="0" max="9999999999">
+                            <input type="number" class="shop-price" placeholder="Цена товара..." min="0" max="9999999999">
                         </div>
                         <div class="col-3">
-                            <input type="text" class="shop-name form-control" placeholder="Название магазина...">
+                            <input type="text" class="shop-name" placeholder="Название магазина...">
                         </div>
                         <div class="col-3">
-                            <input type="text" class="shop-logo form-control" placeholder="Ссылка на лого магазина...">
+                            <input type="text" class="shop-logo" placeholder="Ссылка на лого магазина...">
                         </div>
                         <div class="col-1">
                             <button type="button" class="btn btn-danger remove-shop">Удалить</button>
