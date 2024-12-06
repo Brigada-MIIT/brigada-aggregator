@@ -156,7 +156,7 @@
             name: $("#name").val().trim(),
             description: $("#description").val().trim(),
             picture_url: $("#picture_url").val().trim(),
-            relationships: JSON.stringify(shopsData)
+            relationships: JSON.stringify(shopsData).trim()
         };
 
         console.log(JSON.stringify(shopsData))
