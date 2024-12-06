@@ -67,7 +67,29 @@
                 <div id="shops" style="padding-bottom: 10px">
                     <?php
                         $relationships = json_decode($result['relationships']);
-                        print_r($relationships);
+                        for($i = 0; $i < count($relationships); $i++) {
+                            echo '
+                                <div class="shop-form" id="shop-template" style="display: none; padding-bottom: 10px">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <input type="text" class="shop-url form-control" placeholder="Ссылка на товар..." value="'.$relationships[$i][0].'">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="number" class="shop-price form-control" placeholder="Цена товара..." min="0" max="9999999999" value="'.$relationships[$i][1].'">
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="text" class="shop-name form-control" placeholder="Название магазина..." value="'.$relationships[$i][2].'">
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="text" class="shop-logo form-control" placeholder="Ссылка на лого магазина..." value="'.$relationships[$i][3].'">
+                                        </div>
+                                        <div class="col-1">
+                                            <button type="button" class="btn btn-danger remove-shop">Удалить</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            ';
+                        }
                     ?>
                 </div>
                 <button type="button" class="btn btn-info mt-2" id="add-shop">Добавить магазин</button>
