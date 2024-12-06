@@ -310,7 +310,7 @@ function admin_products_edit($args) {
     $result = $query->fetch_assoc();
     $name_product = $result['name'];
     $settings = $system->db()->query("SELECT * FROM `settings` LIMIT 1")->fetch_assoc();
-    $title = "Бригада | Управление товаром «${$name_product}»";
+    $title = "Бригада | Редактирование товара «${$name_product}»";
     $content = '../core/template/admin/products/edit.php';
     include '../core/template/default.php';
 }

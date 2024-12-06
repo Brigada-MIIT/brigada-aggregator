@@ -30,7 +30,7 @@
         <div class="col-12">
             <div class="in">
                 <label for="description">Описание:</label><br>
-                <textarea id="description" type="text" placeholder="Описание категории..." style="width: 75%; display: block;"></textarea>
+                <textarea id="description" type="text" placeholder="Описание категории..." style="width: 75%; display: block; height: 80px"></textarea>
             </div>
         </div>
         <div class="col-12">
