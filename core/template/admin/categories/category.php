@@ -92,12 +92,12 @@
             cancelButtonText: "Отменить",
         }).then((result) => {
             if (result.isConfirmed) {
-                delete();
+                delete_category();
             }
         });
     }
 
-    function delete() {
+    function delete_category() {
         $.ajax({
             type: 'POST',
             url: '/api/categories/delete?id=<?php echo $result["id"] ?>',
