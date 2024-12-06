@@ -302,6 +302,17 @@ function admin_products_edit($args) {
         Location("/app/auth", "/app/products");
     if(!$system->haveUserPermission($system_user_id, "MANAGE_PRODUCTS"))
         $system->printError(403);
+    $id = $args['id'];
+    $db = $system->db();
+    $query = $db->query("SELECT * FROM `products` WHERE id = '$id' LIMIT 1");
+    if(!$query->num_rows)
+        $system->printError(404);
+    $result = $query->fetch_assoc();
+    $name_product = $result['name'];
+    $settings = $system->db()->query("SELECT * FROM `settings` LIMIT 1")->fetch_assoc();
+    $title = "Бригада | Управление товаром «${$name_product}»";
+    $content = '../core/template/admin/products/edit.php';
+    include '../core/template/default.php';
 }
 
 // ================ API ================ \\

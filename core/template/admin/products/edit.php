@@ -1,10 +1,10 @@
 <div class="container">
-    <p class="page-title">Создание нового товара</p>
+    <p class="page-title">Редактирование товара «<?php echo $name_product; ?>»</p>
     <div class="form">
         <div class="col-12">
             <div class="in">
                 <label for="name">Название:</label><br>
-                <input id="name" type="text" placeholder="Название товара...">
+                <input id="name" type="text" placeholder="Название товара..." value="<?php echo $result['name'] ?>">
             </div>
         </div>
         <div class="col-12">
@@ -21,7 +21,10 @@
                             $query1 = $db->query("SELECT `name` FROM `categories` WHERE `id` = '$category_id'");
                             $category_name1 = $query1->fetch_assoc()['name'];
                             $category_name = isset($category_name1) ? $category_name1 : "null";
-                            echo '<option value="' . $res['id'] . '">' . $res['name'] . ' [' . $category_name . ']</option>';
+                            $s = "";
+                            if($res['id'] == $result['category_id'])
+                                $s = "selected";
+                            echo '<option '.$s.' value="' . $res['id'] . '">' . $res['name'] . ' [' . $category_name . ']</option>';
                         }
                     ?>
                 </select>
@@ -30,13 +33,13 @@
         <div class="col-12">
             <div class="in">
                 <label for="description">Описание:</label><br>
-                <textarea id="description" type="text" placeholder="Описание категории..." style="width: 75%; display: block;"></textarea>
+                <textarea id="description" type="text" placeholder="Описание категории..." style="width: 75%; display: block;"><?php echo $result['description'] ?></textarea>
             </div>
         </div>
         <div class="col-12">
             <div class="in">
                 <label for="picture_url">Превью:</label><br>
-                <input id="picture_url" type="text" placeholder="Ссылка на превью...">
+                <input id="picture_url" type="text" placeholder="Ссылка на превью..." value="<?php echo $result['picture_url'] ?>">
             </div>
         </div>
         <div class="col-12 mt-4" id="shops-container">
