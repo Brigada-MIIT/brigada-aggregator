@@ -323,7 +323,7 @@ function api_search() {
     if(!$s)
         res(0);
     $db = $system->db();
-    $num_rows = $db->query("SELECT * FROM `products` WHERE `name` LIKE '%${search}%' OR `description` LIKE '%${search}%'")->num_rows;
+    $num_rows = $db->query("SELECT * FROM `products` WHERE `name` LIKE '%${s}%' OR `description` LIKE '%${s}%'")->num_rows;
     res($num_rows);
 }
 function api_login() {
