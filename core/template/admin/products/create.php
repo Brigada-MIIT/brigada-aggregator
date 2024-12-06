@@ -45,16 +45,16 @@
                 <div class="shop-form" id="shop-template" style="display: none; padding-bottom: 10px">
                     <div class="row">
                         <div class="col-3">
-                            <input type="text" class="shop-url form-control" placeholder="Ссылка на товар">
+                            <input type="text" class="shop-url form-control" placeholder="Ссылка на товар...">
                         </div>
                         <div class="col-2">
-                            <input type="number" class="shop-price form-control" placeholder="Цена товара" min="0" max="10000000000">
+                            <input type="number" class="shop-price form-control" placeholder="Цена товара..." min="0" max="9999999999">
                         </div>
                         <div class="col-3">
-                            <input type="text" class="shop-name form-control" placeholder="Название магазина">
+                            <input type="text" class="shop-name form-control" placeholder="Название магазина...">
                         </div>
                         <div class="col-3">
-                            <input type="text" class="shop-logo form-control" placeholder="Ссылка на логотип магазина">
+                            <input type="text" class="shop-logo form-control" placeholder="Ссылка на логотип магазина...">
                         </div>
                         <div class="col-1">
                             <button type="button" class="btn btn-danger remove-shop">Удалить</button>
@@ -110,13 +110,28 @@
             const name = shop.querySelector('.shop-name').value.trim();
             const logo = shop.querySelector('.shop-logo').value.trim();
 
-            if (!url || !price || !name || !logo) {
-                alert("Все поля для каждого магазина должны быть заполнены!");
+            if (!url) {
+                alert("Ссылка на товар не заполнена!");
+                return false;
+            }
+
+            if (isNaN(price)) {
+                alert("Цена товара должна быть числом!");
                 return false;
             }
 
             if (price < 0 || price > 10000000000) {
                 alert("Цена должна быть числом от 0 до 10^10!");
+                return false;
+            }
+
+            if (!name) {
+                alert("Название магазина не заполнено!");
+                return false;
+            }
+
+            if (!logo) {
+                alert("Ссылка на логотип магазина не заполнена!");
                 return false;
             }
 
