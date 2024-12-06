@@ -67,8 +67,15 @@
     });
 </script>
 <div class="container mt-4">
+    <div class="row align-items-center">
+        <div class="col-6">
+            <p class="page-title">Управление категориями</p>
+        </div>
+        <div class="col-6 text-right">
+            <a href="/app/categories/create" class="btn btn-primary">Создать категорию</a>
+        </div>
+    </div>
     <div class="col-12">
-        <p class="page-title">Управление категориями</p>
         <div class="form-group">
             <label for="categories">Выберите категорию для просмотра подкатегорий:</label>
             <select id="categories" class="form-control">
