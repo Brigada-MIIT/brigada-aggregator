@@ -1,5 +1,5 @@
 <div class="container">
-    <p class="page-title">Создание товара</p>
+    <p class="page-title">Создание нового товара</p>
     <div class="form">
         <div class="col-12">
             <div class="in">
@@ -163,7 +163,7 @@
                 if (data.result == 1) {
                     Swal.fire({
                         title: "Успешно!",
-                        text: "Товар был создана",
+                        text: "Товар был успешно создан",
                         icon: "success"
                     }).then((result) => {
                         if (result.isConfirmed) {
