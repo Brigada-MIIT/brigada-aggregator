@@ -104,13 +104,13 @@
         const shops = document.querySelectorAll('.shop-form');
         const shopsData = [];
         let isFirst = true;
-        console.log(shops)
 
         shops.forEach(shop => {
             if(isFirst) {
                 isFirst = false;
                 return;
             }
+            console.log(shop)
             const url = shop.querySelector('.shop-url').value.trim();
             const price = parseFloat(shop.querySelector('.shop-price').value.trim());
             const name = shop.querySelector('.shop-name').value.trim();
@@ -158,6 +158,8 @@
             picture_url: $("#picture_url").val().trim(),
             relationships: JSON.stringify(shopsData)
         };
+
+        console.log(JSON.stringify(shopsData))
 
         $.ajax({
             type: 'post',

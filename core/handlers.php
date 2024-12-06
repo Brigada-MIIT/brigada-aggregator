@@ -1179,14 +1179,14 @@ function api_products_edit() {
     $relationships = !empty($_REQUEST['relationships']) ? $_REQUEST['relationships'] : res(0, "Добавьте хотя бы один магазин для товара");
     $relationships = json_decode($relationships);
     if (json_last_error() === JSON_ERROR_NONE)
-        res(0, "JSON ERROR");
+        res(0, "JSON ERROR\n".$_REQUEST['relationships']);
     if(!count($relationships))
-        res(0, "JSON Format Error 1");
+        res(0, "JSON Format Error 1\n".$relationships);
     for($i = 0; $i < count($relationships); $i++) {
         if(count($relationships[$i]) != 4)
-            res(0, "JSON Format Error 2");
+            res(0, "JSON Format Error 2\n".$relationships);
         if(!is_integer($relationships[$i][1]))
-            res(0, "JSON Format Error 3");
+            res(0, "JSON Format Error 3\n".$relationships);
     }
     $db = $system->db();
     $query = $db->query("SELECT * FROM `subcategories` WHERE `id` = '$subcategory_id'");
