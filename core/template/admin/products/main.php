@@ -74,7 +74,7 @@
                 <option value="0">--Выводить все продукты--</option>
                 <?php
                     $db = $system->db();
-                    $query = $db->query("SELECT * FROM `subcategories`  ORDER BY `category_id` ASC");
+                    $query = $db->query("SELECT * FROM `subcategories` ORDER BY `category_id` ASC");
                     for($i = 0; $i < $query->num_rows; $i++) {
                         $res = $query->fetch_assoc();
                         $r = "";
@@ -83,7 +83,8 @@
                                 $r = "selected";
                         $category_id = $res['category_id'];
                         $query1 = $db->query("SELECT `name` FROM `categories` WHERE `id` = '$category_id'");
-                        $category_name = isset($query1->fetch_assoc()['name']) ? $query1->fetch_assoc()['name'] : "null";
+                        $category_name1 = $query1->fetch_assoc()['name'];
+                        $category_name = isset($category_name1) ? $category_name1 : "null";
                         echo '<option '.$r.' value="' . $res['id'] . '">' . $res['name'] . ' [' . $category_name . ']</option>';
                     }
                 ?>
