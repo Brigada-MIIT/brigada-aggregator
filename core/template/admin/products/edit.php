@@ -33,7 +33,7 @@
         <div class="col-12">
             <div class="in">
                 <label for="description">Описание:</label><br>
-                <textarea id="description" type="text" placeholder="Описание категории..." style="width: 75%; display: block; height: 80px"><?php echo $result['description'] ?></textarea>
+                <textarea id="description" type="text" placeholder="Описание товара..." style="width: 75%; display: block; height: 80px"><?php echo $result['description'] ?></textarea>
             </div>
         </div>
         <div class="col-12">
@@ -291,14 +291,6 @@
                     }).then((result) => {
                         location.replace("/app/products?s="+$("#category_id").val().trim());
                     });
-                }
-                else if (res.result == 2) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Ошибка!',
-                        text: 'Подкатегория имеет товары. Пожалуйста, уберите зависимость товаров от этой подкатегории',
-                        footer: '<a href="<?php echo $settings['link_to_admin'] ?>">Возникли вопросы?</a>'
-                    })
                 }
                 else {
                     Swal.fire({
