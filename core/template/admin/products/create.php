@@ -39,6 +39,20 @@
                 <input id="picture_url" type="text" placeholder="Ссылка на превью...">
             </div>
         </div>
+        <div class="col-12" id="shops-container">
+            <div class="in">
+                <label>Магазины:</label><br>
+                <div class="shop-form" id="shop-template" style="display: none;">
+                    <input type="text" class="shop-url" placeholder="Ссылка на товар">
+                    <input type="number" class="shop-price" placeholder="Цена товара" min="0" max="10000000000">
+                    <input type="text" class="shop-name" placeholder="Название магазина">
+                    <input type="text" class="shop-logo" placeholder="Ссылка на логотип магазина">
+                    <button type="button" class="btn btn-danger remove-shop">Удалить</button>
+                </div>
+                <div id="shops"></div>
+                <button type="button" class="btn btn-secondary" id="add-shop">Добавить магазин</button>
+            </div>
+        </div>
         <div class="col-12" style="margin-top: 5%;">
             <div class="in">
                 <div class="d-flex flex-wrap">
@@ -49,11 +63,73 @@
     </div>
 </div>
 <script>
+    let shopCount = 0;
+    const maxShops = 10;
+
+    function addShop() {
+        if (shopCount >= maxShops) {
+            alert("Максимальное количество магазинов: " + maxShops);
+            return;
+        }
+
+        const shopTemplate = document.getElementById('shop-template').cloneNode(true);
+        shopTemplate.style.display = 'block';
+        shopTemplate.id = '';
+        document.getElementById('shops').appendChild(shopTemplate);
+        shopCount++;
+    }
+
+    document.getElementById('add-shop').addEventListener('click', addShop);
+
+    document.getElementById('shops').addEventListener('click', function(event) {
+        if (event.target.classList.contains('remove-shop')) {
+            event.target.closest('.shop-form').remove();
+            shopCount--;
+        }
+    });
+
+    function validateShops() {
+        const shops = document.querySelectorAll('.shop-form');
+        const shopsData = [];
+
+        shops.forEach(shop => {
+            const url = shop.querySelector('.shop-url').value.trim();
+            const price = parseFloat(shop.querySelector('.shop-price').value.trim());
+            const name = shop.querySelector('.shop-name').value.trim();
+            const logo = shop.querySelector('.shop-logo').value.trim();
+
+            if (!url || !price || !name || !logo) {
+                alert("Все поля для каждого магазина должны быть заполнены!");
+                return false;
+            }
+
+            if (price < 0 || price > 10000000000) {
+                alert("Цена должна быть числом от 0 до 10^10!");
+                return false;
+            }
+
+            shopsData.push([url, price, name, logo]);
+        });
+
+        return shopsData;
+    }
+
     function create() {
+        const shopsData = validateShops();
+        if (!shopsData) return;
+
+        const productData = {
+            subcategory_id: $("#category_id").val().trim(),
+            name: $("#name").val().trim(),
+            description: $("#description").val().trim(),
+            picture_url: $("#picture_url").val().trim(),
+            shops: JSON.stringify(shopsData)
+        };
+
         $.ajax({
             type: 'post',
             url: "/api/products/create",
-            data: 'subcategory_id='+$("#category_id").val().trim()+'&name='+$("#name").val().trim()+'&description='+$("#description").val().trim()+'&picture_url='+$("#picture_url").val().trim(),
+            data: productData,
             dataType: 'json',
             success: function(data){
                 console.log(data);
