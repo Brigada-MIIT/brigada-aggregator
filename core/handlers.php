@@ -940,6 +940,20 @@ function api_categories_create() {
     global $system, $system_user_id, $_user;
     if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
         res(0);
+    $name = !empty($_REQUEST['name']) ? $_REQUEST['name'] : res(0, "Введите имя категории");
+    $category_id = !empty(intval($_REQUEST['category_id'])) ? intval($_REQUEST['category_id']) : res(0, "Выберите категорию");
+    $description = !empty($_REQUEST['description']) ? "'".$_REQUEST['description']."'" : "NULL";
+    $picture_url = !empty($_REQUEST['picture_url']) ? "'".$_REQUEST['picture_url']."'" : "NULL";
+    $db = $system->db();
+    if($category_id == 0)
+        $query = $db->query("INSERT INTO `categories` (`id`, `name`, `description`, `picture_url`) VALUES (NULL, '$name', $description, $picture_url) ");
+    else {
+        $query = $db->query("SELECT * FROM `categories` WHERE `id` = '$category_id'");
+        if(!$query->num_rows)
+            res(0, "Category not found");
+        $query = $db->query("INSERT INTO `subcategories` (`id`, `category_id`, `name`, `description`, `picture_url`) VALUES (NULL, '$category_id', '$name', '$description', $picture_url)");
+    }
+    res(1);
 }
 
 function api_categories_edit() {
@@ -948,11 +962,11 @@ function api_categories_edit() {
         res(0);
     $id = !empty(intval($_REQUEST['id'])) ? intval($_REQUEST['id']) : res(0, "id error");
     $name = !empty($_REQUEST['name']) ? $_REQUEST['name'] : res(0, "Введите имя категории");
-    $description = !empty($_REQUEST['description']) ? $_REQUEST['description'] : res(0, "Введите описание категории");
+    $description = !empty($_REQUEST['description']) ? "'".$_REQUEST['description']."'" : "NULL";
     $picture_url = !empty($_REQUEST['picture_url']) ? "'".$_REQUEST['picture_url']."'" : "NULL";
     $db = $system->db();
     try {
-        $db->query("UPDATE `categories` SET `name` = '$name', `description` = '$description', `picture_url` = $picture_url WHERE `id` = '$id'");
+        $db->query("UPDATE `categories` SET `name` = '$name', `description` = $description, `picture_url` = $picture_url WHERE `id` = '$id'");
     }
     catch(Error $e) {
         res(0, "MySQL Error");
@@ -982,14 +996,14 @@ function api_subcategories_edit() {
     $id = !empty(intval($_REQUEST['id'])) ? intval($_REQUEST['id']) : res(0, "id error");
     $name = !empty($_REQUEST['name']) ? $_REQUEST['name'] : res(0, "Введите имя подкатегории");
     $category_id = !empty(intval($_REQUEST['category_id'])) ? intval($_REQUEST['category_id']) : res(0, "Выберите категорию");
-    $description = !empty($_REQUEST['description']) ? $_REQUEST['description'] : res(0, "Введите описание подкатегории");
+    $description = !empty($_REQUEST['description']) ? "'".$_REQUEST['description']."'" : "NULL";
     $picture_url = !empty($_REQUEST['picture_url']) ? "'".$_REQUEST['picture_url']."'" : "NULL";
     $db = $system->db();
     $query = $db->query("SELECT * FROM `categories` WHERE `id` = '$category_id'");
     if(!$query->num_rows)
         res(0, "Указанная категория не найдена");
     try {
-        $db->query("UPDATE `subcategories` SET `name` = '$name', `category_id` = '$category_id', `description` = '$description', `picture_url` = $picture_url WHERE `id` = '$id'");
+        $db->query("UPDATE `subcategories` SET `name` = '$name', `category_id` = '$category_id', `description` = $description, `picture_url` = $picture_url WHERE `id` = '$id'");
     }
     catch(Error $e) {
         res(0, "MySQL Error");
