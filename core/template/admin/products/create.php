@@ -104,7 +104,10 @@
         const shops = document.querySelectorAll('.shop-form');
         const shopsData = [];
 
+        console.log(shops)
+
         shops.forEach(shop => {
+            console.log(shop)
             const url = shop.querySelector('.shop-url').value.trim();
             const price = parseFloat(shop.querySelector('.shop-price').value.trim());
             const name = shop.querySelector('.shop-name').value.trim();
