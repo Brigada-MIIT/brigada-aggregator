@@ -1174,6 +1174,7 @@ function api_products_create() {
             res(0, "JSON Format Error 3");
     }
     $db = $system->db();
+    $db->set_charset("utf8");
     $query = $db->query("SELECT * FROM `subcategories` WHERE `id` = '$subcategory_id'");
     if(!$query->num_rows)
         res(0, "Subcategory not found");
@@ -1211,6 +1212,7 @@ function api_products_edit() {
             res(0, "JSON Format Error 3");
     }
     $db = $system->db();
+    $db->set_charset("utf8");
     $query = $db->query("SELECT * FROM `subcategories` WHERE `id` = '$subcategory_id'");
     if(!$query->num_rows)
         res(0, "Subcategory not found");
