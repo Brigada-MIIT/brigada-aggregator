@@ -133,13 +133,14 @@
     function create() {
         const shopsData = validateShops();
         console.log(shopsData)
-        if (!shopsData || shopsData === []) {
+        if (!shopsData || shopsData == []) {
             Swal.fire({
                 icon: 'error',
-                title: 'Не заполен раздел магазинов',
+                title: 'Не заполнен раздел магазинов',
                 text: 'Для создания товара как минимум нужен один полностью заполненный магазин',
                 footer: '<a href="<?php echo $settings['link_to_admin'] ?>">Возникли вопросы?</a>'
             });
+            return;
         }
         if(count_null) {
             Swal.fire({
@@ -148,6 +149,7 @@
                 text: 'В разделе магазина есть незаполненные поля',
                 footer: '<a href="<?php echo $settings['link_to_admin'] ?>">Возникли вопросы?</a>'
             });
+            return;
         }
 
         const productData = {
