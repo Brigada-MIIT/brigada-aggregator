@@ -409,9 +409,9 @@ function api_register() {
     $emailSendHash = $db->real_escape_string(RandomString(20));
     $time = $db->real_escape_string(time());
     if(!empty($patronymic))
-        $query = $db->query("INSERT INTO `users` (`id`, `email`, `password`, `avatar`, `user_type`, `ban`, `ban_upload`, `email_verifed`, `email_token`, `email_send_token`, `email_send_timestamp`, `password_token`, `password_send_timestamp`, `password_change_timestamp`, `2fa_secret`, `lastname`, `surname`, `patronymic`, `registred`, `biography`) VALUES (NULL, '$email', '$passwordHash', '/assets/img/avatar.jpg', 1, 0, 0, 0, '$emailVerifyHash', '$emailSendHash', NULL, NULL, NULL, NULL, NULL, '$lastname', '$surname', '$patronymic', '$time', NULL)");
+        $query = $db->query("INSERT INTO `users` (`id`, `email`, `password`, `avatar`, `user_type`, `ban`, `email_verifed`, `email_token`, `email_send_token`, `email_send_timestamp`, `password_token`, `password_send_timestamp`, `password_change_timestamp`, `2fa_secret`, `lastname`, `surname`, `patronymic`, `registred`, `biography`) VALUES (NULL, '$email', '$passwordHash', '/assets/img/avatar.jpg', 1, 0, 0, '$emailVerifyHash', '$emailSendHash', NULL, NULL, NULL, NULL, NULL, '$lastname', '$surname', '$patronymic', '$time', NULL)");
     else
-        $query = $db->query("INSERT INTO `users` (`id`, `email`, `password`, `avatar`, `user_type`, `ban`, `ban_upload`, `email_verifed`, `email_token`, `email_send_token`, `email_send_timestamp`, `password_token`, `password_send_timestamp`, `password_change_timestamp`, `2fa_secret`, `lastname`, `surname`, `patronymic`, `registred`, `biography`) VALUES (NULL, '$email', '$passwordHash', '/assets/img/avatar.jpg', 1, 0, 0, 0, '$emailVerifyHash', '$emailSendHash', NULL, NULL, NULL, NULL, NULL, '$lastname', '$surname', NULL, '$time', NULL)");
+        $query = $db->query("INSERT INTO `users` (`id`, `email`, `password`, `avatar`, `user_type`, `ban`, `email_verifed`, `email_token`, `email_send_token`, `email_send_timestamp`, `password_token`, `password_send_timestamp`, `password_change_timestamp`, `2fa_secret`, `lastname`, `surname`, `patronymic`, `registred`, `biography`) VALUES (NULL, '$email', '$passwordHash', '/assets/img/avatar.jpg', 1, 0, 0, '$emailVerifyHash', '$emailSendHash', NULL, NULL, NULL, NULL, NULL, '$lastname', '$surname', NULL, '$time', NULL)");
     $query = $db->query("SELECT * FROM `users` WHERE `email` = '$email'");
     if ($query->num_rows !== 1)
         res(7);
@@ -687,12 +687,6 @@ function api_users_edit() {
     else if($ban == 0);
     else res(0, "ban error 2");
 
-    $ban_upload = (intval($_POST['ban_upload']) == 0 || intval($_POST['ban_upload']) == 1) ? intval($_POST['ban_upload']) : res(0, "ban_upload error 1");
-    if($ban_upload == 1) 
-        $ban_upload = $system_user_id;
-    else if($ban_upload == 0);
-    else res(0, "ban_upload error 2");
-
     $email_verifed = (intval($_POST['email_verifed']) == 0 || intval($_POST['email_verifed']) == 1) ? intval($_POST['email_verifed']) : res(0, "email_verifed error 1");
     if($email_verifed == 1) {
         if(intval($user['email_verifed']) == 0)
@@ -716,7 +710,7 @@ function api_users_edit() {
     if (countWhiteSpaces($lastname) >= 2 || countWhiteSpaces($surname) >= 2 || countWhiteSpaces($patronymic) >= 1)
         res(0, "В полях ФИО слишком много пробелов");
 
-    $query = $db->query("UPDATE `users` SET `user_type` = '$role', `ban` = '$ban', `ban_upload` = '$ban_upload', `email_verifed` = '$email_verifed', `lastname` = '$lastname', `surname` = '$surname', `patronymic` = ".(($patr_check) ? "NULL" : "'$patronymic'").", `biography` = ".(($bio_check) ? "NULL" : "'$biography'")." WHERE `id` = '$user_id'");
+    $query = $db->query("UPDATE `users` SET `user_type` = '$role', `ban` = '$ban', `email_verifed` = '$email_verifed', `lastname` = '$lastname', `surname` = '$surname', `patronymic` = ".(($patr_check) ? "NULL" : "'$patronymic'").", `biography` = ".(($bio_check) ? "NULL" : "'$biography'")." WHERE `id` = '$user_id'");
 
     if(!$query) res(0, "mysql error");
     res(1, "Данные пользователя успешно обновлены");

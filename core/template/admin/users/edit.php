@@ -100,12 +100,6 @@
                     <input id="email_verifed" type="checkbox"<?php if($user['email_verifed'] != 0) echo ' checked disabled'; ?>>
                 </div>
             </div>
-            <div class="col-12" style="display: none">
-                <div class="in">
-                    <label for="ban_upload">Блокировка на загрузку файлов:</label><br>
-                    <input id="ban_upload" type="checkbox"<?php if($user['ban_upload'] != 0) echo ' checked'; ?>>
-                </div>
-            </div>
             <div class="col-12">
                 <div class="in">
                     <label for="ban">Ограничение доступа к сайту:</label><br>
@@ -132,7 +126,6 @@
                             <p><b>Подтверждение Email:</b> <?php echo ( ($user['email_verifed'] == 1) ? "Да" : "Нет" ) ?></p>
                             <p><b>Статус 2FA:</b> <?php echo ( !empty($user['2fa_secret']) ? "Включено" : "Выключено" ) ?></p>
                             <?php echo ( !empty($user['ban']) ? "<p><b>Блокировка:</b> Да (<a href='/profile/".$user['ban']."'>кем выдана?</a>)</p>" : "" ) ?>
-                            <?php echo ( !empty($user['ban_upload']) ? "<p><b>Блокировка загрузки файлов:</b> Да (<a href='/profile/".$user['ban_upload']."'>кем выдана?</a>)</p>" : "" ) ?>
                         </div>
                     </div>
                     <div class="d-flex flex-wrap">
@@ -245,7 +238,7 @@
         $.ajax({
             type: 'post',
             url: "/api/users/edit",
-            data: 'id=<?php echo $user['id']?>&role='+$("#role").val()+'&lastname='+$("#lastname").val().trim()+'&surname='+$("#surname").val().trim()+'&patronymic='+$("#patronymic").val().trim()+'&biography='+$("#biography").val().trim()+'&ban_upload='+(($('#ban_upload').is(":checked")) ? '1' : '0')+'&ban='+(($('#ban').is(":checked")) ? '1' : '0')+'&email_verifed='+(($('#email_verifed').is(":checked")) ? '1' : '0'),
+            data: 'id=<?php echo $user['id']?>&role='+$("#role").val()+'&lastname='+$("#lastname").val().trim()+'&surname='+$("#surname").val().trim()+'&patronymic='+$("#patronymic").val().trim()+'&biography='+$("#biography").val().trim()+'&ban='+(($('#ban').is(":checked")) ? '1' : '0')+'&email_verifed='+(($('#email_verifed').is(":checked")) ? '1' : '0'),
             dataType: 'json',
             success: function(data){
                 console.log(data);
