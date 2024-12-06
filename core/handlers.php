@@ -924,12 +924,12 @@ function api_categories_edit() {
     if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
         res(0);
     $id = !empty(intval($_REQUEST['id'])) ? intval($_REQUEST['id']) : res(0, "id error");
-    $name = !empty($_REQUEST['name']) ? $_REQUEST['name'] : res(0, "name error");
-    $description = !empty($_REQUEST['description']) ? $_REQUEST['description'] : res(0, "description error");
-    $picture_url = !empty($_REQUEST['picture_url']) ? $_REQUEST['picture_url'] : res(0, "picture_url error");
+    $name = !empty($_REQUEST['name']) ? $_REQUEST['name'] : res(0, "Введите имя категории");
+    $description = !empty($_REQUEST['description']) ? $_REQUEST['description'] : res(0, "Введите описание категории");
+    $picture_url = !empty($_REQUEST['picture_url']) ? "'".$_REQUEST['picture_url']."'" : "NULL";
     $db = $system->db();
     try {
-        $db->query("UPDATE `categories` SET `name` = '$name', `description` = '$description', `picture_url` = '$picture_url' WHERE `id` = '$id'");
+        $db->query("UPDATE `categories` SET `name` = '$name', `description` = '$description', `picture_url` = $picture_url WHERE `id` = '$id'");
     }
     catch(Error $e) {
         res(0, "MySQL Error");
