@@ -64,7 +64,7 @@
             <p class="page-title">Управление товарами</p>
         </div>
         <div class="col-6 text-right">
-            <a href="/app/categories/create" class="btn btn-primary">Создать товар</a>
+            <a href="/app/products/create" class="btn btn-primary">Создать товар</a>
         </div>
     </div>
     <div class="col-12">

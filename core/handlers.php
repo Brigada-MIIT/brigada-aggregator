@@ -1109,7 +1109,7 @@ function api_products_get() {
             $subcategory_id = $row['subcategory_id'];
             $query1 = $db->query("SELECT `name` FROM `subcategories` WHERE `id` = '$subcategory_id'");
             $subcategory_name = $query1->fetch_assoc()['name'];
-            $row['subcategory_id'] = "<a target='_blank' href='/app/subcategories/".$subcategory_id."'>".$subcategory_name."</a>";
+            $row['subcategory_id'] = "<a target='_blank' href='/app/subcategories/".$subcategory_id."/edit'>".$subcategory_name."</a>";
             $data[] = $row;
         }
     }
