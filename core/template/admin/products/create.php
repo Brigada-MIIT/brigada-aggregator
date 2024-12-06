@@ -39,18 +39,30 @@
                 <input id="picture_url" type="text" placeholder="Ссылка на превью...">
             </div>
         </div>
-        <div class="col-12" id="shops-container">
+        <div class="col-12 mt-4" id="shops-container">
             <div class="in">
                 <label>Магазины:</label><br>
                 <div class="shop-form" id="shop-template" style="display: none;">
-                    <input type="text" class="shop-url" placeholder="Ссылка на товар">
-                    <input type="number" class="shop-price" placeholder="Цена товара" min="0" max="10000000000">
-                    <input type="text" class="shop-name" placeholder="Название магазина">
-                    <input type="text" class="shop-logo" placeholder="Ссылка на логотип магазина">
-                    <button type="button" class="btn btn-danger remove-shop">Удалить</button>
+                    <div class="row">
+                        <div class="col-3">
+                            <input type="text" class="shop-url form-control" placeholder="Ссылка на товар">
+                        </div>
+                        <div class="col-2">
+                            <input type="number" class="shop-price form-control" placeholder="Цена товара" min="0" max="10000000000">
+                        </div>
+                        <div class="col-3">
+                            <input type="text" class="shop-name form-control" placeholder="Название магазина">
+                        </div>
+                        <div class="col-3">
+                            <input type="text" class="shop-logo form-control" placeholder="Ссылка на логотип магазина">
+                        </div>
+                        <div class="col-1">
+                            <button type="button" class="btn btn-danger remove-shop">Удалить</button>
+                        </div>
+                    </div>
                 </div>
                 <div id="shops"></div>
-                <button type="button" class="btn btn-secondary" id="add-shop">Добавить магазин</button>
+                <button type="button" class="btn btn-secondary mt-2" id="add-shop">Добавить магазин</button>
             </div>
         </div>
         <div class="col-12" style="margin-top: 5%;">
