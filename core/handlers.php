@@ -67,7 +67,7 @@ function search($args) {
     if($_user['ban'] != 0)
         $system->printError(100);
     $db = $system->db();
-    $query = $db->query("SELECT * FROM `products` WHERE `name` LIKE '%${search}%'");
+    $query = $db->query("SELECT * FROM `products` WHERE `name` LIKE '%${search}%' OR `description` LIKE '%${search}%'");
     if(!$query->num_rows)
         $system->printError(404);
     $title = "Бригада | Поиск товара «${search}»";
@@ -323,7 +323,7 @@ function api_search() {
     if(!$s)
         res(0);
     $db = $system->db();
-    $num_rows = $db->query("SELECT * FROM `products` WHERE `name` LIKE '%${s}%'")->num_rows;
+    $num_rows = $db->query("SELECT * FROM `products` WHERE `name` LIKE '%${search}%' OR `description` LIKE '%${search}%'")->num_rows;
     res($num_rows);
 }
 function api_login() {
