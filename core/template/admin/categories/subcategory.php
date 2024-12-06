@@ -52,7 +52,7 @@
     function edit() {
         $.ajax({
             type: 'post',
-            url: "/api/categories/edit",
+            url: "/api/subcategories/edit",
             data: 'id=<?php echo $result["id"] ?>&category_id='+$("#category_id").val().trim()+'&name='+$("#name").val().trim()+'&description='+$("#description").val().trim()+'&picture_url='+$("#picture_url").val().trim(),
             dataType: 'json',
             success: function(data){
