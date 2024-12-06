@@ -49,8 +49,8 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('POST', '/api/categories/get_categories', 'api_categories_get');
     $r->addRoute('POST', '/api/categories/edit', 'api_categories_edit');
     $r->addRoute('POST', '/api/categories/delete', 'api_categories_delete');
-    $r->addRoute('POST', '/api/subcategories/edit', 'api_categories_edit');
-    $r->addRoute('POST', '/api/subcategories/delete', 'api_categories_delete');
+    $r->addRoute('POST', '/api/subcategories/edit', 'api_subcategories_edit');
+    $r->addRoute('POST', '/api/subcategories/delete', 'api_subcategories_delete');
 });
 
 $httpMethod = $_SERVER['REQUEST_METHOD'];
