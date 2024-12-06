@@ -18,7 +18,7 @@
                         for($i = 0; $i < $query->num_rows; $i++) {
                             $res = $query->fetch_assoc();
                             $r = "";
-                            if($res['id'] == $id)
+                            if($res['id'] == $result['category_id'])
                                 $r = "selected";
                             echo '<option '.$r.' value="' . $res['id'] . '">' . $res['name'] . '</option>';
                         }
