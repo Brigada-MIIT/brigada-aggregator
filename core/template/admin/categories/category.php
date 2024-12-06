@@ -22,8 +22,8 @@
         <div class="col-12" style="margin-top: 5%;">
             <div class="in">
                 <div class="btn-group d-flex flex-wrap">
-                    <button id="submit" type="btn btn-primary" class="submit mr-4 mb-2" onclick="edit();">Сохранить</button>
-                    <button id="submit" type="btn btn-danger" class="submit mr-4 mb-2" onclick="submit_delete();">Удалить категорию</button>
+                    <button id="submit" type="submit" class="btn btn-primary mr-4 mb-2" onclick="edit();">Сохранить</button>
+                    <button id="submit" type="submit" class="btn btn-danger mr-4 mb-2" onclick="submit_delete();">Удалить категорию</button>
                 </div>
             </div>
         </div>
