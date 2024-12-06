@@ -947,6 +947,22 @@ function api_subcategories_edit() {
     global $system, $system_user_id, $_user;
     if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
         res(0);
+    $id = !empty(intval($_REQUEST['id'])) ? intval($_REQUEST['id']) : res(0, "id error");
+    $name = !empty($_REQUEST['name']) ? $_REQUEST['name'] : res(0, "Введите имя подкатегории");
+    $category_id = !empty(intval($_REQUEST['$category_id'])) ? intval($_REQUEST['$category_id']) : res(0, "Выберите категорию");
+    $description = !empty($_REQUEST['description']) ? $_REQUEST['description'] : res(0, "Введите описание подкатегории");
+    $picture_url = !empty($_REQUEST['picture_url']) ? "'".$_REQUEST['picture_url']."'" : "NULL";
+    $db = $system->db();
+    $query = $db->query("SELECT * FROM `categories` WHERE `id` = '$category_id'");
+    if(!$query->num_rows)
+        res(0, "Указанная категория не найдена");
+    try {
+        $db->query("UPDATE `subcategories` SET `name` = '$name', `category_id` = '$category_id', `description` = '$description', `picture_url` = $picture_url WHERE `id` = '$id'");
+    }
+    catch(Error $e) {
+        res(0, "MySQL Error");
+    };
+    res(1);
 }
 
 function api_subcategories_delete() {
