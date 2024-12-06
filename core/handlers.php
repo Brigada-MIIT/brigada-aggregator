@@ -1194,7 +1194,7 @@ function api_products_edit() {
         res(0, "Subcategory not found");
     $query = $db->query("UPDATE `products` SET `name` = '$name', `description` = $description, `picture_url` = $picture_url, `relationships` = '$relationships' WHERE `id` = $id");
     if(!$query)
-        res(0, "MySQL Error UPDATE");
+        res(0, "MySQL Error UPDATE\n".$db->error);
     res(1);
 }
 
