@@ -38,7 +38,7 @@
         <div class="col-12" style="margin-top: 5%;">
             <div class="in">
                 <div class="d-flex flex-wrap">
-                    <button id="submit" type="submit" class="btn btn-success mr-4 mb-2" onclick="create();">Создать</button>
+                    <button id="submit" type="submit" class="btn btn-primary mr-4 mb-2" onclick="create();">Создать</button>
                 </div>
             </div>
         </div>
