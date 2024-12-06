@@ -964,13 +964,18 @@ function api_categories_create() {
     $description = !empty($_REQUEST['description']) ? "'".$_REQUEST['description']."'" : "NULL";
     $picture_url = !empty($_REQUEST['picture_url']) ? "'".$_REQUEST['picture_url']."'" : "NULL";
     $db = $system->db();
-    if($category_id == 0)
+    if($category_id == 0) {
         $query = $db->query("INSERT INTO `categories` (`id`, `name`, `description`, `picture_url`) VALUES (NULL, '$name', $description, $picture_url) ");
+        if (!$query)
+            res(0, "MySQL Error INSERT");
+    }
     else {
         $query = $db->query("SELECT * FROM `categories` WHERE `id` = '$category_id'");
         if(!$query->num_rows)
             res(0, "Category not found");
         $query = $db->query("INSERT INTO `subcategories` (`id`, `category_id`, `name`, `description`, `picture_url`) VALUES (NULL, '$category_id', '$name', $description, $picture_url)");
+        if(!$query)
+            res(0, "MySQL Error INSERT");
     }
     res(1);
 }
@@ -984,12 +989,9 @@ function api_categories_edit() {
     $description = !empty($_REQUEST['description']) ? "'".$_REQUEST['description']."'" : "NULL";
     $picture_url = !empty($_REQUEST['picture_url']) ? "'".$_REQUEST['picture_url']."'" : "NULL";
     $db = $system->db();
-    try {
-        $db->query("UPDATE `categories` SET `name` = '$name', `description` = $description, `picture_url` = $picture_url WHERE `id` = '$id'");
-    }
-    catch(Error $e) {
-        res(0, "MySQL Error");
-    };
+    $query = $db->query("UPDATE `categories` SET `name` = '$name', `description` = $description, `picture_url` = $picture_url WHERE `id` = '$id'");
+    if(!$query)
+        res(0, "MySQL Error UPDATE");
     res(1);
 }
 
@@ -1005,6 +1007,8 @@ function api_categories_delete() {
     if($query->num_rows > 0)
         res(2);
     $query = $db->query("DELETE FROM `categories` WHERE `id` = '$id'");
+    if(!$query)
+        res(0, "MySQL Error DELETE");
     res(1);
 }
 
@@ -1021,12 +1025,9 @@ function api_subcategories_edit() {
     $query = $db->query("SELECT * FROM `categories` WHERE `id` = '$category_id'");
     if(!$query->num_rows)
         res(0, "Указанная категория не найдена");
-    try {
-        $db->query("UPDATE `subcategories` SET `name` = '$name', `category_id` = '$category_id', `description` = $description, `picture_url` = $picture_url WHERE `id` = '$id'");
-    }
-    catch(Error $e) {
-        res(0, "MySQL Error");
-    };
+    $query = $db->query("UPDATE `subcategories` SET `name` = '$name', `category_id` = '$category_id', `description` = $description, `picture_url` = $picture_url WHERE `id` = '$id'");
+    if(!$query)
+        res(0, "MySQL Error UPDATE");
     res(1);
 }
 
@@ -1042,12 +1043,14 @@ function api_subcategories_delete() {
     if($query->num_rows > 0)
         res(2);
     $query = $db->query("DELETE FROM `subcategories` WHERE `id` = '$id'");
+    if(!$query)
+        res(0, "MySQL Error DELETE");
     res(1);
 }
 
 function api_products_get() {
     global $system, $system_user_id, $_user;
-    if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
+    if(!$system->haveUserPermission($system_user_id, "MANAGE_PRODUCTS"))
         res(0);
 
     $s = $_REQUEST['s'];
@@ -1124,15 +1127,74 @@ function api_products_get() {
 }
 
 function api_products_create() {
-
+    global $system, $system_user_id, $_user;
+    if(!$system->haveUserPermission($system_user_id, "MANAGE_PRODUCTS"))
+        res(0);
+    $name = !empty($_REQUEST['name']) ? $_REQUEST['name'] : res(0, "Введите название товара");
+    $subcategory_id = !empty(intval($_REQUEST['subcategory_id'])) ? intval($_REQUEST['subcategory_id']) :  res(0, "Выберите подкатегорию товара");
+    $description = !empty($_REQUEST['description']) ? "'".$_REQUEST['description']."'" : "NULL";
+    $picture_url = !empty($_REQUEST['picture_url']) ? "'".$_REQUEST['picture_url']."'" : "NULL";
+    $relationships = !empty($_REQUEST['relationships']) ? $_REQUEST['relationships'] : res(0, "Добавьте хотя бы один магазин для товара");
+    $relationships = json_decode($relationships);
+    if (json_last_error() === JSON_ERROR_NONE)
+        res(0, "JSON ERROR");
+    for($i = 0; $i < count($relationships); $i++) {
+        if(count($relationships[$i]) != 4)
+            res(0, "JSON Format Error 1");
+        if(!is_integer($relationships[$i][1]))
+            res(0, "JSON Format Error 2");
+    }
+    $db = $system->db();
+    $query = $db->query("SELECT * FROM `subcategories` WHERE `id` = '$subcategory_id'");
+    if(!$query->num_rows)
+        res(0, "Subcategory not found");
+    $query = $db->query("INSERT INTO `products` (`id`, `subcategory_id`, `name`, `description`, `picture_url`, `relationships`) VALUES (NULL, '$subcategory_id', '$name', $description, $picture_url, '$relationships')");
+    if(!$query)
+        res(0, "MySQL Error INSERT");
+    res(1);
 }
 
 function api_products_edit() {
-
+    global $system, $system_user_id, $_user;
+    if(!$system->haveUserPermission($system_user_id, "MANAGE_PRODUCTS"))
+        res(0);
+    $id = !empty(intval($_REQUEST['id'])) ? intval($_REQUEST['id']) : res(0, "id error");
+    $name = !empty($_REQUEST['name']) ? $_REQUEST['name'] : res(0, "Введите название товара");
+    $subcategory_id = !empty(intval($_REQUEST['subcategory_id'])) ? intval($_REQUEST['subcategory_id']) :  res(0, "Выберите подкатегорию товара");
+    $description = !empty($_REQUEST['description']) ? "'".$_REQUEST['description']."'" : "NULL";
+    $picture_url = !empty($_REQUEST['picture_url']) ? "'".$_REQUEST['picture_url']."'" : "NULL";
+    $relationships = !empty($_REQUEST['relationships']) ? $_REQUEST['relationships'] : res(0, "Добавьте хотя бы один магазин для товара");
+    $relationships = json_decode($relationships);
+    if (json_last_error() === JSON_ERROR_NONE)
+        res(0, "JSON ERROR");
+    for($i = 0; $i < count($relationships); $i++) {
+        if(count($relationships[$i]) != 4)
+            res(0, "JSON Format Error 1");
+        if(!is_integer($relationships[$i][1]))
+            res(0, "JSON Format Error 2");
+    }
+    $db = $system->db();
+    $query = $db->query("SELECT * FROM `subcategories` WHERE `id` = '$subcategory_id'");
+    if(!$query->num_rows)
+        res(0, "Subcategory not found");
+    $query = $db->query("UPDATE `products` SET `name` = '$name', `description` = $description, `picture_url` = $picture_url, `relationships` = '$relationships' WHERE `id` = $id");
+    if(!$query)
+        res(0, "MySQL Error UPDATE");
+    res(1);
 }
 
 function api_products_delete() {
-
+    global $system, $system_user_id, $_user;
+    if(!$system->haveUserPermission($system_user_id, "MANAGE_PRODUCTS"))
+        res(0);
+    $id = $_REQUEST['id'];
+    if(is_null($id))
+        res(0, "Where is id?");
+    $db = $system->db();
+    $query = $db->query("DELETE FROM `products` WHERE `id` = '$id'");
+    if(!$query)
+        res(0, "MySQL Error DELETE");
+    res(1);
 }
 
 /*function download_moderation_tool() {
