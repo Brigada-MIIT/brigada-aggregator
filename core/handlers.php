@@ -941,7 +941,7 @@ function api_categories_create() {
     if(!$system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES"))
         res(0);
     $name = !empty($_REQUEST['name']) ? $_REQUEST['name'] : res(0, "Введите имя категории");
-    $category_id = !empty(intval($_REQUEST['category_id'])) ? intval($_REQUEST['category_id']) : res(0, "Выберите категорию");
+    $category_id = !empty($_REQUEST['category_id']) ? intval($_REQUEST['category_id']) : res(0, "Выберите категорию");
     $description = !empty($_REQUEST['description']) ? "'".$_REQUEST['description']."'" : "NULL";
     $picture_url = !empty($_REQUEST['picture_url']) ? "'".$_REQUEST['picture_url']."'" : "NULL";
     $db = $system->db();
