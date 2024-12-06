@@ -1172,7 +1172,7 @@ function api_products_create() {
         res(0, "Subcategory not found");
     $query = $db->query("INSERT INTO `products` (`id`, `subcategory_id`, `name`, `description`, `picture_url`, `relationships`) VALUES (NULL, '$subcategory_id', '$name', $description, $picture_url, '$relationships')");
     if(!$query)
-        res(0, "MySQL Error INSERT");
+        res(0, "MySQL Error INSERT " . $db->error);
     res(1);
 }
 
