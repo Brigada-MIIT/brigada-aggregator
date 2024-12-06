@@ -13,12 +13,12 @@
                 <select id="category_id" class="form-control">
                     <option value="0">--Выберите категорию--</option>
                     <?php
-                    $db = $system->db();
-                    $query = $db->query("SELECT * FROM `categories`");
-                    for($i = 0; $i < $query->num_rows; $i++) {
-                        $res = $query->fetch_assoc();
-                        echo '<option '.$r.' value="' . $res['id'] . '">' . $res['name'] . '</option>';
-                    }
+                        $db = $system->db();
+                        $query = $db->query("SELECT * FROM `categories`");
+                        for($i = 0; $i < $query->num_rows; $i++) {
+                            $res = $query->fetch_assoc();
+                            echo '<option '.$r.' value="' . $res['id'] . '">' . $res['name'] . '</option>';
+                        }
                     ?>
                 </select>
             </div>

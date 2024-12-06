@@ -77,6 +77,7 @@
             <div class="in">
                 <div class="d-flex flex-wrap">
                     <button id="submit" type="submit" class="btn btn-primary mr-4 mb-2" onclick="create();">Создать</button>
+                    <button id="submit" type="submit" class="btn btn-danger mr-4 mb-2" onclick="submit_delete();">Удалить товар</button>
                 </div>
             </div>
         </div>
@@ -222,6 +223,59 @@
                         icon: "error",
                         footer: '<a href="<?php echo $settings['link_to_admin'] ?>">Возникли вопросы?</a>'
                     });
+                }
+                else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Произошла неизвестная ошибка!',
+                        text: 'Обратитесь к администратору.',
+                        footer: '<a href="<?php echo $settings['link_to_admin'] ?>">Возникли вопросы?</a>'
+                    });
+                }
+            }
+        });
+    }
+
+    function submit_delete() {
+        Swal.fire({
+            title: "Вы хотите удалить товар?",
+            text: "Вы уверены, что хотите удалить товар?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#28a745",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Да, хочу удалить!",
+            cancelButtonText: "Отменить",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                delete_subcategory();
+            }
+        });
+    }
+
+    function delete_subcategory() {
+        $.ajax({
+            type: 'POST',
+            url: '/api/products/delete?id=<?php echo $result["id"] ?>',
+            success: async function(data) {
+                var res = $.parseJSON(data);
+                console.log(res);
+                if (res.result == 1) {
+                    Swal.fire({
+                        title: "Успешно!",
+                        text: "Товар «<?php echo $name_product; ?>» был удалён",
+                        icon: "success"
+                    }).then((result) => {
+                        location.replace("/app/products?s="+$("#category_id").val().trim());
+                    });
+                }
+                else if (res.result == 2) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Ошибка!',
+                        text: 'Подкатегория имеет товары. Пожалуйста, уберите зависимость товаров от этой подкатегории',
+                        footer: '<a href="<?php echo $settings['link_to_admin'] ?>">Возникли вопросы?</a>'
+                    })
                 }
                 else {
                     Swal.fire({
