@@ -100,6 +100,8 @@
         }
     });
 
+    let count_null = 0
+
     function validateShops() {
         const shops = document.querySelectorAll('.shop-form');
         const shopsData = [];
@@ -116,28 +118,9 @@
             const name = shop.querySelector('.shop-name').value.trim();
             const logo = shop.querySelector('.shop-logo').value.trim();
 
-            if (!url) {
-                alert("Ссылка на товар не заполнена!");
-                return false;
-            }
 
-            if (isNaN(price)) {
-                alert("Цена товара должна быть числом!");
-                return false;
-            }
-
-            if (price < 0 || price > 10000000000) {
-                alert("Цена должна быть числом от 0 до 10^10!");
-                return false;
-            }
-
-            if (!name) {
-                alert("Название магазина не заполнено!");
-                return false;
-            }
-
-            if (!logo) {
-                alert("Ссылка на логотип магазина не заполнена!");
+            if (isNaN(price) || (price < 0 || price > 10000000000) || !name || !logo || !url) {
+                count_null++;
                 return false;
             }
 
@@ -150,7 +133,22 @@
     function create() {
         const shopsData = validateShops();
         console.log(shopsData)
-        if (!shopsData || shopsData === []) return;
+        if (!shopsData || shopsData === []) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Не заполен раздел магазинов',
+                text: 'Для создания товара как минимум нужен один полностью заполненный магазин',
+                footer: '<a href="<?php echo $settings['link_to_admin'] ?>">Возникли вопросы?</a>'
+            });
+        }
+        if(count_null) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Не заполен раздел магазинов',
+                text: 'В разделе магазина есть незаполненные поля',
+                footer: '<a href="<?php echo $settings['link_to_admin'] ?>">Возникли вопросы?</a>'
+            });
+        }
 
         const productData = {
             subcategory_id: $("#category_id").val().trim(),
