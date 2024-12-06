@@ -52,12 +52,18 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="left: auto; right: 0">
                                     <a class="dropdown-item" href="/profile/'.$system_user_id.'">Профиль</a>';
+                    if($system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES") || $system->haveUserPermission($system_user_id, "MANAGE_PRODUCTS")) echo '
+                                    <hr style="margin-top: 5px;margin-bottom: 4px;">';
+                    if($system->haveUserPermission($system_user_id, "MANAGE_CATEGORIES")) echo '
+                                    <a class="dropdown-item" href="/app/categories">Управление категорями</a>';
+                    if($system->haveUserPermission($system_user_id, "MANAGE_PRODUCTS")) echo '
+                                    <a class="dropdown-item" href="/app/products">Управление товарами</a>';
                     if($system->haveUserPermission($system_user_id, "MANAGE_USERS") || $system->haveUserPermission($system_user_id, "MANAGE_SETTINGS")) echo '
                                     <hr style="margin-top: 5px;margin-bottom: 4px;">';
                     if($system->haveUserPermission($system_user_id, "MANAGE_USERS")) echo '
                                     <a class="dropdown-item" href="/app/users">Пользователи</a>';
                     if($system->haveUserPermission($system_user_id, "MANAGE_SETTINGS")) echo '
-                                    <a class="dropdown-item" href="/app/settings">Настройки</a>';
+                                    <a class="dropdown-item" href="/app/settings">Настройки CMS</a>';
                     if($system->auth()) echo '
                                     <hr style="margin-top: 5px;margin-bottom: 4px;">
                                     <a class="dropdown-item" href="/logout">Выйти</a>
