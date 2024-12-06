@@ -100,34 +100,34 @@
         });
     }
 
-    function submit_change_password() {
+    function submit_delete() {
         Swal.fire({
-            title: "Вы хотите сменить пароль?",
-            text: "На вашу электронную почту будет выслана ссылка для смены пароля",
+            title: "Вы хотите удалить категорию?",
+            text: "Перед удалением вы должны убедиться, что подкатегория не наследует в себе товаров",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#28a745",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Да, хочу сменить!",
+            confirmButtonText: "Да, хочу удалить!",
             cancelButtonText: "Отменить",
         }).then((result) => {
             if (result.isConfirmed) {
-                change_password();
+                delete();
             }
         });
     }
 
-    function change_password() {
+    function delete() {
         $.ajax({
             type: 'POST',
-            url: '/api/profile/change_password',
+            url: '/api/subcategories/delete?id=<?php echo $result["id"] ?>',
             success: async function(data) {
                 var res = $.parseJSON(data);
                 console.log(res);
                 if (res.result == 1) {
                     Swal.fire({
                         title: "Успешно!",
-                        text: "На вашу электронную почту была выслана инструкция по смене пароля. Если письмо не пришло, пожалуйста, проверьте папку «Спам»",
+                        text: "Подкатегория была удалена",
                         icon: "success"
                     })
                 }
@@ -135,7 +135,7 @@
                     Swal.fire({
                         icon: 'error',
                         title: 'Ошибка!',
-                        text: 'Вы слишком часто пытаетесь сменить пароль',
+                        text: 'Подкатегория имеет товары. Пожалуйста, уберите зависимость товаров от этой подкатегории',
                         footer: '<a href="<?php echo $settings['link_to_admin'] ?>">Возникли вопросы?</a>'
                     })
                 }
