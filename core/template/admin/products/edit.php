@@ -69,7 +69,7 @@
                         $relationships = json_decode($result['relationships']);
                         for($i = 0; $i < count($relationships); $i++) {
                             echo '
-                                <div class="shop-form" id="shop-template" style="display: none; padding-bottom: 10px">
+                                <div class="shop-form" id="shop-template" style="padding-bottom: 10px">
                                     <div class="row">
                                         <div class="col-3">
                                             <input type="text" class="shop-url form-control" placeholder="Ссылка на товар..." value="'.$relationships[$i][0].'">
