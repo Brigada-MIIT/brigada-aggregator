@@ -7,9 +7,9 @@
                     <br><input type="file" name="avatar"><br><br>
                     <div class="col-12" style="margin-top: 5%;">
                         <div class="in">
-                            <div class="btn-group d-flex flex-wrap">
-                                <button type="submit" class="submit mr-4 mb-2">Сохранить</button>
-                                <button type="button" class="submit mr-4 mb-2" onclick="submit_delete();">Удалить аватар</button>
+                            <div class="d-flex flex-wrap">
+                                <button type="submit" class="btn btn-primary mr-4 mb-2">Сохранить</button>
+                                <button type="button" class="btn btn-danger mr-4 mb-2" onclick="submit_delete();">Удалить аватар</button>
                             </div>
                         </div>
                     </div>

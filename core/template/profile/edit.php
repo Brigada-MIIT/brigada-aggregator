@@ -33,10 +33,10 @@
         </div>
         <div class="col-12" style="margin-top: 5%;">
             <div class="in">
-                <div class="btn-group d-flex flex-wrap">
-                    <button id="submit" type="submit" class="submit mr-4 mb-2" onclick="edit();">Сохранить</button>
-                    <a href="/profile/edit/avatar"><button id="submit" type="submit" class="submit mr-4 mb-2">Сменить аватар</button></a>
-                    <button id="submit" type="submit" class="submit mr-4 mb-2" onclick="submit_change_password();">Сменить пароль</button>
+                <div class="d-flex flex-wrap">
+                    <button id="submit" type="submit" class="btn btn-primary mr-4 mb-2" onclick="edit();">Сохранить</button>
+                    <a href="/profile/edit/avatar"><button id="submit" type="submit" class="btn btn-primary mr-4 mb-2">Сменить аватар</button></a>
+                    <button id="submit" type="submit" class="btn btn-danger mr-4 mb-2" onclick="submit_change_password();">Сменить пароль</button>
                 </div>
             </div>
         </div>
