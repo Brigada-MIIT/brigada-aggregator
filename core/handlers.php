@@ -951,7 +951,7 @@ function api_categories_create() {
         $query = $db->query("SELECT * FROM `categories` WHERE `id` = '$category_id'");
         if(!$query->num_rows)
             res(0, "Category not found");
-        $query = $db->query("INSERT INTO `subcategories` (`id`, `category_id`, `name`, `description`, `picture_url`) VALUES (NULL, '$category_id', '$name', '$description', $picture_url)");
+        $query = $db->query("INSERT INTO `subcategories` (`id`, `category_id`, `name`, `description`, `picture_url`) VALUES (NULL, '$category_id', '$name', $description, $picture_url)");
     }
     res(1);
 }
