@@ -29,6 +29,7 @@
             <p><strong>Роль:</strong> <?php echo $system->getNameRole($user['user_type']) ?></p>
             <?php if(!empty($user['biography'])) echo "
             <p><strong>О себе:</strong> ". $user['biography'] ."</p>" ?>
+            <!--
             <hr>
             <h3>Последние загрузки</h3>
             <table id="fileTable" class="table table-striped table-bordered" style="background-color: #fff">
@@ -37,14 +38,14 @@
                         <th scope="col">ID</th>
                         <th scope="col">Имя загрузки</th>
                         <th scope="col">Дата загрузки</th>
-                        <?php if($system->haveUserPermission($system_user_id, "VIEW_HIDDEN_UPLOADS")) echo "
-                        <th scope='col'>Статус</th>" ?>
+                        <?php /* if($system->haveUserPermission($system_user_id, "VIEW_HIDDEN_UPLOADS")) echo "
+                        <th scope='col'>Статус</th>"*/ ?>
                     </tr>
                 </thead>
                 <tbody>
                     
                 </tbody>
-            </table>
+            </table>-->
         </div>
     </div>
 </div>
