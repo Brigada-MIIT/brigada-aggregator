@@ -7,8 +7,7 @@ use PHPMailer\PHPMailer\Exception;
 function main() {
     global $system, $system_user_id, $_user;
     if($system->auth() && $_user['ban'] != 0)
-        //$system->printError(100);
-        Location("/a/index.html");
+        $system->printError(100);
     if(!empty($_COOKIE['last'])) {
         $location = trim($_COOKIE['last']);
         setcookie("last", $location, time()-1, "/");
