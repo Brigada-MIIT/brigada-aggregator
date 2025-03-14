@@ -9,7 +9,7 @@
         Найдено количество вариантов: <span class="result-count">0</span>
     </div>
 
-    <h2 class="popular-products-title mt-5" style="margin-bottom: 1rem;">Категории товаров</h2>
+    <h2 class="popular-products-title mt-5" style="margin-bottom: 1rem;">Категории товаров аоаоао</h2>
     <div class="product-categories row">
         <?php
             $db = $system->db();

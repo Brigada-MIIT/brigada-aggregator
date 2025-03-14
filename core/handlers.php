@@ -436,7 +436,7 @@ function api_email_verify($args) {
     $db = $system->db();
     $query = $db->query("SELECT * FROM `users` WHERE `email_token`='$token'");
     if($query->num_rows !== 1)
-        exit("Токен не найден. Если считаете, что произошла ошибка, обратитесь к <a href='".$link."'>администратору<a>.");
+        exit("Токен не найден. Если считаете, что произошла ошибка, обратитесь к <a href='".$link."'>администратору</a>.");
     $db->query("UPDATE `users` SET `email_verifed` = '1' WHERE `users`.`email_token` = '$token';");
     $db->query("UPDATE `users` SET `email_send_token` = NULL WHERE `users`.`email_token`='$token'");
     $db->query("UPDATE `users` SET `email_token` = NULL WHERE `users`.`email_token`='$token'");
